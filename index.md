@@ -6,7 +6,7 @@ nav_order: 1
 
 # Plantilla de documentación con Just the Docs
 
-Este repositorio está diseñado para entender como utilizar la plantilla de repositorio que utiliza **"Just the docs"** de Jekyll y el lenguaje **"Markdown"**:
+Este repositorio está diseñado para registrar el progreso y actividades semana con semana del alumno Juan A. Leon Cardenas:
 
 1. **Crear y publicar** el sitio en GitHub Pages.
 2. Aprender la **estructura** típica de un repo de documentación.

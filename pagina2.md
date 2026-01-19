@@ -7,4 +7,4 @@ nav_order: 1
 
 hola
 
-[imagen_ejemplo](assets/img/IMG_3088.JPG)
+![imagen_ejemplo](assets/img/IMG_3088.JPG)

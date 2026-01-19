@@ -1,7 +1,9 @@
 ---
+title: Pagina 2
 layout: default
-title: Mi pagina
-nav_order: 6
+title: Subtema 2.1
+parent: "Estilos y personalización visual"
+nav_order: 1
 ---
 
 hola

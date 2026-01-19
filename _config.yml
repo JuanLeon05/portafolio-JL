@@ -1,5 +1,5 @@
-title: Portafolio
-description: Repositorio base para enseñar y crear documentación en GitHub Pages con Just the Docs
+title: Portafolio JL
+description: Repositorio de Juan Leon, "Wearables"
 
 # GitHub Pages: modo recomendado
 remote_theme: just-the-docs/just-the-docs
@@ -11,8 +11,8 @@ plugins:
 # - Para GitHub Pages (Project Page), edita:
 #     url: "https://TU_USUARIO.github.io"
 #     baseurl: "/NOMBRE_DEL_REPO"
-url: "https://hubergiron.github.io/"
-baseurl: "/portafolio-just-the-docs"
+url: "https://JuanLeon05.github.io/"
+baseurl: "/portafolio-JL"
 
 #Configuracion Formato, Header y Footer
 just_the_docs:
@@ -29,7 +29,7 @@ search:
 # Ejemplo de enlace auxiliar (aparece arriba a la derecha)
 aux_links:
   "Repositorio en GitHub":
-    - "https://github.com/HuberGiron/portafolio-just-the-docs"
+    - "https://github.com/JuanLeon05/portafolio-JL"
 
 # Enlaces
 permalink: pretty

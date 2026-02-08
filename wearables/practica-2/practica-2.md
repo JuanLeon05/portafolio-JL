@@ -1,4 +1,4 @@
-----
+---
 layout: default
 title: P2 - SonicGauntlet
 parent: Wearables

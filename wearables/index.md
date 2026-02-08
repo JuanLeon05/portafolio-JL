@@ -30,29 +30,16 @@ El desarrollo sigue una curva de aprendizaje incremental, desde la lógica anal�
 ## Explorar Documentación
 
 Seleccione un proyecto para ver la ingeniería a detalle:
+## Explorar Documentación
 
-<div class="d-flex flex-wrap">
-  
-  <div class="card mr-4 mb-4" style="width: 18rem;">
-    <div class="card-header">
-      Práctica 1
-    </div>
-    <div class="card-body">
-      <h3 class="card-title">Pulsera RockBand</h3>
-      <p class="card-text">Accesorio interactivo de activación mecánica. Introducción a los circuitos blandos (Soft-Circuits).</p>
-      <a href="./practica-1/practica-1.md" class="btn btn-primary">Ver Documentación</a>
-    </div>
-  </div>
+### Práctica 1: Pulsera RockBand
+Accesorio interactivo de activación mecánica. Introducción a los circuitos blandos (Soft-Circuits).
 
-  <div class="card mr-4 mb-4" style="width: 18rem;">
-    <div class="card-header">
-      Práctica 2
-    </div>
-    <div class="card-body">
-      <h3 class="card-title">SonicGauntlet</h3>
-      <p class="card-text">Instrumento de performance. Guante háptico con visualización de frecuencias de audio en tiempo real.</p>
-      <a href="./practica-2/practica-2.md" class="btn btn-primary">Ver Ingeniería</a>
-    </div>
-  </div>
+[Ver Documentación](./practica-1/practica-1.md){: .btn .btn-primary }
 
-</div>
+---
+
+### Práctica 2: SonicGauntlet
+Instrumento de performance. Guante háptico con visualización de frecuencias de audio en tiempo real.
+
+[Ver Ingeniería](./practica-2/practica-2.md){: .btn .btn-primary }

@@ -9,10 +9,18 @@ permalink: /
 # Juan León
 {: .fs-9 }
 
+<<<<<<< HEAD
+**Ingeniero Mecatrónico en Formación (6º Semestre)** | **Presidente IEEE RAS 2025**
+=======
 **Ingeniero Mecatrónico en Formación (6º Semestre) | Presidente IEEE RAS 2025**
+>>>>>>> 4ca3b3989cb483729b8ffa2d819fa2e8a0a04f85
 {: .fs-6 .fw-300 .text-grey-dk-000 }
 
+<<<<<<< HEAD
+Bienvenido. Soy desarrollador de hardware e investigador en la **Universidad Iberoamericana**.
+=======
 Bienvenido. Soy desarrollador de hardware en la **Universidad Iberoamericana**.
+>>>>>>> 4ca3b3989cb483729b8ffa2d819fa2e8a0a04f85
 
 Mi perfil combina la robustez de la ingeniería clásica (potencia, mecánica, analógica) con tecnologías de vanguardia (IA en el borde, FPGA, RTOS). Me especializo en llevar sistemas complejos del concepto al prototipo funcional de alta fidelidad.
 
@@ -65,9 +73,10 @@ Proyectos que demuestran dominio de los principios base de la ingeniería:
 
 ## Liderazgo y Trayectoria
 
-* **Presidente de Rama Estudiantil IEEE RAS IBERO (2025):** Robotics and Automation Society. Gestión de proyectos y representación internacional.
+<<<<<<< HEAD
+* **Presidente de Rama Estudiantil IEEE RAS (2025):** Robotics and Automation Society. Gestión de proyectos y representación internacional.
 * **Becario de Investigación Académico:** INIAT (Área Médica). Desarrollo de tecnología asistiva y sensado de señales corporales.
-* **Representante Estudiantil:** Ingeriería Mecatrónica y Sistemas Ciberfísicos (2026).
+* **Representante Estudiantil:** Ingeniería Mecatrónica y Sistemas Ciberfísicos (2026).
 
 ---
 
@@ -75,7 +84,8 @@ Proyectos que demuestran dominio de los principios base de la ingeniería:
   <a href="./wearables/" class="btn btn-primary fs-5 mb-4 mb-md-0 mr-2">
     Ver Documentación Técnica
   </a>
-  <a href="https://github.com/JuanLeon05" target="_blank" class="btn btn-outline fs-5 mb-4 mb-md-0">
+<<<<<<< HEAD
+  <a href="https://github.com/JuanLeon05/portafolio-JL" target="_blank" class="btn btn-outline fs-5 mb-4 mb-md-0">
     Repositorio GitHub
   </a>
 </div>

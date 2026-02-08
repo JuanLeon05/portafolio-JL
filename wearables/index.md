@@ -22,7 +22,7 @@ Introducción a los circuitos textiles básicos y conductividad en materiales fl
 ### 2. [Práctica 2: SpectraGlove](./spectra-glove/)
 Sistema de visualización de audio en tiempo real implementado en un guante. Utiliza algoritmos de procesamiento digital de señales (FFT) para mapear frecuencias musicales a respuestas lumínicas en los dedos.
 * **Stack:** Arduino R4, C++, Hilo conductor de acero inoxidable.
-* **Estado:** Finalizado y Documentado.
+* **Estado:** En proceso.
 
 ---
 

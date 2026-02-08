@@ -65,7 +65,6 @@ Proyectos que demuestran dominio de los principios base de la ingeniería:
 
 ## Liderazgo y Trayectoria
 
-<<<<<<< HEAD
 * **Presidente de Rama Estudiantil IEEE RAS (2025):** Robotics and Automation Society. Gestión de proyectos y representación internacional.
 * **Becario de Investigación Académico:** INIAT (Área Médica). Desarrollo de tecnología asistiva y sensado de señales corporales.
 * **Representante Estudiantil:** Ingeniería Mecatrónica y Sistemas Ciberfísicos (2026).

@@ -95,7 +95,7 @@ void visualizarFrecuencias() {
   <a href="../hardware" class="btn btn-outline" style="margin-right: 1rem;">
     Volver a Hardware
   </a>
-  <a href="https://JuanLeon05.github.io/" target="_blank" class="btn btn-primary">
+  <a href="https://juanleon05.github.io/portafolio-JL" target="_blank" class="btn btn-primary">
     Ver Repositorio Completo 
   </a>
 </div>

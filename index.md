@@ -25,7 +25,7 @@ Mi enfoque combina la precisión de la ingeniería con la estética del diseño 
 
 ---
 
-### 🚀 Proyecto Destacado: SpectraGlove
+###  Proyecto Destacado: SpectraGlove
 
 **Wearable Audio Visualizer**
 Un guante inteligente que traduce la música en luz en tiempo real utilizando algoritmos FFT y hardware integrado en textiles.
@@ -36,7 +36,7 @@ Un guante inteligente que traduce la música en luz en tiempo real utilizando al
 
 ---
 
-### 🛠️ Tech Stack
+###  Tech Stack
 Aquí es donde me muevo:
 
 | Área | Herramientas |
@@ -51,9 +51,9 @@ Aquí es donde me muevo:
 ### Navegación Rápida
 Explora mis avances y documentación técnica:
 
-* [📂 Bitácora de Proyectos](01-publicar-en-github-pages.md)
-* [⚙️ Estructura y Metodología](02-estructura-del-repo.md)
-* [📝 Notas Técnicas](03-markdown.md)
+* [ Bitácora de Proyectos](01-publicar-en-github-pages.md)
+* [ Estructura y Metodología](02-estructura-del-repo.md)
+* [ Notas Técnicas](03-markdown.md)
 
 ---
 {: .fs-3 .fw-300 }

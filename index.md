@@ -11,14 +11,8 @@ permalink: /
 
 <<<<<<< HEAD
 **Ingeniero Mecatrónico en Formación (6º Semestre)** | **Presidente IEEE RAS 2025**
-=======
-**Ingeniero Mecatrónico en Formación (6º Semestre) | Presidente IEEE RAS 2025**
->>>>>>> 4ca3b3989cb483729b8ffa2d819fa2e8a0a04f85
 {: .fs-6 .fw-300 .text-grey-dk-000 }
 
-<<<<<<< HEAD
-Bienvenido. Soy desarrollador de hardware e investigador en la **Universidad Iberoamericana**.
-=======
 Bienvenido. Soy desarrollador de hardware en la **Universidad Iberoamericana**.
 >>>>>>> 4ca3b3989cb483729b8ffa2d819fa2e8a0a04f85
 

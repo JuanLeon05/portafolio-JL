@@ -59,8 +59,8 @@ Explicación del firmware en C++, configuración del FFT, filtrado de ruido y la
 
 ### 3. Proceso y Manufactura
 Bitácora de construcción: transición de la protoboard a la costura con hilo conductor y ocultamiento de cables.
-[Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
+[Ver Proceso](./proceso){: .btn .btn-primary .mr-2 }
 
 ### 4. Diseño y Estética Rockstar
 Colaboración con Diseño Textil para crear una estética agresiva y funcional, ocultando la tecnología para no interferir con la imagen del artista.
-[Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }
+[Ver Diseño](./diseno){: .btn .btn-primary .mr-2 }

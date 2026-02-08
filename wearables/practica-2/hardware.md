@@ -72,4 +72,4 @@ Los LEDs están dispuestos formando una "X" sobre el dorso de la mano y antebraz
 [Ver Código](./codigo){: .btn .btn-outline .mr-2 }
 [Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
 [Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }
-[Volver al Índice](../){: .btn .btn-primary }
+[Inicio](../practica-2){: .btn .btn-primary } 

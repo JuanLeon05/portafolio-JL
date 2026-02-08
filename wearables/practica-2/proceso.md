@@ -87,4 +87,4 @@ La innovación principal respecto a la P1 fue separar la batería pesada de la m
 [Ver Hardware](./hardware){: .btn .btn-outline .mr-2 }
 [Ver Código](./codigo){: .btn .btn-outline .mr-2 }
 [Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }
-[Volver al Índice](../){: .btn .btn-primary }
+[Inicio](../practica-2){: .btn .btn-primary } 

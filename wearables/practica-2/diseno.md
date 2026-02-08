@@ -67,4 +67,4 @@ Siguiendo el principio de diseño de la *Pulsera RockBand*, separamos el procesa
 [Ver Hardware](./hardware){: .btn .btn-outline .mr-2 }
 [Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
 [Ver Código](./codigo){: .btn .btn-outline .mr-2 }
-[Volver al Índice](../){: .btn .btn-primary }
+[Inicio](../practica-2){: .btn .btn-primary } 

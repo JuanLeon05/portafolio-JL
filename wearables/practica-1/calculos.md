@@ -38,4 +38,4 @@ $$R = \frac{V_{fuente} - V_{led}}{I_{deseada}}$$
 
 ---
 
-[Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Diseño](./diseno.md){: .btn .btn-outline } [Practica 1](../practica-1){: .btn .btn-outline } 
+[Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Diseño](./diseno.md){: .btn .btn-outline } [Inicio](../practica-1){: .btn .btn-primary } 

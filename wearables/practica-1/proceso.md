@@ -62,4 +62,4 @@ Las patas de los LEDs y resistencias son rectas y no se pueden coser, se soldaro
 
 ---
 
-[Ver cálculos](./calculos.md){: .btn .btn-outline } [Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Diseño](./diseno.md){: .btn .btn-outline } [Practica 1](../practica-1){: .btn .btn-outline } 
+[Ver cálculos](./calculos.md){: .btn .btn-outline } [Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Diseño](./diseno.md){: .btn .btn-outline } [Inicio](../practica-1){: .btn .btn-primary } 

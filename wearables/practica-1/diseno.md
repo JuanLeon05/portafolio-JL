@@ -34,4 +34,4 @@ Uno de los principios clave de los wearables es que la tecnología no debe ser i
 
 ---
 
-[Ver cálculos](./calculos.md){: .btn .btn-outline } [Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Practica 1](../practica-1){: .btn .btn-outline } 
+[Ver cálculos](./calculos.md){: .btn .btn-outline } [Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Inicio](../practica-1){: .btn .btn-primary } 

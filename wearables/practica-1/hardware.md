@@ -39,4 +39,4 @@ El sistema funciona como un circuito cerrado por contacto mecánico:
 
 ---
 
-[Ver cálculos](./calculos.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Diseño](./diseno.md){: .btn .btn-outline } [Practica 1](../practica-1){: .btn .btn-outline } 
+[Ver cálculos](./calculos.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Diseño](./diseno.md){: .btn .btn-outline } [Inicio](../practica-1){: .btn .btn-primary } 

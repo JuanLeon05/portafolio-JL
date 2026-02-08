@@ -39,8 +39,8 @@ Análisis matemático para la selección de las 5 resistencias según el color d
 
 ### 3. Proceso de Manufactura
 Técnicas de costura conductiva, aislamiento de capas y creación de pads de conexión.
-[Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
+[Ver Proceso](./proceso){: .btn .btn-primary .mr-2 }
 
 ### 4. Diseño y Estética
 Colaboración con Diseño de Modas: ocultamiento de tecnología y temática "Rock".
-[Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }
+[Ver Diseño](./diseno){: .btn .btn-primary .mr-2 }

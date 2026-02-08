@@ -14,7 +14,6 @@ permalink: /
 {: .fs-6 .fw-300 .text-grey-dk-000 }
 
 Bienvenido. Soy desarrollador de hardware en la **Universidad Iberoamericana**.
->>>>>>> 4ca3b3989cb483729b8ffa2d819fa2e8a0a04f85
 
 Mi perfil combina la robustez de la ingeniería clásica (potencia, mecánica, analógica) con tecnologías de vanguardia (IA en el borde, FPGA, RTOS). Me especializo en llevar sistemas complejos del concepto al prototipo funcional de alta fidelidad.
 

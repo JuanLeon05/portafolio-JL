@@ -31,16 +31,16 @@ Explora las etapas de ingeniería y diseño de este primer prototipo:
 
 ### 1. Hardware y Circuito
 Topología en paralelo, lista de materiales y esquema de conexiones con broches.
-[Ver Hardware](./hardware){: .btn .btn-primary .mr-2 }
+[Ver Hardware](../hardware){: .btn .btn-primary .mr-2 }
 
 ### 2. Cálculos y Ley de Ohm
 Análisis matemático para la selección de las 5 resistencias según el color de cada LED.
-[Ver Cálculos](./calculos){: .btn .btn-primary .mr-2 }
+[Ver Cálculos](../calculos){: .btn .btn-primary .mr-2 }
 
 ### 3. Proceso de Manufactura
 Técnicas de costura conductiva, aislamiento de capas y creación de pads de conexión.
-[Ver Proceso](./proceso){: .btn .btn-primary .mr-2 }
+[Ver Proceso](../proceso){: .btn .btn-primary .mr-2 }
 
 ### 4. Diseño y Estética
 Colaboración con Diseño de Modas: ocultamiento de tecnología y temática "Rock".
-[Ver Diseño](./diseno){: .btn .btn-primary .mr-2 }
+[Ver Diseño](../diseno){: .btn .btn-primary .mr-2 }

@@ -51,16 +51,16 @@ Explore los módulos técnicos para entender cómo se construyó esta herramient
 
 ### 1. Hardware y Electrónica
 Diagrama del circuito digital, integración del módulo de micrófono y gestión de energía para el escenario.
-[Ver Hardware](./hardware){: .btn .btn-primary .mr-2 }
+[Ver Hardware](../hardware){: .btn .btn-primary .mr-2 }
 
 ### 2. Algoritmo y Código (El Cerebro)
 Explicación del firmware en C++, configuración del FFT, filtrado de ruido y la máquina de estados que detecta el silencio.
-[Ver Código](./codigo){: .btn .btn-primary .mr-2 }
+[Ver Código](../codigo){: .btn .btn-primary .mr-2 }
 
 ### 3. Proceso y Manufactura
 Bitácora de construcción: transición de la protoboard a la costura con hilo conductor y ocultamiento de cables.
-[Ver Proceso](./proceso){: .btn .btn-primary .mr-2 }
+[Ver Proceso](../proceso){: .btn .btn-primary .mr-2 }
 
 ### 4. Diseño y Estética Rockstar
 Colaboración con Diseño Textil para crear una estética agresiva y funcional, ocultando la tecnología para no interferir con la imagen del artista.
-[Ver Diseño](./diseno){: .btn .btn-primary .mr-2 }
+[Ver Diseño](../diseno){: .btn .btn-primary .mr-2 }

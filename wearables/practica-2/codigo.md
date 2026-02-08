@@ -1,54 +1,45 @@
 ---
 layout: default
 title: Algoritmo y Código
-parent: P2
+parent: P2 - SonicGauntlet
 grand_parent: Wearables
-nav_order: 4
+nav_order: 2
 ---
 
-# Algoritmo y Firmware 
+# El Cerebro Digital: Firmware Reactivo
 {: .fs-9 }
 
-El firmware del **SpectraGlove** no es un simple interruptor que enciende luces cuando hay ruido. Es un sistema reactivo diseñado para interpretar la música de la misma forma que lo hace el oído humano.
+A diferencia de la *Pulsera RockBand* (Práctica 1), que dependía de la acción mecánica del usuario, el **SonicGauntlet** opera con autonomía total. El firmware está diseñado bajo la filosofía de "Set and Forget": el artista se lo pone y el sistema se encarga de adaptarse al entorno sonoro.
 
-Para lograr esto, el código implementa tres conceptos avanzados de ingeniería de software: **Adaptabilidad Automática**, **Multitarea** y **Gestión de Estados**.
-
----
-
-## ¿Cómo "piensa" el guante? (Conceptos Clave)
-
-### 1. Detección de Ritmo Adaptativa (Beat Detection)
-**El Problema:**
-La mayoría de las luces audiorítmicas baratas tienen un problema: si la canción es muy suave, no se encienden; si es muy fuerte, se quedan siempre encendidas. Esto pasa porque usan un "umbral fijo" (ej. enciéndete si el volumen es mayor a 50).
-
-**La Solución (Nuestra Ingeniería):**
-Implementamos un **Promedio Móvil (Running Average)**.
-El Arduino calcula constantemente el volumen promedio de los últimos segundos.
-* Si la canción es suave, el guante baja su umbral de sensibilidad automáticamente.
-* Si "explota" el coro de la canción, el guante sube su umbral para detectar solo los picos más fuertes.
-* *Resultado:* El guante "baila" igual de bien con música clásica que con Heavy Metal sin tener que ajustar nada manualmente.
-
-### 2. Máquina de Estados (Modo Espera)
-El sistema sabe distinguir entre "estar apagado" y "estar esperando".
-* **Modo Música:** Si detecta sonido, ejecuta el análisis de frecuencias FFT para iluminar los dedos.
-* **Modo Standby:** Si detecta silencio total por más de 3 segundos, asume que la música terminó y entra en un modo de ahorro de atención. Aquí activa una animación suave tipo "scanner" (inspirada en *Knight Rider*) para indicar que el sistema sigue vivo y listo, pero en reposo.
-
-### 3. Multitarea Real (Sin bloqueos)
-En programación básica, la función `delay(100)` congela el cerebro del procesador por 100 milisegundos. Si usáramos eso, el guante perdería ritmos rápidos de batería.
-En su lugar, usamos contadores de tiempo (`millis()`). El procesador nunca se detiene; siempre está preguntando: *"¿Ya pasó el tiempo para mover la luz? No. Ok, sigo escuchando música"*. Esto permite una respuesta visual con latencia cero.
+El código implementa una arquitectura de **Sistemas Embebidos en Tiempo Real**, priorizando la velocidad de respuesta (latencia cero) y la estabilidad.
 
 ---
 
-## Diagrama de Flujo del Procesamiento
+## Lógica de Ingeniería: ¿Cómo "escucha" el guante?
 
-1.  **Muestreo:** El sistema toma 64 "fotos" del audio por segundo a una velocidad de 9000Hz.
-2.  **Transformación (FFT):** Matemáticamente descompone esas fotos para separar los Graves (Bombo), Medios (Voz) y Agudos (Platillos).
-3.  **Decisión Lógica:**
-    * ¿Hay volumen general? -> **Sí** -> Ejecuta lógica de Beat Detection por cada dedo.
-    * ¿Hay volumen general? -> **No** -> ¿Han pasado 3 segundos? -> **Sí** -> Activa Animación Standby.
+### 1. Auto-Gain & Beat Detection (Adaptabilidad)
+En un concierto, el volumen cambia drásticamente entre una balada y un solo de batería. Un sistema estático fallaría (se saturaría o no encendería).
+* **Solución:** Implementamos un **Promedio Móvil (Running Average)**. El algoritmo aprende del volumen de los últimos segundos y ajusta su "umbral de disparo" dinámicamente.
+* **Resultado:** El guante detecta el *beat* con la misma precisión en el ensayo silencioso que en el escenario principal a 100dB.
+
+### 2. Máquina de Estados (Gestión de Energía)
+El sistema no gasta recursos innecesariamente.
+* **Estado ACTIVO:** Si hay música (>600 de amplitud), ejecuta la FFT a 9000Hz para mapear frecuencias a los dedos.
+* **Estado STANDBY:** Si detecta silencio por >3 segundos, entra en modo reposo visual, activando una animación suave ("Scanner") para indicar que el sistema está vivo pero esperando señal.
+
+### 3. Multitarea No Bloqueante
+Prohibido usar `delay()`. El procesador utiliza contadores de tiempo (`millis()`) para manejar la animación de luces sin dejar de escuchar el micrófono ni un solo microsegundo.
 
 ---
 
+## Diagrama de Flujo de Datos
+
+1.  **Muestreo:** Adquisición de 64 muestras de audio (Ventana de tiempo).
+2.  **FFT:** Descomposición matemática en espectro de frecuencias.
+3.  **Binning:** Agrupación de frecuencias en 5 canales (Dedos).
+4.  **Decisión:** Comparación contra el promedio móvil -> ¿Encender LED?
+
+---
 ## El Código (Firmware)
 
 Este código está optimizado para el **Arduino Uno R4 WiFi**.

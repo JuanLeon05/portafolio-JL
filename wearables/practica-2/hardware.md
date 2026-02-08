@@ -1,44 +1,75 @@
 ---
 layout: default
 title: Hardware y Electrónica
-parent: P2
+parent: P2 - SonicGauntlet
 grand_parent: Wearables
 nav_order: 1
 ---
 
-# Hardware y Electrónica
+# Hardware y Acondicionamiento de Señal
 {: .fs-9 }
 
-El corazón del **SpectraGlove** combina procesamiento digital de señales con técnicas de e-textiles.
+El sistema **SonicGauntlet** se divide en dos módulos físicos conectados por una interfaz de broches metálicos: la **Unidad de Procesamiento** (Externa/Cinturón) y la **Unidad de Visualización** (Guante de Piel).
+
+Esta arquitectura permite separar la fuente de energía pesada de la mano del artista, mejorando la ergonomía.
 
 ---
 
-##  Lista de Materiales (BOM)
+## Diagrama de Bloques y Acondicionamiento
 
-| Componente | Función | Especificaciones |
-| :--- | :--- | :--- |
-| **Microcontrolador** | Cerebro | Arduino Uno R4 WiFi |
-| **Módulo de Audio** | Recepción | MHM-28 (Bluetooth 4.2) |
-| **Actuadores** | Visualización | 5x LEDs (2 Rojos, 3 Azules) |
-| **Conexión** | Conductividad | Hilo Conductor de Plata |
-| **Resistencias** | Protección | 5x 100Ω |
+Para procesar audio en un microcontrolador digital, no basta con conectar el cable. Se implementó una etapa de **Acondicionamiento de Señal (DC Bias)**.
+
+### El Reto: Señal AC vs ADC DC
+Las señales de audio son Corriente Alterna (AC) que oscila entre voltajes positivos y negativos. El puerto analógico del Arduino (A0) solo lee valores positivos (0V a 5V). Si conectáramos el audio directo, perderíamos la mitad de la onda (los valores negativos) y podríamos dañar el pin.
+
+### La Solución: Circuito de Offset
+Se diseñó un circuito divisor de voltaje y acople capacitivo:
+1.  **Divisor de Tensión (2x 100kΩ):** Crea un "piso virtual" de 2.5V (la mitad de 5V) en el pin A0. Así, el silencio vale 2.5V, y la música oscila hacia arriba (5V) y hacia abajo (0V) sin recortarse.
+2.  **Capacitor de Desacople (1nF):** Permite pasar la señal de audio (frecuencias) pero bloquea el voltaje DC de la fuente, protegiendo el módulo de audio.
 
 ---
 
-##  Diagrama de Conexiones
+## Lista de Materiales (BOM)
 
-### Pinout del Arduino
+### Electrónica de Procesamiento
+| Componente | Cantidad | Función Técnica |
+| :--- | :---: | :--- |
+| **Arduino Uno R4 WiFi** | 1 | Microcontrolador (Renesas 32-bit) con DSP. |
+| **Módulo MH-M28** | 1 | Receptor Bluetooth 4.2 y salida de Audio AUX. |
+| **Resistencias 100kΩ** | 2 | Divisor de voltaje para DC Offset (Bias 2.5V). |
+| **Capacitor 1nF** | 1 | Filtro paso-altos / Desacople de DC. |
+| **Jack de Audio 3.5mm** | 1 | Salida para audífonos o amplificador externo. |
 
-| Pin | Función | Color | Ubicación |
+### Interfaz Háptica (Guante)
+| Componente | Cantidad | Función Técnica |
+| :--- | :---: | :--- |
+| **LEDs Alta Luminosidad** | 5 | 3 Azules (Agudos/Medios) + 2 Rojos (Graves). |
+| **Resistencias 220Ω** | 5 | Limitación de corriente para LEDs. |
+| **Hilo Conductivo** | 3m | Acero inoxidable (Bus de datos flexible). |
+| **Broches (Snaps)** | 6 | Conectores mecánicos desmontables (VCC, GND, Señales). |
+| **Sustrato** | 1 | Piel/Cuero sintético y tela de forro. |
+
+---
+
+## Esquema de Conexiones
+
+### Mapeo de la Matriz en "X"
+Los LEDs están dispuestos formando una "X" sobre el dorso de la mano y antebrazo. El mapeo de frecuencias va desde el centro hacia los extremos.
+
+| Pin Arduino | Frecuencia (FFT) | Color LED | Ubicación en la "X" |
 | :---: | :--- | :---: | :--- |
-| **D2** | Graves | 🔴 Rojo | Muñeca |
-| **D3** | Medios-Graves | 🔴 Rojo | Anular |
-| **D4** | Medios | 🔵 Azul | Medio |
-| **D5** | Medios-Altos | 🔵 Azul | Índice |
-| **D6** | Agudos | 🔵 Azul | Pulgar |
-| **A0** | Audio IN | - | Salida MHM-28 |
+| **D2** | Graves (Low) | 🔴 Rojo | Centro / Muñeca |
+| **D3** | Medios-Graves | 🔴 Rojo | Extremo Inferior (Antebrazo) |
+| **D4** | Medios (Voz) | 🔵 Azul | Centro Superior |
+| **D5** | Medios-Altos | 🔵 Azul | Extremo Superior Izq (Índice) |
+| **D6** | Agudos (High) | 🔵 Azul | Extremo Superior Der |
+| **A0** | Entrada Audio | - | Salida "L" del MH-M28 (Post-Filtro) |
 
-> **Nota Técnica:** Las resistencias de 100Ω compensan la resistencia interna del hilo conductor (~15Ω/m).
+> **Nota de Manufactura:** Las resistencias de 220Ω se soldaron directamente a las patas de los LEDs antes de integrarlos en la piel, aislándolos con termo-retráctil (heat shrink) para protegerlos de la flexión.
 
+---
 
-[Ver Código](./codigo.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Diseño](./diseno.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 
+[Ver Código](./codigo){: .btn .btn-outline .mr-2 }
+[Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
+[Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }
+[Volver al Índice](../){: .btn .btn-primary }

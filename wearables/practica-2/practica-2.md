@@ -1,51 +1,66 @@
----
+----
 layout: default
-title: P2
+title: P2 - SonicGauntlet
 parent: Wearables
 has_children: true
 nav_order: 2
 ---
 
-# Práctica 2: SpectraGlove
+# Práctica 2: SonicGauntlet (Stage Edition)
 {: .fs-9 }
 
-**Wearable Audio Visualizer**
+**Instrumento de Visualización Escénica**
 {: .fs-6 .fw-300 }
 
-Este proyecto consiste en el desarrollo de un dispositivo de indumentaria inteligente (wearable) capaz de traducir señales acústicas en estímulos visuales en tiempo real. Utilizando el microcontrolador Arduino R4 y algoritmos de procesamiento digital de señales (FFT), el guante mapea frecuencias específicas de la música a cada dedo de la mano.
+Evolución directa de la *Pulsera RockBand*. Mientras que el proyecto anterior exploraba la electrónica pasiva para la audiencia, el **SonicGauntlet** es una herramienta activa diseñada para el artista en el escenario. Este guante traduce la energía musical en luz en tiempo real, convirtiendo la mano del intérprete en un ecualizador visual.
 
 ---
 
-## Demostración del Sistema
+## Demostración en Vivo
 
 <div class="responsive-embed">
-  <iframe src="https://www.youtube.com/embed/TU_ID_DE_VIDEO" title="SpectraGlove Demo" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/TU_ID_DE_VIDEO" title="SonicGauntlet Demo" allowfullscreen></iframe>
 </div>
 
-*(Nota: Reemplaza TU_ID_DE_VIDEO por el ID real de tu video en YouTube)*
+*(Nota: Reemplaza TU_ID_DE_VIDEO por el ID real de tu video)*
 
 ---
 
-## Módulos de Documentación
+## Evolución Técnica: De Pasivo a Reactivo
 
-El proyecto se divide en cuatro áreas técnicas. Acceda a cada una para ver los detalles de ingeniería y diseño:
+Este proyecto representa un salto de ingeniería significativo respecto a la Práctica 1, pasando de la conmutación mecánica al procesamiento digital de señales (DSP).
+
+| Característica | Práctica 1 (Pulsera) | Práctica 2 (SonicGauntlet) |
+| :--- | :--- | :--- |
+| **Rol** | Accesorio de Fan | Herramienta de Performance |
+| **Tecnología** | Analógica (Ley de Ohm) | Digital (Microcontrolador de 32 bits) |
+| **Activación** | Interruptor Mecánico | Análisis de Audio (FFT) |
+| **Complejidad** | Circuito Paralelo Simple | Matriz Direccionable + Algoritmo |
+
+---
+
+## Arquitectura del Sistema
+
+El guante utiliza un **Arduino R4 WiFi** (arquitectura Renesas) para capturar audio ambiental. Mediante un algoritmo de **Transformada Rápida de Fourier (FFT)**, descompone la señal en 5 bandas de frecuencia críticas (Graves, Medios-Graves, Medios, Medios-Altos, Agudos) y asigna cada una a un dedo específico, logrando una sincronización visual de latencia cero (<20ms).
+
+---
+
+## Documentación del Proyecto
+
+Explore los módulos técnicos para entender cómo se construyó esta herramienta de performance:
 
 ### 1. Hardware y Electrónica
-Detalles del circuito, diagrama de conexiones, lista de materiales (BOM) y consideraciones de voltaje para la integración en textiles.
+Diagrama del circuito digital, integración del módulo de micrófono y gestión de energía para el escenario.
+[Ver Hardware](./hardware){: .btn .btn-primary .mr-2 }
 
-[Ver Hardware](../hardware){: .btn .btn-primary .mr-2 }
-
-### 2. Algoritmo y Código
-Análisis del firmware en C++, implementación de la Transformada Rápida de Fourier (FFT) y lógica de la máquina de estados (Standby/Music).
-
-[Ver Código](../codigo){: .btn .btn-primary .mr-2 }
+### 2. Algoritmo y Código (El Cerebro)
+Explicación del firmware en C++, configuración del FFT, filtrado de ruido y la máquina de estados que detecta el silencio.
+[Ver Código](./codigo){: .btn .btn-primary .mr-2 }
 
 ### 3. Proceso y Manufactura
-Bitácora de construcción paso a paso, desde la validación en protoboard hasta las técnicas de costura con hilo conductor de acero inoxidable.
+Bitácora de construcción: transición de la protoboard a la costura con hilo conductor y ocultamiento de cables.
+[Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
 
-[Ver Proceso](../proceso){: .btn .btn-ptimary .mr-2 }
-
-### 4. Diseño y Colaboración
-Exploración de la ergonomía, la estética del dispositivo y la colaboración interdisciplinaria con el área de Diseño Textil.
-
-[Ver Diseño](../diseno){: .btn .btn-primary .mr-2 }
+### 4. Diseño y Estética Rockstar
+Colaboración con Diseño Textil para crear una estética agresiva y funcional, ocultando la tecnología para no interferir con la imagen del artista.
+[Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }

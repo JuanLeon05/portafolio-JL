@@ -45,11 +45,6 @@ Desarrollo integral de un Dron (UAV) para competencia internacional.
 * **Inteligencia Artificial:** Implementación de **NVIDIA Jetson Nano** para visión por computadora y reconocimiento de objetivos en tiempo real.
 * **Hardware:** Diseño de PCB a medida para etapas de potencia y distribución de señal. Control avanzado de servos para superficies de control.
 
-### 3. [SpectraGlove (Wearable DSP)](./wearables/spectra-glove/)
-*Dispositivo de Bio-Retroalimentación.*
-Guante háptico que procesa audio en tiempo real usando FFT en Arduino R4.
-* **Reto:** Latencia cero y adaptación de circuitos en sustratos textiles flexibles.
-
 ---
 
 ## Ingeniería Fundamental (Analógica y Software)

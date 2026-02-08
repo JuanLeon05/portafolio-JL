@@ -1,50 +1,70 @@
 ---
 layout: default
-title: Colaboración y Diseño
-parent: P2
+title: Diseño y Estética
+parent: P2 - SonicGauntlet
 grand_parent: Wearables
 nav_order: 3
 ---
 
-# Diseño y Ergonomía (Colaboración)
+# Estética Industrial y Ergonomía
 {: .fs-9 }
 
-El **SpectraGlove** no es solo un circuito; es una prenda. Para lograr un dispositivo funcional y estético, este proyecto se desarrolló en colaboración con el área de **Diseño Textil e Indumentaria**.
+Para el **SonicGauntlet**, la ingeniería se subordina a la imagen. En colaboración con el área de **Diseño de Modas**, definimos que este dispositivo no podía parecer un "prototipo de laboratorio", sino una pieza de vestuario lista para un escenario de Rock o Metal Industrial.
 
-Esta sinergia permitió resolver problemas que la ingeniería pura no contempla, como el patronaje, la tensión de los materiales y la ocultación de la electrónica.
-
----
-
-##  Sinergia Interdisciplinaria
-
-| Rol | Responsabilidad | Aporte al Proyecto |
-| :--- | :--- | :--- |
-| **Ingeniería (Yo)** | Funcionalidad | Selección de hardware, programación del FFT, circuito de potencia. |
-| **Diseño (Colaborador)** | Forma y Usuario | Patronaje a medida, selección de textiles, estética Cyberpunk. |
-
-> **Reto Compartido:** El hilo conductor no tiene aislante plástico. El diseño del guante tuvo que crear "carriles" físicos (costuras) para evitar cortocircuitos al cerrar la mano.
+El resultado es una morfología asimétrica construida en materiales pesados, priorizando la durabilidad y la agresividad visual.
 
 ---
 
-##  Patronaje y Confección
+## Morfología: El "Gauntlet" Asimétrico
 
-A diferencia de usar un guante comercial, se optó por fabricar uno desde cero ("Scratch") para tener control total sobre los canales de cableado.
+A diferencia de un guante tradicional, este diseño se extiende hacia el antebrazo (tipo brazalete medieval o futurista) y deja la mayoría de la mano libre.
 
-### Decisiones de Diseño
-1.  **Doble Capa:** El guante consta de una capa interna (confort) y una externa (estética). El circuito viaja *entre* ambas capas, quedando invisible y protegido.
-2.  **Materiales Elásticos:** Se usó Lycra/Spandex en los nudillos para permitir la flexión sin tensar el hilo conductor (lo que podría romperlo o cambiar su resistencia).
-3.  **Acceso a Batería:** Se diseñó un bolsillo oculto en la muñequera para la batería LiPo, balanceando el peso para no cansar al usuario.
-
----
-
-##  Estética ""
-
-La identidad visual del proyecto busca fusionar lo orgánico con lo sintético.
-* **Paleta:** Negro mate (textil) con acentos de luz (LEDs).
-* **Difusión:** Los LEDs no están expuestos directamente; se colocaron bajo una capa de malla difusora para crear un efecto de "brillo interno" en lugar de puntos de luz agresivos.
-
-*(Aquí puedes poner fotos de los bocetos de tu compañero/a o del patrón en papel)*
+### Decisiones de Diseño (Form Factor)
+1.  **Asimetría Funcional (Index-Only):**
+    * Se decidió cubrir **únicamente el dedo índice**.
+    * *Razón:* Permite al músico mantener la sensibilidad táctil en los demás dedos para tocar instrumentos (guitarra, bajo, sintetizador) mientras usa el dedo índice iluminado para señalar o activar efectos visuales.
+2.  **Extensión al Antebrazo:**
+    * El cuerpo del guante recorre la muñeca y parte del brazo.
+    * *Beneficio:* Otorga una amplia superficie de trabajo ("Real Estate") para ocultar el cableado y alojar el módulo de audio sin estorbar el movimiento de la muñeca.
+3.  **Materiales Rígidos:**
+    * **Base:** Cuero (o Piel Sintética de alto calibre).
+    * *Propósito:* Aporta rigidez estructural para soportar los componentes y ofrece esa estética "ruda" y resistente al desgaste del escenario.
 
 ---
 
-[Ver Código](./codigo.md){: .btn .btn-outline } [Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 
+## Distribución de Componentes (Layout)
+
+La ubicación de la electrónica responde a criterios visuales y prácticos:
+
+### La "X" Sónica
+En lugar de una línea aburrida de luces, los 5 LEDs se posicionan formando una **"X" sobre el dorso de la mano y el antebrazo**.
+* Esta disposición rompe con la estética tradicional de "vúmetro lineal", creando un símbolo visual propio del artista.
+
+### Arquitectura Modular (La Herencia de la P1)
+Siguiendo el principio de diseño de la *Pulsera RockBand*, separamos el procesamiento de la visualización.
+* **Cerebro Externo:** El Arduino R4 y la batería pesada se ubican fuera del guante (en un cinturón o pocket externo) para no cansar el brazo del artista.
+* **Conexión por Snaps:** La interfaz de conexión y energía utiliza **broches de presión metálicos**.
+    * Al conectar el guante al sistema, los broches cierran el circuito de alimentación y datos, funcionando como un conector robusto y fácil de reparar.
+
+### Ocultamiento "Stealth"
+* El módulo de audio (Bluetooth/Micrófono) se encuentra "empotrado" dentro del grosor del cuero en la zona del antebrazo, invisible al público pero con acceso al sonido ambiente.
+
+---
+
+## Colaboración Interdisciplinaria
+
+| Área | Aporte al SonicGauntlet |
+| :--- | :--- |
+| **Ingeniería (Juan León)** | Diseño de la matriz LED en "X", cálculo de resistencia del cableado extendido y sistema de conexión modular por broches, programación del microcontrolador. |
+| **Diseño (Cecilia)** | Patronaje del guante asimétrico, selección del cuero, y técnica de costura para "canales" de cableado oculto, fase de diseño y fabricación. |
+
+---
+
+> **Nota de Fase:** Actualmente nos encontramos en la etapa de **Prototipado de Patrón**. Se están realizando pruebas de ergonomía para asegurar que el cuero no restrinja el movimiento de los tendones al cerrar el puño.
+
+---
+
+[Ver Hardware](./hardware){: .btn .btn-outline .mr-2 }
+[Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
+[Ver Código](./codigo){: .btn .btn-outline .mr-2 }
+[Volver al Índice](../){: .btn .btn-primary }

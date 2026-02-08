@@ -75,19 +75,4 @@ Ingeniero Mecatrónico en formación (6º Semestre) en la **Universidad Iberoame
 
 ---
 
-## Instalación Local
-
-Este portafolio utiliza **Jekyll**. Para ejecutarlo en tu máquina:
-
-```bash
-# 1. Clonar el repositorio
-git clone [https://github.com/JuanLeon05/portafolio-JL.git](https://github.com/JuanLeon05/portafolio-JL.git)
-
-# 2. Instalar dependencias
-bundle install
-
-# 3. Iniciar servidor
-bundle exec jekyll serve
-```
-
 <div align="center"> <p>© 2026 Juan León | Licencia MIT & CC BY 4.0</p> </div>

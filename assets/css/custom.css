@@ -3,36 +3,37 @@
 /* 1. FONDO Y TIPOGRAFÍA GENERAL */
 body {
     background-color: #050505 !important; /* Negro casi puro */
-    color: #e0e0e0 !important; /* Texto gris claro, no blanco puro para no cansar */
+    color: #e0e0e0 !important; /* Texto gris claro */
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* 2. HEADER Y SIDEBAR (Menú Lateral) */
+/* 2. HEADER Y SIDEBAR (Adiós al Rojo Ibero) */
 .site-header,
 .side-bar {
     background-color: #000000 !important; /* Negro total */
-    border-right: 1px solid #1a1a1a; /* Borde sutil */
+    background-image: none !important; /* Quita degradados si los hubiera */
+    border-right: 1px solid #1a1a1a;
 }
 
 .site-title {
     color: #ffffff !important;
     font-weight: 700;
     letter-spacing: 1px;
-    text-transform: uppercase; /* Estilo banda de rock */
+    text-transform: uppercase;
 }
 
 /* Enlaces del menú lateral */
 .nav-list .nav-list-link {
-    color: #888888 !important; /* Gris apagado por defecto */
+    color: #888888 !important;
     transition: all 0.2s ease;
 }
 
 .nav-list .nav-list-link:hover,
 .nav-list .nav-list-link.active {
     color: #ffffff !important;
-    background-color: rgba(41, 121, 255, 0.1) !important; /* Fondo azul muy sutil */
-    border-left: 3px solid #2979ff; /* Línea neón a la izquierda */
-    padding-left: 1rem !important; /* Pequeño salto al hacer hover */
+    background-color: rgba(41, 121, 255, 0.1) !important; /* Fondo azul sutil */
+    border-left: 3px solid #2979ff; /* Línea neón */
+    padding-left: 1rem !important;
 }
 
 /* 3. CONTENIDO PRINCIPAL */
@@ -41,104 +42,54 @@ body {
     color: #cccccc !important;
 }
 
-/* Títulos (H1, H2, H3) */
-h1, h2, h3, h4 {
+/* Títulos con el toque Royal Blood */
+h1, h2, h3 {
     color: #ffffff !important;
-    font-weight: 700;
     letter-spacing: -0.5px;
     margin-top: 2rem;
 }
 
 h1 {
-    border-bottom: 2px solid #2979ff; /* Subrayado neón en el título principal */
+    border-bottom: 2px solid #2979ff; /* Subrayado neón */
     padding-bottom: 0.5rem;
     display: inline-block;
 }
 
-/* Enlaces en el texto */
+/* Enlaces y Acentos */
 a {
-    color: #2979ff !important; /* Azul eléctrico */
+    color: #2979ff !important; /* Azul Eléctrico */
     text-decoration: none;
-    font-weight: 500;
 }
 a:hover {
-    color: #63a4ff !important; /* Azul más claro al pasar mouse */
-    text-decoration: underline;
-    text-shadow: 0 0 8px rgba(41, 121, 255, 0.6); /* Glow effect */
+    color: #63a4ff !important;
+    text-shadow: 0 0 8px rgba(41, 121, 255, 0.6);
 }
 
-/* 4. COMPONENTES: TABLAS Y CÓDIGO */
-/* Bloques de código (como los de Arduino) */
-pre, code {
-    background-color: #111111 !important;
-    border: 1px solid #333;
-    color: #a5d6ff !important; /* Texto código azulito */
-    border-radius: 4px;
-}
-
-/* Tablas */
-table {
-    border-color: #333 !important;
-    color: #ddd !important;
-}
-th {
-    background-color: #111 !important;
-    border-bottom: 2px solid #2979ff !important;
-    color: #fff !important;
-}
-td {
-    border-bottom: 1px solid #222 !important;
-}
-
-/* 5. BOTONES PERSONALIZADOS */
+/* 4. BOTONES Y CÓDIGO */
 .btn {
     background-color: transparent !important;
     border: 1px solid #2979ff !important;
     color: #2979ff !important;
-    border-radius: 0px; /* Bordes cuadrados estilo industrial */
-    padding: 0.6rem 1.2rem;
-    font-weight: 600;
+    border-radius: 0px;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .btn:hover {
     background-color: #2979ff !important;
-    color: #000000 !important;
+    color: #000 !important;
     box-shadow: 0 0 15px rgba(41, 121, 255, 0.6);
 }
 
-.btn-primary {
-    /* Mismo estilo, solo para asegurar compatibilidad */
-    background-color: #2979ff !important;
-    color: #000 !important;
-    border: none !important;
-}
-.btn-primary:hover {
-    background-color: #fff !important;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-}
-
-/* 6. DETALLES FINOS (Bloques de nota) */
-blockquote {
-    border-left: 4px solid #ff0055 !important; /* Un toque de rojo Royal Blood */
-    background-color: #0f0f0f !important;
-    color: #bbb !important;
-    padding: 1rem;
-    font-style: italic;
-}
-
-/* Barra de búsqueda */
-.search-input {
+/* Código */
+pre, code {
     background-color: #111 !important;
-    border: 1px solid #333 !important;
-    color: #fff !important;
+    border: 1px solid #333;
+    color: #a5d6ff !important;
 }
 
-/* Footer (si aparece) */
-.site-footer {
-    background-color: #000 !important;
-    color: #555 !important;
-    border-top: 1px solid #1a1a1a;
+/* Tabla */
+table th {
+    background-color: #111 !important;
+    border-bottom: 2px solid #2979ff !important;
 }

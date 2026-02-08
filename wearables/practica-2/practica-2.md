@@ -1,12 +1,12 @@
 ---
 layout: default
-title: P2 - SpectraGlove
+title: P2 
 parent: Wearables
 has_children: true
 nav_order: 2
 ---
 
-# Práctica 2: SpectraGlove 🧤🎵
+# Práctica 2: SpectraGlove 
 {: .fs-9 }
 
 **Wearable Audio Visualizer**

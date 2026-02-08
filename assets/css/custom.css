@@ -1,257 +1,237 @@
-/* === ESTILO V9.0 - ROYAL TECH DEFINITIVE (Robusto, Accesible y Sin Bugs) === */
+/* === ESTILO V10.0 - ROYAL TECH BULLETPROOF (Contrast Fix) === */
 
-/* --- 1. VARIABLES & PALETA DE COLORES --- */
+/* --- 1. VARIABLES (ADN Royal Blood) --- */
 :root {
-  /* Paleta Royal Blood */
-  --bg-profundo: #050505;     /* Fondo Global */
-  --bg-paneles: #0a0a0a;      /* Sidebar y Header */
-  --bg-hover: #151515;        /* Color al pasar el mouse (NO BLANCO) */
+  --bg-profundo: #050505;     /* Negro Absoluto */
+  --bg-paneles: #0a0a0a;      /* Sidebar/Header */
+  --bg-activo: #1a1a1a;       /* Color de selección (Gris oscuro) */
   --royal-gold: #d4af37;      /* ORO PRINCIPAL */
-  --royal-light: #f1c40f;     /* Oro brillante para focos */
+  --royal-hover: #f1c40f;     /* Oro brillante */
   --texto-titulo: #ffffff;
   --texto-cuerpo: #e0e0e0;
-  --texto-tenue: #888888;
+  --texto-tenue: #999999;
   --borde-sutil: #222222;
-  
-  /* Sobrescribimos variables nativas del tema Just-the-Docs para evitar conflictos */
+
+  /* Variables nativas del tema (Sobrescribimos para evitar conflictos) */
   --link-color: #d4af37;
-  --nav-child-link-color: #888;
-  --code-background-color: #0f0f0f;
-  --search-result-preview-color: #999;
+  --nav-child-link-color: #999;
+  --code-background-color: #111;
+  --search-background-color: #0a0a0a;
 }
 
-/* --- 2. ACCESIBILIDAD Y RESET GLOBAL (Lo que faltaba del original) --- */
+/* --- 2. RESET GLOBAL & ACCESIBILIDAD --- */
 body, html, .page-content {
   background-color: var(--bg-profundo) !important;
   color: var(--texto-cuerpo) !important;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Focus Rings (Accesibilidad profesional) */
-:focus {
+/* Focus visible para teclado (Accesibilidad) */
+:focus-visible {
   outline: 2px solid var(--royal-gold) !important;
   outline-offset: 2px;
 }
-/* Quitamos outline en mouse para limpieza visual, lo dejamos en teclado */
-:focus:not(:focus-visible) {
-  outline: none !important;
-}
 
-/* --- 3. HEADER Y BARRA SUPERIOR --- */
+/* --- 3. HEADER & BARRA SUPERIOR --- */
 .site-header {
   background-color: var(--bg-paneles) !important;
   border-bottom: 1px solid var(--borde-sutil) !important;
-  background-image: none !important; /* Elimina gradientes residuales */
+  background-image: none !important;
 }
 
-/* Fix del cuadro blanco a la derecha (Aux Links) */
+/* Fix cuadro blanco derecha (Aux Links) */
 .site-header .aux-links {
   background-color: transparent !important;
-  border: none !important;
-  height: 100%; /* Asegura alineación */
+  height: 100%;
 }
 .site-header .aux-links a {
   color: var(--royal-gold) !important;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* Iconos del header (Hamburguesa/Buscar en móvil) */
+/* Iconos SVG (Hamburguesa/Lupa) */
 .site-header .menu-icon svg, 
 .site-header .search-icon svg {
   fill: var(--royal-gold) !important;
+  color: var(--royal-gold) !important;
 }
 
-/* --- 4. SIDEBAR (Navegación Robusta) --- */
+/* --- 4. SIDEBAR & NAVEGACIÓN (Jerarquía Completa) --- */
 .side-bar {
   background-color: var(--bg-paneles) !important;
   border-right: 1px solid var(--borde-sutil) !important;
 }
-
 .site-title {
   color: var(--texto-titulo) !important;
   font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.site-logo { display: none !important; } /* Ocultamos logo original */
-
-/* === LÓGICA DE NAVEGACIÓN (Restaurada al 100%) === */
+.site-logo { display: none !important; }
 
 /* Nivel 1 (Padres) */
 .side-bar .nav-list > .nav-list-item > .nav-list-link {
   color: var(--texto-tenue) !important;
   background: transparent !important;
-  font-weight: 400;
+  font-weight: 500;
   border: none;
 }
 
-/* Nivel 2 (Hijos) */
+/* Nivel 2 (Hijos) con sangría */
 .side-bar .nav-list .nav-list-item .nav-list .nav-list-link {
-  font-weight: 300;
   padding-left: 2rem;
-  color: var(--texto-tenue) !important;
+  font-weight: 300;
+  color: #888 !important;
   position: relative;
 }
 
-/* Bullets para Nivel 2 */
+/* Bullet personalizado para hijos */
 .side-bar .nav-list .nav-list-item .nav-list .nav-list-link::before {
   content: "•";
   position: absolute;
   left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   color: var(--royal-gold);
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-/* ESTADOS HOVER Y ACTIVO (Sin Bug Blanco) */
-.nav-list .nav-list-link:hover,
-.nav-list .nav-list-link.active {
+/* ESTADO ACTIVO & HOVER (Dorado) */
+.nav-list .nav-list-link.active,
+.nav-list .nav-list-link:hover {
   color: #fff !important;
-  background-color: rgba(212, 175, 55, 0.1) !important; /* Oro muy transparente */
-  background-image: none !important;
+  background-color: rgba(212, 175, 55, 0.1) !important;
+  background-image: none !important; /* Mata el morado original */
   border-left: 3px solid var(--royal-gold) !important;
 }
 
-/* Iconos de expansión (flechitas) */
-.nav-list-expander svg {
-  color: #444 !important;
-}
-.nav-list-expander:hover svg {
-  color: var(--royal-gold) !important;
+/* Flechas expansoras */
+.nav-list-expander svg { color: #555 !important; }
+.nav-list-expander:hover svg { color: var(--royal-gold) !important; }
+
+
+/* --- 5. FIX CRÍTICO DEL BUSCADOR (Mata el fondo blanco) --- */
+
+/* La caja contenedora */
+.search-results-list {
+  background-color: #0a0a0a !important;
+  border: 1px solid var(--royal-gold) !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.95) !important;
+  padding: 0 !important;
 }
 
-/* --- 5. BUSCADOR (EL FIX CRÍTICO) --- */
-/* Input */
+/* Cada elemento individual (Normal) */
+.search-results-list-item {
+  background-color: #0a0a0a !important; /* Fondo NEGRO siempre */
+  color: #ccc !important;
+  border-bottom: 1px solid #222 !important;
+  padding: 12px 15px !important;
+}
+
+/* ESTADO ACTIVO/HOVER (Aquí estaba el error) */
+/* Usamos selectores múltiples para ganar especificidad */
+.search-results-list-item.active,
+.search-results-list-item:hover,
+.search-results-list-item:focus {
+  background-color: #222222 !important; /* Gris Oscuro (NO BLANCO) */
+  color: #ffffff !important;             /* Texto Blanco para contraste */
+  outline: none !important;
+}
+
+/* El Título del resultado */
+.search-result-title {
+  color: var(--royal-gold) !important;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* El Título cuando está seleccionado (Brilla más) */
+.search-results-list-item.active .search-result-title,
+.search-results-list-item:hover .search-result-title {
+  color: var(--royal-light) !important;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* Texto de previsualización */
+.search-result-preview {
+  color: #999 !important;
+  font-size: 0.9em;
+}
+/* Asegura que la preview sea legible en hover */
+.search-results-list-item.active .search-result-preview,
+.search-results-list-item:hover .search-result-preview {
+  color: #ccc !important;
+}
+
+/* Input del buscador */
 .search-input {
   background-color: #111 !important;
-  border: 1px solid #333 !important;
+  border: 1px solid #444 !important;
   color: #fff !important;
   border-radius: 4px;
 }
 .search-input:focus {
   border-color: var(--royal-gold) !important;
-  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 0 1px var(--royal-gold);
 }
 
-/* Caja de Resultados */
-.search-results-list {
-  background-color: #0f0f0f !important; /* Fondo base negro */
-  border: 1px solid var(--royal-gold) !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.9) !important;
-}
 
-/* Items individuales (Normal) */
-.search-results-list-item {
-  background-color: #0f0f0f !important;
-  color: #bbb !important;
-  border-bottom: 1px solid #222 !important;
-  padding: 10px;
-}
-
-/* Items individuales (HOVER y ACTIVE) - AQUÍ ESTABA EL ERROR */
-.search-results-list-item:hover,
-.search-results-list-item.active {
-  background-color: #222 !important; /* Gris oscuro, NO BLANCO */
-  color: #fff !important;
-  cursor: pointer;
-}
-
-/* Textos dentro del resultado */
-.search-result-title {
-  color: var(--royal-gold) !important;
-  font-weight: 700;
-}
-.search-results-list-item.active .search-result-title,
-.search-results-list-item:hover .search-result-title {
-  color: var(--royal-light) !important; /* Oro más brillante en hover */
-  text-decoration: underline;
-}
-
-.search-result-preview {
-  color: #888 !important;
-}
-
-/* --- 6. CONTENIDO Y TIPOGRAFÍA --- */
-h1, h2, h3, h4, h5 {
-  color: var(--texto-titulo) !important;
-  margin-top: 2rem;
-}
+/* --- 6. CONTENIDO & COMPONENTES --- */
+/* Títulos */
+h1, h2, h3, h4 { color: var(--texto-titulo) !important; }
 h1 {
   border-bottom: 3px solid var(--royal-gold) !important;
   padding-bottom: 0.5rem;
   display: inline-block;
 }
 
-/* Enlaces del contenido */
-.page-content a {
-  color: var(--royal-gold) !important;
-  text-decoration: none;
-}
-.page-content a:hover {
-  color: #fff !important;
-  text-decoration: underline;
-}
-
-/* --- 7. COMPONENTES ROBUSTOS (Tablas, Código, Citas) --- */
-/* Tablas */
-table {
-  display: block;
-  width: 100%;
-  overflow: auto;
-  border-collapse: collapse;
-}
-table, th, td {
-  background-color: transparent !important;
-  border: 1px solid var(--borde-sutil) !important;
-  color: var(--texto-cuerpo) !important;
-}
-th {
-  border-bottom: 2px solid var(--royal-gold) !important;
-  color: #fff !important;
-  font-weight: 700;
-}
-
-/* Código */
-code {
-  background-color: #111 !important;
-  border: 1px solid #333;
-  color: #e0e0e0;
-  border-radius: 3px;
-  padding: 0.2em 0.4em;
-}
-pre.highlight {
-  background-color: #0a0a0a !important;
-  border: 1px solid var(--royal-gold);
-  border-radius: 5px;
-}
-
-/* Blockquotes */
-blockquote {
-  border-left: 4px solid var(--royal-gold) !important;
-  background: rgba(212, 175, 55, 0.05);
-  color: #ccc;
-  padding: 1rem;
-}
+/* Enlaces */
+a { color: var(--royal-gold) !important; text-decoration: none; }
+a:hover { color: #fff !important; text-decoration: underline; }
 
 /* Botones */
 .btn {
   background: transparent !important;
   border: 2px solid var(--royal-gold) !important;
   color: var(--royal-gold) !important;
-  border-radius: 0;
   text-transform: uppercase;
   font-weight: 700;
-  transition: all 0.2s;
+  border-radius: 0;
 }
 .btn:hover {
   background: var(--royal-gold) !important;
   color: #000 !important;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
 }
 
-/* --- 8. FOOTER Y RESPONSIVE (Lógica Original Restaurada) --- */
-/* Ocultamos el footer default del tema */
-footer.site-footer { display: none !important; }
+/* Tablas Transparentes */
+table, tr, td, th {
+  background-color: transparent !important;
+  border-color: var(--borde-sutil) !important;
+}
+th {
+  border-bottom: 2px solid var(--royal-gold) !important;
+  color: #fff !important;
+}
 
-/* Footer Personalizado */
+/* Citas & Código */
+blockquote {
+  border-left: 4px solid var(--royal-gold) !important;
+  background: rgba(212, 175, 55, 0.05) !important;
+  color: #ccc;
+  font-style: italic;
+  padding: 1rem;
+}
+code {
+  background-color: #111 !important;
+  border: 1px solid #333;
+  color: #ddd;
+}
+
+/* --- 7. FOOTER & MÓVIL (Lógica Original Restaurada) --- */
+footer.site-footer { display: none !important; } /* Oculta el default */
+
 .custom-footer {
   margin-top: 4rem;
   padding-top: 2rem;
@@ -260,28 +240,26 @@ footer.site-footer { display: none !important; }
   font-size: 0.9rem;
 }
 
-/* Reglas para Móviles (Max Width 66rem) */
+/* Media Queries para Móviles */
 @media (max-width: 66rem) {
-  /* Forzamos fondo oscuro en menú móvil para que no sea blanco */
-  .site-nav {
+  /* Forzamos fondo oscuro en todo */
+  .site-nav, body, .site-header {
     background-color: var(--bg-paneles) !important;
-    border-right: none;
+    color: #fff !important;
   }
   
-  /* El buscador en móvil ocupa todo el ancho */
-  .search {
-    margin-right: 0;
-  }
-  
-  /* Footer visible en móvil si el tema lo inyecta */
+  /* Footer móvil */
   footer.site-footer {
     display: block !important;
-    background-color: var(--bg-paneles) !important;
-    color: #666 !important;
+    background: var(--bg-paneles) !important;
+    color: #888 !important;
   }
+  
+  /* Ajuste de buscador en móvil */
+  .search { margin-right: 0; }
 }
 
-/* --- 9. EXTRAS (Video, Migas, Print) --- */
+/* --- 8. EXTRAS & PRINT --- */
 .breadcrumbs li a { color: var(--royal-gold) !important; }
 .breadcrumbs li { color: #666; }
 
@@ -299,10 +277,8 @@ footer.site-footer { display: none !important; }
   height: 100%;
 }
 
-/* Estilos de Impresión (Robustez final) */
 @media print {
-  body { color: #000 !important; background: #fff !important; }
-  .side-bar, .site-header { display: none !important; }
-  .page-content { margin: 0 !important; width: 100% !important; }
-  a { text-decoration: underline; color: #000 !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .side-bar, .site-header { display: none; }
+  .page-content { margin: 0; width: 100%; }
 }

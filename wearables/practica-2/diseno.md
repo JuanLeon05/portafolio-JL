@@ -3,7 +3,7 @@ layout: default
 title: Colaboración y Diseño
 parent: P2
 grand_parent: Wearables
-nav_order: 4
+nav_order: 3
 ---
 
 # Diseño y Ergonomía (Colaboración)

@@ -1,9 +1,9 @@
 ---
 layout: default
-title: 3. Proceso y Manufactura
+title: Proceso y Manufactura
 parent: P2
 grand_parent: Wearables
-nav_order: 3
+nav_order: 2
 ---
 
 # Bitácora de Diseño y Manufactura

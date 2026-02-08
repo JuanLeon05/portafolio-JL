@@ -76,7 +76,6 @@ Proyectos que demuestran dominio de los principios base de la ingeniería:
   <a href="./wearables/" class="btn btn-primary fs-5 mb-4 mb-md-0 mr-2">
     Ver Documentación Técnica
   </a>
-<<<<<<< HEAD
   <a href="https://github.com/JuanLeon05/portafolio-JL" target="_blank" class="btn btn-outline fs-5 mb-4 mb-md-0">
     Repositorio GitHub
   </a>

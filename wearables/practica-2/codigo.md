@@ -92,7 +92,7 @@ void visualizarFrecuencias() {
 ```
 
 <div style="margin-top: 3rem;">
-  <a href="./" class="btn btn-outline" style="margin-right: 1rem;">
+  <a href="../" class="btn btn-outline" style="margin-right: 1rem;">
     Inicio del Proyecto
   </a>
   <a href="../hardware" class="btn btn-outline" style="margin-right: 1rem;">

@@ -32,16 +32,20 @@ El proyecto se divide en cuatro áreas técnicas. Acceda a cada una para ver los
 
 ### 1. Hardware y Electrónica
 Detalles del circuito, diagrama de conexiones, lista de materiales (BOM) y consideraciones de voltaje para la integración en textiles.
-[Ver Hardware](./hardware){: .btn .btn-primary .mr-2 }
+
+[Ver Hardware](../hardware){: .btn .btn-primary .mr-2 }
 
 ### 2. Algoritmo y Código
 Análisis del firmware en C++, implementación de la Transformada Rápida de Fourier (FFT) y lógica de la máquina de estados (Standby/Music).
-[Ver Código](./codigo){: .btn .btn-primary .mr-2 }
+
+[Ver Código](../codigo){: .btn .btn-primary .mr-2 }
 
 ### 3. Proceso y Manufactura
 Bitácora de construcción paso a paso, desde la validación en protoboard hasta las técnicas de costura con hilo conductor de acero inoxidable.
-[Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
+
+[Ver Proceso](../proceso){: .btn .btn-outline .mr-2 }
 
 ### 4. Diseño y Colaboración
 Exploración de la ergonomía, la estética del dispositivo y la colaboración interdisciplinaria con el área de Diseño Textil.
-[Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }
+
+[Ver Diseño](../diseno){: .btn .btn-outline .mr-2 }

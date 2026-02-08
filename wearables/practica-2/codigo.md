@@ -6,30 +6,33 @@ grand_parent: Wearables
 nav_order: 2
 ---
 
-# Algoritmo y Firmware
+#  Algoritmo y Firmware
 {: .fs-9 }
 
-El desafío principal del **SpectraGlove** es traducir señales de audio analógicas en pulsos de luz en tiempo real (Real-Time System). Para esto, no usamos simples condicionales `if/else` basados en volumen, sino un análisis de frecuencia real.
+El desafío principal del **SpectraGlove** es la traducción de señales analógicas (audio) a respuestas lumínicas con latencia cero. A diferencia de los sistemas básicos que solo miden "volumen" (amplitud), este sistema realiza un **análisis espectral en tiempo real**.
 
 ---
 
-## El Cerebro: Fast Fourier Transform (FFT)
+## Fundamento Teórico: Fast Fourier Transform (FFT)
 
-Utilizamos el algoritmo **FFT (Transformada Rápida de Fourier)** para descomponer la señal de audio en sus frecuencias constitutivas.
+Para lograr que cada dedo reaccione a un instrumento distinto, utilizamos la **Transformada Rápida de Fourier (FFT)**. Este algoritmo matemático descompone una señal compleja (música) en sus ondas sinusoidales individuales.
 
-* **Librería:** `arduinoFFT` por Enrique Condés.
-* **Muestreo:** 128 muestras (samples) por ciclo.
-* **Frecuencia de Muestreo:** ~1000 Hz (enfocado en el rango visible de la música: graves y medios).
+* **Librería:** `arduinoFFT` (Optimizada para arquitecturas AVR/Renesas).
+* **Resolución:** 128 muestras (samples) por ciclo de lectura.
+* **Frecuencia de Muestreo (Nyquist):** ~1000 Hz.
+  * *¿Por qué 1000Hz?* Nos enfocamos en el rango visualmente rítmico de la música (Graves y Medios: 20Hz - 500Hz). Frecuencias más altas requieren más CPU y aportan poco impacto visual.
 
-### ¿Cómo funciona el proceso?
+### Flujo del Procesamiento (Pipeline)
 
-1.  **Sampling (Muestreo):** El Arduino toma una "foto" del audio (128 lecturas rápidas del pin A0).
-2.  **Windowing (Ventaneado):** Suavizamos la señal para evitar "ruido" matemático en los bordes.
-3.  **Compute (Cálculo):** La FFT convierte el *Dominio del Tiempo* (onda) al *Dominio de la Frecuencia* (barras).
-4.  **Binning (Clasificación):** Agrupamos los resultados en 5 rangos (Graves, Medios-Graves, Medios, Medios-Altos, Agudos) correspondientes a los 5 dedos.
+1.  **Sampling (Adquisición):** El ADC (Convertidor Analógico-Digital) toma una "ráfaga" de 128 lecturas del pin A0 en microsegundos.
+2.  **Windowing (Ventaneado):** Aplicamos una función *Hamming* para suavizar la señal y reducir el "spectral leakage" (ruido en los bordes de la muestra).
+3.  **Compute (Transformación):** La FFT convierte la señal del *Dominio del Tiempo* al *Dominio de la Frecuencia*.
+4.  **Binning (Mapeo):** Los resultados se agrupan en "cubetas" (bins) asignadas a cada dedo:
+    * **Pulgar/Índice:** Agudos/Voces.
+    * **Medio/Anular:** Medios/Ritmo.
+    * **Meñique/Muñeca:** Sub-graves (Bombos).
 
 ---
-
 ## El Código
 
 ```cpp
@@ -88,4 +91,11 @@ void visualizarFrecuencias() {
 }
 ```
 
-Volver a Hardware{: .btn .btn-outline .mr-2 } Ver Repositorio Completo{: .btn .btn-primary }
+<div style="margin-top: 3rem;">
+  <a href="./hardware" class="btn btn-outline" style="margin-right: 1rem;">
+    Volver a Hardware
+  </a>
+  <a href="https://github.com/" target="_blank" class="btn btn-primary">
+    Ver Repositorio Completo
+  </a>
+</div>

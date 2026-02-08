@@ -1,125 +1,125 @@
-/* === ESTILO V4.0 - "ROYAL TECH" (Oro, Azul y Contraste Alto) === */
+/* === ESTILO V5.0 - "ROYAL TECH" (Sin Morado) === */
 
-/* 1. VARIABLES DE COLOR (La Paleta) */
+/* 1. VARIABLES */
 :root {
-  --bg-profundo: #050505;   /* Negro casi puro para el fondo */
-  --bg-paneles: #0a0a0a;    /* Negro ligeramente más claro para sidebar/header */
-  --texto-titulo: #ffffff;  /* Blanco PURO para títulos (Máximo contraste) */
-  --texto-cuerpo: #e0e0e0;  /* Gris muy claro para lectura cómoda */
-  --royal-gold: #d4af37;    /* DORADO ROYAL BLOOD (Para acentos fuertes) */
-  --tech-blue: #2979ff;     /* Azul Neón (Para enlaces y código) */
-  --borde-sutil: #222222;   /* Líneas divisorias casi invisibles */
+  --bg-profundo: #050505;
+  --bg-paneles: #0a0a0a;
+  --texto-titulo: #ffffff;
+  --texto-cuerpo: #e0e0e0;
+  --royal-gold: #d4af37;    /* EL DORADO PRINCIPAL */
+  --tech-blue: #2979ff;
+  --borde-sutil: #222222;
 }
 
-/* 2. BASES GLOBALES Y CONTRASTE */
+/* 2. BASES */
 body, html, .page-content {
   background-color: var(--bg-profundo) !important;
   color: var(--texto-cuerpo) !important;
   font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Títulos H1-H6: BLANCO PURO y brillantes */
-h1, h2, h3, h4, h5, h6, .site-title {
+h1, h2, h3, h4, .site-title {
   color: var(--texto-titulo) !important;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  text-shadow: 0 0 10px rgba(0,0,0,0.8); /* Sombra para que salten del fondo */
+  text-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 
-/* Subrayado principal en DORADO */
 h1 {
   border-bottom: 3px solid var(--royal-gold) !important;
   display: inline-block;
   padding-bottom: 5px;
 }
 
-/* 3. ARREGLANDO EL HEADER Y EL CUADRO BLANCO */
-.site-header,
-.side-bar {
+/* 3. HEADER Y SIDEBAR */
+.site-header, .side-bar {
   background-color: var(--bg-paneles) !important;
   border-color: var(--borde-sutil) !important;
 }
 
-/* ¡ESTO MATA EL CUADRO BLANCO A LA DERECHA! */
+/* --- FIX SIDEBAR (ADIÓS MORADO) --- */
+/* Enlaces normales del menú (gris) */
+.nav-list .nav-list-link {
+  color: #888 !important;
+  background: transparent !important;
+}
+
+/* Enlace ACTIVO o HOVER (Cambio de Morado a DORADO) */
+.nav-list .nav-list-link.active,
+.nav-list .nav-list-link:hover {
+  color: #fff !important; /* Texto blanco brillante */
+  background-image: none !important; /* Quita el degradado morado default */
+  background-color: rgba(212, 175, 55, 0.15) !important; /* Fondo Dorado muy sutil */
+  border-left: 3px solid var(--royal-gold) !important; /* Línea Dorada a la izquierda */
+}
+
+/* 4. CUADRO BLANCO (Header derecho) */
 .site-header .aux-links {
-  background-color: transparent !important; /* Adiós fondo blanco */
-  border: none !important; /* Adiós borde feo */
-  color: var(--texto-cuerpo) !important;
+  background-color: transparent !important;
+  border: none !important;
 }
 .site-header .aux-links a {
-  color: var(--royal-gold) !important; /* El enlace de arriba ahora es dorado */
+  color: var(--royal-gold) !important;
   font-weight: bold;
 }
 
-/* Barra de búsqueda (más integrada) */
+/* 5. BARRA DE BÚSQUEDA */
 .search-input {
   background-color: #151515 !important;
   border: 1px solid #333 !important;
   color: #fff !important;
   border-radius: 4px;
 }
-.search-input::placeholder { color: #777; }
 
-/* 4. BOTONES ESTILO ROYAL BLOOD (Dorado y Negro) */
+/* 6. ELEMENTOS INTERACTIVOS */
+/* Botones */
 .btn {
   background-color: transparent !important;
-  border: 2px solid var(--royal-gold) !important; /* Borde Dorado grueso */
+  border: 2px solid var(--royal-gold) !important;
   color: var(--royal-gold) !important;
-  border-radius: 0px; /* Cuadrados industriales */
+  border-radius: 0px;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 1px;
-  padding: 0.8rem 1.5rem;
-  transition: all 0.3s ease;
 }
-
 .btn:hover {
-  background-color: var(--royal-gold) !important; /* Fondo Dorado al pasar mouse */
-  color: #000000 !important; /* Texto negro */
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); /* Brillo dorado */
-  transform: translateY(-2px); /* Pequeño efecto de elevación */
+  background-color: var(--royal-gold) !important;
+  color: #000 !important;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
-/* 5. ENLACES Y CÓDIGO (El toque "Tech" Azul) */
-/* Enlaces normales en el texto */
+/* Enlaces de texto (Azul Tech) */
 .page-content a:not(.btn) {
   color: var(--tech-blue) !important;
   text-decoration: none;
-  font-weight: 500;
 }
 .page-content a:not(.btn):hover {
   text-decoration: underline;
   text-shadow: 0 0 8px var(--tech-blue);
 }
 
-/* Bloques de código */
+/* 7. TABLAS Y CÓDIGO */
 code, pre {
   background-color: #0f0f0f !important;
   border: 1px solid #222;
-  color: #80caff !important; /* Azul claro para código */
-  font-family: 'Fira Code', monospace;
+  color: #80caff !important;
 }
 
-/* 6. DETALLES FINALES */
-/* Citas con barra lateral DORADA */
-blockquote {
-  border-left: 4px solid var(--royal-gold) !important;
-  background-color: rgba(212, 175, 55, 0.05) !important; /* Fondo dorado muy sutil */
-  color: #ccc !important;
-  font-style: italic;
-  padding: 1rem;
-}
-
-/* Tablas limpias con encabezado DORADO */
-table, tr, td, th {
+table, tr, td {
   background-color: transparent !important;
   border-color: var(--borde-sutil) !important;
 }
 th {
-  border-bottom: 2px solid var(--royal-gold) !important;
-  color: var(--texto-titulo) !important;
-  text-transform: uppercase;
+  border-bottom: 2px solid var(--royal-gold) !important; /* Línea dorada en tablas */
+  background-color: transparent !important;
+  color: #fff !important;
 }
 
-/* Ocultar logo rojo de la Ibero */
+/* Citas */
+blockquote {
+  border-left: 4px solid var(--royal-gold) !important;
+  background-color: rgba(212, 175, 55, 0.05) !important;
+  color: #ccc !important;
+  font-style: italic;
+}
+
 .site-logo { display: none !important; }

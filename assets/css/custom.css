@@ -1,95 +1,106 @@
-/* === CUSTOM.CSS - ESTILO "DARK TECH / ROYAL" === */
+/* === REINICIO TOTAL - ESTILO DARK TECH (V2.0) === */
 
-/* 1. FONDO Y TIPOGRAFÍA GENERAL */
-body {
-    background-color: #050505 !important; /* Negro casi puro */
-    color: #e0e0e0 !important; /* Texto gris claro */
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+/* 1. VARIABLES GLOBALES (Para fácil ajuste) */
+:root {
+  --fondo-principal: #0a0a0a;  /* Negro suave */
+  --fondo-secundario: #121212; /* Gris muy oscuro (para sidebar) */
+  --texto-principal: #e0e0e0;  /* Blanco hueso */
+  --acento: #2979ff;           /* Azul Royal (Spectra) */
+  --borde: #333333;            /* Líneas divisorias */
 }
 
-/* 2. HEADER Y SIDEBAR (Adiós al Rojo Ibero) */
-.site-header,
+/* 2. ESTRUCTURA BASE */
+body, .page-content, .side-bar {
+  background-color: var(--fondo-principal) !important;
+  color: var(--texto-principal) !important;
+}
+
+/* Sidebar (Menú lateral) */
 .side-bar {
-    background-color: #000000 !important; /* Negro total */
-    background-image: none !important; /* Quita degradados si los hubiera */
-    border-right: 1px solid #1a1a1a;
+  background-color: var(--fondo-secundario) !important;
+  border-right: 1px solid var(--borde);
 }
 
+/* Header (Barra superior móvil) */
+.site-header {
+  background-color: var(--fondo-secundario) !important;
+  border-bottom: 1px solid var(--borde);
+}
+
+/* 3. ARREGLANDO LOS ERRORES VISUALES DE LA FOTO */
+
+/* A) TABLAS (¡Esto arregla las celdas blancas!) */
+table, th, td {
+  background-color: transparent !important;
+  border-color: var(--borde) !important;
+  color: var(--texto-principal) !important;
+}
+th {
+  background-color: #1a1a1a !important; /* Encabezado de tabla un poco más claro */
+  border-bottom: 2px solid var(--acento) !important;
+}
+
+/* B) BARRA DE BÚSQUEDA */
+.search-input {
+  background-color: #222 !important;
+  border: 1px solid var(--borde) !important;
+  color: #fff !important;
+}
+/* Color del texto placeholder (Buscar...) */
+.search-input::placeholder {
+  color: #888;
+}
+
+/* C) EL LOGO ROJO (Lo ocultamos y dejamos solo el texto "Juan León") */
+.site-logo {
+  display: none !important; 
+}
 .site-title {
-    color: #ffffff !important;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
-/* Enlaces del menú lateral */
-.nav-list .nav-list-link {
-    color: #888888 !important;
-    transition: all 0.2s ease;
-}
-
-.nav-list .nav-list-link:hover,
-.nav-list .nav-list-link.active {
-    color: #ffffff !important;
-    background-color: rgba(41, 121, 255, 0.1) !important; /* Fondo azul sutil */
-    border-left: 3px solid #2979ff; /* Línea neón */
-    padding-left: 1rem !important;
-}
-
-/* 3. CONTENIDO PRINCIPAL */
-.page-content {
-    background-color: #050505 !important;
-    color: #cccccc !important;
-}
-
-/* Títulos con el toque Royal Blood */
+/* 4. TIPOGRAFÍA Y ACENTOS */
 h1, h2, h3 {
-    color: #ffffff !important;
-    letter-spacing: -0.5px;
-    margin-top: 2rem;
+  color: #fff !important;
 }
 
-h1 {
-    border-bottom: 2px solid #2979ff; /* Subrayado neón */
-    padding-bottom: 0.5rem;
-    display: inline-block;
-}
-
-/* Enlaces y Acentos */
+/* Enlaces */
 a {
-    color: #2979ff !important; /* Azul Eléctrico */
-    text-decoration: none;
+  color: var(--acento) !important;
 }
 a:hover {
-    color: #63a4ff !important;
-    text-shadow: 0 0 8px rgba(41, 121, 255, 0.6);
+  text-decoration: underline;
+  text-shadow: 0 0 5px rgba(41, 121, 255, 0.5);
 }
 
-/* 4. BOTONES Y CÓDIGO */
+/* Menú lateral links */
+.nav-list .nav-list-link {
+  color: #aaa !important;
+}
+.nav-list .nav-list-link.active,
+.nav-list .nav-list-link:hover {
+  color: #fff !important;
+  background-image: linear-gradient(to right, #1a1a1a, transparent) !important;
+  border-left: 3px solid var(--acento);
+}
+
+/* 5. BOTONES Y CÓDIGO */
 .btn {
-    background-color: transparent !important;
-    border: 1px solid #2979ff !important;
-    color: #2979ff !important;
-    border-radius: 0px;
-    text-transform: uppercase;
-    font-weight: 600;
+  border: 1px solid var(--acento) !important;
+  color: var(--acento) !important;
+  background: transparent !important;
+  border-radius: 4px;
 }
-
 .btn:hover {
-    background-color: #2979ff !important;
-    color: #000 !important;
-    box-shadow: 0 0 15px rgba(41, 121, 255, 0.6);
+  background-color: var(--acento) !important;
+  color: #fff !important;
 }
 
-/* Código */
-pre, code {
-    background-color: #111 !important;
-    border: 1px solid #333;
-    color: #a5d6ff !important;
-}
-
-/* Tabla */
-table th {
-    background-color: #111 !important;
-    border-bottom: 2px solid #2979ff !important;
+/* Bloques de código */
+code, pre {
+  background-color: #161616 !important;
+  color: #a5d6ff !important;
+  border: 1px solid var(--borde);
 }

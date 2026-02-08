@@ -1,26 +1,25 @@
-/* === ESTILO V5.0 - "ROYAL TECH" (Sin Morado) === */
+/* === ESTILO V6.0 - "ROYAL PURE" (Todo Negro y Dorado) === */
 
-/* 1. VARIABLES */
+/* 1. VARIABLES (Paleta Simplificada: Solo Negro, Blanco y Oro) */
 :root {
   --bg-profundo: #050505;
   --bg-paneles: #0a0a0a;
   --texto-titulo: #ffffff;
   --texto-cuerpo: #e0e0e0;
-  --royal-gold: #d4af37;    /* EL DORADO PRINCIPAL */
-  --tech-blue: #2979ff;
+  --royal-gold: #d4af37;    /* ORO (Único color de acento) */
   --borde-sutil: #222222;
 }
 
-/* 2. BASES */
+/* 2. BASES GLOBALES */
 body, html, .page-content {
   background-color: var(--bg-profundo) !important;
   color: var(--texto-cuerpo) !important;
   font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Títulos */
 h1, h2, h3, h4, .site-title {
   color: var(--texto-titulo) !important;
-  font-weight: 700;
   text-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 
@@ -36,41 +35,74 @@ h1 {
   border-color: var(--borde-sutil) !important;
 }
 
-/* --- FIX SIDEBAR (ADIÓS MORADO) --- */
-/* Enlaces normales del menú (gris) */
+/* --- SIDEBAR (Menú lateral) --- */
 .nav-list .nav-list-link {
-  color: #888 !important;
+  color: #888 !important; /* Gris apagado */
   background: transparent !important;
 }
 
-/* Enlace ACTIVO o HOVER (Cambio de Morado a DORADO) */
+/* Hover/Activo en menú: DORADO */
 .nav-list .nav-list-link.active,
 .nav-list .nav-list-link:hover {
-  color: #fff !important; /* Texto blanco brillante */
-  background-image: none !important; /* Quita el degradado morado default */
-  background-color: rgba(212, 175, 55, 0.15) !important; /* Fondo Dorado muy sutil */
-  border-left: 3px solid var(--royal-gold) !important; /* Línea Dorada a la izquierda */
+  color: #fff !important;
+  background-image: none !important;
+  background-color: rgba(212, 175, 55, 0.15) !important;
+  border-left: 3px solid var(--royal-gold) !important;
 }
 
-/* 4. CUADRO BLANCO (Header derecho) */
-.site-header .aux-links {
-  background-color: transparent !important;
-  border: none !important;
+/* 4. ARREGLO DEL BUSCADOR (¡Aquí matamos el cuadro blanco!) */
+/* Caja de resultados */
+.search-results-list {
+  background-color: #0f0f0f !important; /* Fondo Negro */
+  border: 1px solid var(--royal-gold) !important; /* Borde Dorado */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.9) !important;
 }
-.site-header .aux-links a {
-  color: var(--royal-gold) !important;
+
+/* Elementos de la lista */
+.search-results-list-item {
+  background-color: #0f0f0f !important;
+  color: #fff !important;
+  border-bottom: 1px solid #222 !important;
+}
+
+/* Título del resultado (Donde salía morado) */
+.search-result-title {
+  color: var(--royal-gold) !important; /* Ahora es DORADO */
   font-weight: bold;
 }
 
-/* 5. BARRA DE BÚSQUEDA */
+/* Texto previo y hover */
+.search-result-preview {
+  color: #bbb !important;
+}
+.search-results-list-item:hover,
+.search-results-list-item.active {
+  background-color: #222 !important; /* Gris oscuro al pasar mouse */
+  color: #fff !important;
+}
+
+/* Input de búsqueda */
 .search-input {
   background-color: #151515 !important;
-  border: 1px solid #333 !important;
+  border: 1px solid #444 !important;
   color: #fff !important;
   border-radius: 4px;
 }
+.search-input:focus {
+  border-color: var(--royal-gold) !important;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
 
-/* 6. ELEMENTOS INTERACTIVOS */
+/* 5. ENLACES Y BOTONES (Adiós Azul/Morado, Hola Dorado) */
+a {
+  color: var(--royal-gold) !important; /* Todos los links son DORADOS */
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #fff !important; /* Se ponen blancos al pasar el mouse */
+}
+
 /* Botones */
 .btn {
   background-color: transparent !important;
@@ -87,21 +119,11 @@ h1 {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
-/* Enlaces de texto (Azul Tech) */
-.page-content a:not(.btn) {
-  color: var(--tech-blue) !important;
-  text-decoration: none;
-}
-.page-content a:not(.btn):hover {
-  text-decoration: underline;
-  text-shadow: 0 0 8px var(--tech-blue);
-}
-
-/* 7. TABLAS Y CÓDIGO */
+/* 6. TABLAS, CÓDIGO Y CITAS */
 code, pre {
   background-color: #0f0f0f !important;
-  border: 1px solid #222;
-  color: #80caff !important;
+  border: 1px solid #333;
+  color: #e0e0e0 !important; /* Texto gris claro, más neutro */
 }
 
 table, tr, td {
@@ -109,12 +131,11 @@ table, tr, td {
   border-color: var(--borde-sutil) !important;
 }
 th {
-  border-bottom: 2px solid var(--royal-gold) !important; /* Línea dorada en tablas */
+  border-bottom: 2px solid var(--royal-gold) !important;
   background-color: transparent !important;
   color: #fff !important;
 }
 
-/* Citas */
 blockquote {
   border-left: 4px solid var(--royal-gold) !important;
   background-color: rgba(212, 175, 55, 0.05) !important;
@@ -122,4 +143,9 @@ blockquote {
   font-style: italic;
 }
 
+/* Arreglo Header Derecho */
+.site-header .aux-links {
+  background-color: transparent !important;
+  border: none !important;
+}
 .site-logo { display: none !important; }

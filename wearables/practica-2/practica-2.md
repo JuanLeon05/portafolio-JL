@@ -43,9 +43,9 @@ Análisis del firmware en C++, implementación de la Transformada Rápida de Fou
 ### 3. Proceso y Manufactura
 Bitácora de construcción paso a paso, desde la validación en protoboard hasta las técnicas de costura con hilo conductor de acero inoxidable.
 
-[Ver Proceso](../proceso){: .btn .btn-outline .mr-2 }
+[Ver Proceso](../proceso){: .btn .btn-ptimary .mr-2 }
 
 ### 4. Diseño y Colaboración
 Exploración de la ergonomía, la estética del dispositivo y la colaboración interdisciplinaria con el área de Diseño Textil.
 
-[Ver Diseño](../diseno){: .btn .btn-outline .mr-2 }
+[Ver Diseño](../diseno){: .btn .btn-primary .mr-2 }

@@ -47,4 +47,4 @@ La identidad visual del proyecto busca fusionar lo orgánico con lo sintético.
 
 ---
 
-[Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 
+[Ver Código](./codigo.md){: .btn .btn-outline } [Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 

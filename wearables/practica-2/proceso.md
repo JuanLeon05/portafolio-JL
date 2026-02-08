@@ -3,7 +3,7 @@ layout: default
 title: Proceso y Manufactura
 parent: P2 - SonicGauntlet
 grand_parent: Wearables
-nav_order: 2
+nav_order: 3
 ---
 
 # De la Teoría al Escenario: Bitácora de Construcción

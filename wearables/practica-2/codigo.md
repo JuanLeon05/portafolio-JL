@@ -6,7 +6,7 @@ grand_parent: Wearables
 nav_order: 4
 ---
 
-# Algoritmo y Firmware "Ultimate"
+# Algoritmo y Firmware 
 {: .fs-9 }
 
 El firmware del **SpectraGlove** no es un simple interruptor que enciende luces cuando hay ruido. Es un sistema reactivo diseñado para interpretar la música de la misma forma que lo hace el oído humano.
@@ -141,7 +141,7 @@ void loop() {
 
   // --- TOMA DE DECISIONES ---
 
-  if (totalVolume > 1500) { // CASO A: HAY MÚSICA
+  if (totalVolume > 600) { // CASO A: HAY MÚSICA
     lastAudioTime = millis(); // Reiniciamos el cronómetro de silencio
     isStandby = false;        
     

@@ -29,9 +29,6 @@ Antes de coser, se validó el algoritmo FFT y el circuito de amplificación.
 1.  **Prueba Unitaria:** Se conectó el módulo MHM-28 al Arduino para verificar la lectura analógica en el Serial Plotter.
 2.  **Validación de LEDs:** Se probaron las resistencias de 100Ω para asegurar que el brillo fuera suficiente considerando la futura resistencia del hilo conductor.
 
-![Prueba en Protoboard](../../../assets/img/spectra-glove/circuito.jpg)
-*Figura 1: Validación del circuito y algoritmo antes de la integración textil.*
-
 ---
 
 ## Fase 3: Integración Textil (Costura)
@@ -55,4 +52,4 @@ Al finalizar la costura, se realizaron pruebas de continuidad con multímetro.
 ---
 
 
-[Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Código](./codigo.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 
+[Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Código](./codigo.md){: .btn .btn-outline } [Ver Diseño](../diseño.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 

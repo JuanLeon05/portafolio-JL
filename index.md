@@ -37,15 +37,16 @@ Mi objetivo es documentar rigurosamente cada etapa del proceso de ingeniería, v
 
 ## Proyectos Destacados
 
-### 1. SpectraGlove (Interfaz Háptica-Visual)
+### 1. Práctica 1 (Nombre del Proyecto)
+Descripción técnica breve del proyecto. Enfoque en el problema resuelto y la metodología aplicada.
+* **Estado:** [En desarrollo](./wearables/practica-1)
+
+### 2. SpectraGlove (Interfaz Háptica-Visual)
 Dispositivo wearable diseñado para la visualización de frecuencias de audio en tiempo real.
 * **Desafío:** Procesamiento digital de señales (DSP) con latencia cercana a cero en hardware limitado.
 * **Solución:** Implementación de algoritmo FFT optimizado en arquitectura Renesas (Arduino R4).
 * **Estado:** [Documentación Completa](./wearables/spectra-glove/)
 
-### 2. Práctica 1 (Nombre del Proyecto)
-Descripción técnica breve del proyecto. Enfoque en el problema resuelto y la metodología aplicada.
-* **Estado:** [En desarrollo](./wearables/practica-1)
 
 ---
 

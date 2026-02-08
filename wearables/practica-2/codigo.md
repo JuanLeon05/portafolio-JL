@@ -91,14 +91,5 @@ void visualizarFrecuencias() {
 }
 ```
 
-<div style="margin-top: 3rem;">
-  <a href="../practica-2/" class="btn btn-outline" style="margin-right: 1rem;">
-    Inicio del Proyecto
-  </a>
-  <a href="../hardware" class="btn btn-outline" style="margin-right: 1rem;">
-    Hardware
-  </a>
-  <a href="https://juanleon05.github.io/portafolio-JL" target="_blank" class="btn btn-primary">
-    Ver Repositorio Completo 
-  </a>
-</div>
+
+[Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 

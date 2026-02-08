@@ -2,59 +2,67 @@
 layout: default
 title: Home
 nav_order: 1
-description: "Bienvenido al portafolio de Juan León. Mecatrónica y Wearables."
+description: Portafolio de Ingeniería Mecatrónica - Juan León
 permalink: /
 ---
 
 # Juan León
 {: .fs-9 }
 
-**Ingeniero en Mecatrónica & Desarrollador de Wearables**
-{: .fs-6 .fw-300 }
+**Ingeniería Mecatrónica | Sistemas Embebidos | Diseño Hardware**
+{: .fs-6 .fw-300 .text-grey-dk-000 }
+
+Bienvenido a mi documentación técnica. Este repositorio centraliza el desarrollo, código fuente y análisis de ingeniería de mis proyectos académicos y personales. Mi enfoque radica en la integración eficiente de hardware y software para crear sistemas funcionales.
 
 ---
 
-<div class="code-example" markdown="1">
-> "La tecnología no solo se usa, se viste."
-</div>
+## Perfil Profesional
 
-### Sobre mí
-Soy la mitad técnica de un dúo creativo enfocado en **Wearable Tech**. Mi especialidad es fusionar el **hardware** con el mundo real, creando interfaces que reaccionan, iluminan y responden.
+Estudiante de Ingeniería Mecatrónica en la **Universidad Iberoamericana**. Me especializo en el diseño de sistemas mecatrónicos, desde la concepción mecánica en CAD hasta la implementación del firmware en microcontroladores.
 
-Mi enfoque combina la precisión de la ingeniería con la estética del diseño moderno. Me inspira la música, el ritmo y cómo la tecnología puede amplificar la experiencia humana.
+Mi objetivo es documentar rigurosamente cada etapa del proceso de ingeniería, validando teóricamente los resultados obtenidos en la práctica.
 
 ---
 
-###  Proyecto Destacado: SpectraGlove
+## Competencias Técnicas
 
-**Wearable Audio Visualizer**
-Un guante inteligente que traduce la música en luz en tiempo real utilizando algoritmos FFT y hardware integrado en textiles.
-
-[Ver Proyecto Completo](./01-publicar-en-github-pages.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Ver Código en GitHub](https://github.com/JuanLeon05/portafolio-JL){: .btn .fs-5 .mb-4 .mb-md-0 }
-
-*(Nota: En próximas actualizaciones, cambiaremos el enlace del botón 'Ver Proyecto' a la página real de tu guante)*
-
----
-
-###  Tech Stack
-Aquí es donde me muevo:
-
-| Área | Herramientas |
+| Dominio | Herramientas y Tecnologías |
 | :--- | :--- |
-| **Microcontroladores** | Arduino Uno R4, ESP32, STM32 |
-| **Protocolos** | Bluetooth (BLE), WiFi, I2C, SPI |
-| **Software** | C++, Python, MATLAB, Fusion 360 |
-| **Otros** | Impresión 3D, Soldadura SMD, E-Textiles |
+| **Firmware & Control** | C/C++ (Arduino, ESP32), Python, MATLAB/Simulink |
+| **Diseño Electrónico** | Diseño de PCBs, Soldadura SMD/THT, Análisis de Circuitos, Instrumentación |
+| **Diseño Mecánico (CAD)** | SolidWorks, Fusion 360, Impresión 3D (FDM/SLA) |
+| **Procesamiento de Señales** | FFT, Filtros Digitales, Protocolos de Comunicación (I2C, SPI, UART) |
 
 ---
 
-### Navegación Rápida
-Explora mis avances y documentación técnica:
+## Proyectos Destacados
 
-* [ Bitácora de Proyectos](01-publicar-en-github-pages.md)
-* [ Estructura y Metodología](02-estructura-del-repo.md)
-* [ Notas Técnicas](03-markdown.md)
+### 1. SpectraGlove (Interfaz Háptica-Visual)
+Dispositivo wearable diseñado para la visualización de frecuencias de audio en tiempo real.
+* **Desafío:** Procesamiento digital de señales (DSP) con latencia cercana a cero en hardware limitado.
+* **Solución:** Implementación de algoritmo FFT optimizado en arquitectura Renesas (Arduino R4).
+* **Estado:** [Documentación Completa](./wearables/spectra-glove/)
+
+### 2. Práctica 1 (Nombre del Proyecto)
+Descripción técnica breve del proyecto. Enfoque en el problema resuelto y la metodología aplicada.
+* **Estado:** [En desarrollo](./wearables/practica-1)
 
 ---
-{: .fs-3 .fw-300 }
-*Conectemos. Estoy construyendo el futuro, un LED a la vez.*
+
+## Metodología de Trabajo
+
+1.  **Investigación:** Análisis del estado del arte y selección de componentes.
+2.  **Prototipado Rápido:** Pruebas de concepto en protoboard y código modular.
+3.  **Iteración:** Refinamiento de hardware y optimización de código.
+4.  **Documentación:** Registro detallado para reproducibilidad (Open Source).
+
+---
+
+<div style="margin-top: 2rem;">
+  <a href="./wearables/" class="btn btn-primary fs-5 mb-4 mb-md-0 mr-2">
+    Explorar Proyectos
+  </a>
+  <a href="https://github.com/" target="_blank" class="btn btn-outline fs-5 mb-4 mb-md-0">
+    Ver Código en GitHub
+  </a>
+</div>

@@ -9,10 +9,25 @@ permalink: /wearables/
 # Wearables e Interfaces Textiles
 {: .fs-9 }
 
-Colección de proyectos enfocados en la integración de electrónica en textiles (E-Textiles) y dispositivos vestibles.
+Esta sección documenta la exploración y desarrollo de sistemas electrónicos integrados en soportes flexibles y textiles (E-Textiles). El objetivo es trascender la electrónica rígida tradicional para crear interfaces humano-máquina (HMI) ergonómicas y funcionales.
+
+---
 
 ## Proyectos del Semestre
-Aquí encontrarás la documentación técnica de mis prácticas:
 
-1. **Práctica 1:** (Pendiente de documentar)
-2. **Práctica 2:** SpectraGlove (Visualizador de Audio)
+### 1. [Práctica 1: (Nombre Pendiente)](./practica-1)
+Introducción a los circuitos textiles básicos y conductividad en materiales flexibles.
+* **Estado:** Documentación en proceso.
+
+### 2. [Práctica 2: SpectraGlove](./spectra-glove/)
+Sistema de visualización de audio en tiempo real implementado en un guante. Utiliza algoritmos de procesamiento digital de señales (FFT) para mapear frecuencias musicales a respuestas lumínicas en los dedos.
+* **Stack:** Arduino R4, C++, Hilo conductor de acero inoxidable.
+* **Estado:** Finalizado y Documentado.
+
+---
+
+## Recursos y Referencias
+* **Kobakant:** Referencia técnica para conexiones textiles.
+* **Arduino DSP:** Documentación sobre librerías de procesamiento de señales.
+
+---

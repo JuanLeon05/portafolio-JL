@@ -1,6 +1,8 @@
-title: Portafolio JL
-description: Repositorio de Juan Leon, "Wearables"
+title: Juan León | Engineering
+description: Portafolio de Ingeniería Mecatrónica & Wearables
+author: Juan León
 
+# ... deja el resto igual ...
 # GitHub Pages: modo recomendado
 remote_theme: just-the-docs/just-the-docs
 plugins:

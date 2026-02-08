@@ -9,7 +9,6 @@ permalink: /
 # Juan León
 {: .fs-9 }
 
-<<<<<<< HEAD
 **Ingeniero Mecatrónico en Formación (6º Semestre)** | **Presidente IEEE RAS 2025**
 {: .fs-6 .fw-300 .text-grey-dk-000 }
 

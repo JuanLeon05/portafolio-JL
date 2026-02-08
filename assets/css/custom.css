@@ -1,14 +1,18 @@
-/* === ESTILO V7.0 - "ROYAL TECH MASTER" (Completo y Robusto) === */
+/* === ESTILO V8.0 - ROYAL TECH ULTIMATE (Estructura Original + Estilo Nuevo) === */
 
-/* --- 1. VARIABLES (Paleta Royal Blood) --- */
+/* --- 1. VARIABLES (ADN Royal Blood) --- */
 :root {
-  --bg-profundo: #050505;
-  --bg-paneles: #0a0a0a;
+  --bg-profundo: #050505;   /* Negro Fondo */
+  --bg-paneles: #0a0a0a;    /* Negro Paneles */
   --texto-titulo: #ffffff;
   --texto-cuerpo: #e0e0e0;
   --royal-gold: #d4af37;    /* ORO */
+  --royal-hover: #f1c40f;   /* Oro más brillante para hover */
   --borde-sutil: #222222;
-  --link-color: #d4af37;    /* Para compatibilidad con el tema base */
+  
+  /* Sobrescribimos variables del tema Just the Docs */
+  --link-color: #d4af37;
+  --nav-child-link-color: #888;
 }
 
 /* --- 2. BASES GLOBALES --- */
@@ -18,25 +22,35 @@ body, html, .page-content {
   font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Títulos */
+/* Títulos H1-H6 */
 h1, h2, h3, h4, .site-title {
   color: var(--texto-titulo) !important;
   text-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
-
 h1 {
   border-bottom: 3px solid var(--royal-gold) !important;
   display: inline-block;
   padding-bottom: 5px;
 }
 
-/* --- 3. HEADER Y SIDEBAR (Escritorio) --- */
+/* --- 3. HEADER Y SIDEBAR (Adaptado del original) --- */
 .site-header, .side-bar {
   background-color: var(--bg-paneles) !important;
   border-color: var(--borde-sutil) !important;
+  /* El original tenía background-image: linear-gradient... lo anulamos */
+  background-image: none !important;
 }
 
-/* Fix del cuadro blanco a la derecha */
+/* Título del sitio en sidebar */
+.side-bar .site-title {
+  color: var(--royal-gold) !important;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.site-logo { display: none !important; } /* Ocultamos logo rojo */
+
+/* Fix cuadro blanco a la derecha (Header) */
 .site-header .aux-links {
   background-color: transparent !important;
   border: none !important;
@@ -46,37 +60,65 @@ h1 {
   font-weight: bold;
 }
 
-/* --- 4. NAVEGACIÓN (Menu Lateral Complejo) --- */
+/* --- 4. NAVEGACIÓN COMPLEJA (La lógica de las 130 líneas) --- */
+
 /* Nivel 1 (Padres) */
 .side-bar .nav-list > .nav-list-item > .nav-list-link {
-  color: #888 !important;
+  color: #aaa !important; /* Gris claro */
   background: transparent !important;
+  font-weight: 400;
+  letter-spacing: .2px;
+  font-size: 1.05rem;
+  padding-left: 1rem;
 }
 
-/* Hover y Activo (Dorado) */
+/* Nivel 2 (Hijos) - Sangría + Estilo */
+.side-bar .nav-list .nav-list-item .nav-list .nav-list-link {
+  font-weight: 300;
+  font-size: 0.95rem;
+  padding-left: 1.75rem;
+  position: relative;
+  background: transparent !important;
+  border-left: 3px solid transparent;
+  color: #888 !important;
+}
+
+/* Nivel 3 (Nietos) */
+.side-bar .nav-list .nav-list-item .nav-list .nav-list-item .nav-list .nav-list-link {
+  padding-left: 2.25rem;
+  font-size: 0.9rem;
+}
+
+/* ESTADOS ACTIVOS Y HOVER (El toque dorado) */
 .nav-list .nav-list-link.active,
 .nav-list .nav-list-link:hover {
   color: #fff !important;
-  background-image: none !important;
-  background-color: rgba(212, 175, 55, 0.15) !important;
-  border-left: 3px solid var(--royal-gold) !important;
+  background-image: none !important; /* Matamos el degradado original */
+  background-color: rgba(212, 175, 55, 0.15) !important; /* Fondo oro sutil */
+  border-left-color: var(--royal-gold) !important; /* Línea lateral */
 }
 
-/* Nivel 2 (Hijos - Sangría y puntos) */
-.side-bar .nav-list .nav-list-item .nav-list .nav-list-link {
-  padding-left: 1.6rem;
-  font-size: 0.95rem;
+/* NAVBAR FIX (Del código original: limpieza de bullets automáticos) */
+.side-bar a::before,
+.side-bar a::after,
+.site-nav .nav-list-link::before,
+.site-nav .nav-list-link::after {
+  content: none !important;
 }
-/* Bullet para nivel 2 */
+
+/* Re-dibujamos el bullet (punto) SOLO en nivel 2 y 3 */
 .side-bar .nav-list .nav-list-item .nav-list .nav-list-link::before {
   content: "•" !important;
   position: absolute;
-  left: 0.8rem;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
   color: var(--royal-gold) !important;
-  opacity: 0.6;
+  opacity: 0.8;
+  font-size: 0.8rem;
 }
 
-/* Flechas del menú (Chevrons) */
+/* Flechas de expansión (svg) */
 .nav-list-expander svg {
   color: #666 !important;
 }
@@ -84,7 +126,48 @@ h1 {
   color: var(--royal-gold) !important;
 }
 
-/* --- 5. BUSCADOR OSCURO (Fix Crítico) --- */
+/* --- 5. MENÚ HAMBURGUESA (Móvil) --- */
+#menu-toggle + label, .menu-button, .menu-icon svg {
+  color: var(--royal-gold) !important;
+  fill: var(--royal-gold) !important;
+}
+
+/* --- 6. FOOTER Y MEDIAS QUERIES (Original restaurado) --- */
+
+/* Ocultar footer por defecto del tema */
+footer.site-footer { display: none !important; }
+
+/* Footer Personalizado (Estilos) */
+.custom-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #222;
+  color: #666;
+  font-size: 0.9rem;
+}
+.custom-footer a {
+  color: var(--royal-gold) !important;
+}
+
+/* Reglas Móviles (Restauradas del original pero en oscuro) */
+@media (max-width: 66rem) {
+  /* En móvil, el fondo tiende a romperse a blanco, lo forzamos */
+  .custom-footer {
+    background: var(--bg-paneles) !important; 
+    color: #888;
+  }
+  .site-nav {
+    background-color: var(--bg-paneles) !important;
+  }
+  /* Footer original en móvil (si aparece) */
+  footer.site-footer {
+     display: block !important;
+     background: var(--bg-paneles) !important;
+     color: #666 !important;
+  }
+}
+
+/* --- 7. BUSCADOR OSCURO (Fix Crítico) --- */
 .search-results-list {
   background-color: #0f0f0f !important;
   border: 1px solid var(--royal-gold) !important;
@@ -95,16 +178,19 @@ h1 {
   color: #fff !important;
   border-bottom: 1px solid #222 !important;
 }
-.search-result-title {
-  color: var(--royal-gold) !important;
-}
+.search-result-title { color: var(--royal-gold) !important; font-weight: bold; }
 .search-input {
   background-color: #151515 !important;
   border: 1px solid #444 !important;
   color: #fff !important;
 }
 
-/* --- 6. ELEMENTOS UI (Botones, Links, Tablas) --- */
+/* --- 8. COMPONENTES GLOBALES (Links, Tablas, Citas) --- */
+/* Migas de pan (Breadcrumbs) */
+.breadcrumbs li a { color: var(--royal-gold) !important; }
+.breadcrumbs li { color: #666; }
+
+/* Enlaces generales */
 a {
   color: var(--royal-gold) !important;
   text-decoration: none;
@@ -114,6 +200,7 @@ a:hover {
   color: #fff !important;
 }
 
+/* Botones */
 .btn {
   background-color: transparent !important;
   border: 2px solid var(--royal-gold) !important;
@@ -129,59 +216,31 @@ a:hover {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
-/* Tablas transparentes */
+/* Tablas */
 table, tr, td {
   background-color: transparent !important;
   border-color: var(--borde-sutil) !important;
 }
 th {
   border-bottom: 2px solid var(--royal-gold) !important;
-  background-color: transparent !important;
   color: #fff !important;
+  background: transparent !important;
 }
 
-/* Código y Citas */
-code, pre {
-  background-color: #0f0f0f !important;
-  border: 1px solid #333;
-  color: #e0e0e0 !important;
-}
+/* Citas y Código */
 blockquote {
   border-left: 4px solid var(--royal-gold) !important;
   background-color: rgba(212, 175, 55, 0.05) !important;
   color: #ccc !important;
   font-style: italic;
 }
-
-/* --- 7. SOPORTE MÓVIL (Responsivo) --- */
-@media (max-width: 66rem) {
-  /* En móvil, el fondo a veces se pone blanco por defecto, lo forzamos a negro */
-  .site-nav, .site-header, body {
-    background-color: var(--bg-profundo) !important;
-    color: #fff !important;
-  }
-  
-  /* Icono de menú hamburguesa */
-  .site-header .menu-icon svg {
-    fill: var(--royal-gold) !important;
-  }
-  
-  /* Footer móvil */
-  footer.site-footer {
-    background: var(--bg-paneles) !important;
-    color: #888 !important;
-  }
-}
-
-/* --- 8. EXTRAS (Video y Logo) --- */
-.site-logo { display: none !important; }
-
-video {
-  max-width: 100%;
-  height: auto;
+code, pre {
+  background-color: #0f0f0f !important;
   border: 1px solid #333;
+  color: #e0e0e0 !important;
 }
 
+/* Video Responsive */
 .responsive-embed {
   position: relative;
   width: 100%;

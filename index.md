@@ -40,7 +40,7 @@ Diseño y manufactura de un robot de competencia controlado por arquitectura dua
 * **Control:** Navegación omnidireccional (Ruedas Mecanum), gestión de baterías LiPo, reguladores de voltaje y telemetría Bluetooth/Radio Control.
 
 ### 2. [UAV Autónomo - Teknofest Turquía 2025]()
-*Liderazgo Técnico en RAS IBERO.*
+*Liderazgo Técnico en RAS REEUIA.*
 Desarrollo integral de un Dron (UAV) para competencia internacional.
 * **Inteligencia Artificial:** Implementación de **NVIDIA Jetson Nano** para visión por computadora y reconocimiento de objetivos en tiempo real.
 * **Hardware:** Diseño de PCB a medida para etapas de potencia y distribución de señal. Control avanzado de servos para superficies de control.

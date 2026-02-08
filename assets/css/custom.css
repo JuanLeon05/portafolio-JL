@@ -1,252 +1,152 @@
-/* === ESTILO V11.0 - ROYAL TECH BULLETPROOF (Fix Nuclear Buscador) === */
+/* === ESTILO V12.0 - ROYAL BLOOD "SYSTEM OVERRIDE" === */
 
-/* --- 1. VARIABLES (ADN Royal Blood) --- */
+/* 1. REESCRITURA DEL ADN DEL TEMA (Variables Globales) */
 :root {
-  --bg-profundo: #050505;     /* Negro Absoluto */
-  --bg-paneles: #0a0a0a;      /* Sidebar/Header */
-  --royal-gold: #d4af37;      /* ORO PRINCIPAL */
-  --royal-hover: #f1c40f;     /* Oro brillante */
-  --texto-titulo: #ffffff;
-  --texto-cuerpo: #e0e0e0;
-  --texto-tenue: #999999;
-  --borde-sutil: #222222;
-
-  /* Sobrescribimos variables nativas para evitar conflictos */
-  --link-color: #d4af37;
-  --nav-child-link-color: #999;
-  --code-background-color: #111;
-  --search-background-color: #0a0a0a; /* Forzamos variable del tema */
+  /* Forzamos al tema a usar nuestros colores base */
+  --body-background-color: #050505 !important;
+  --body-text-color: #e0e0e0 !important;
+  --link-color: #d4af37 !important; /* ORO */
+  --nav-child-link-color: #999 !important;
+  
+  /* ESTO ARREGLA LOS BLOQUES DE CÓDIGO BLANCOS */
+  --code-background-color: #111111 !important;
+  --code-text-color: #e0e0e0 !important;
+  
+  /* ESTO ARREGLA EL BUSCADOR Y BORDES */
+  --border-color: #222 !important;
+  --search-background-color: #0a0a0a !important;
+  --search-result-preview-color: #888 !important;
+  
+  /* NUESTRAS VARIABLES PERSONALIZADAS */
+  --royal-gold: #d4af37;
+  --bg-paneles: #0a0a0a;
 }
 
-/* --- 2. RESET GLOBAL & ACCESIBILIDAD --- */
+/* 2. LIMPIEZA GENERAL */
 body, html, .page-content {
-  background-color: var(--bg-profundo) !important;
-  color: var(--texto-cuerpo) !important;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-}
-:focus-visible {
-  outline: 2px solid var(--royal-gold) !important;
-  outline-offset: 2px;
+  background-color: var(--body-background-color) !important;
+  color: var(--body-text-color) !important;
 }
 
-/* --- 3. HEADER & BARRA SUPERIOR --- */
-.site-header {
+/* 3. HEADER Y SIDEBAR (Negro Puro) */
+.site-header, .side-bar {
   background-color: var(--bg-paneles) !important;
-  border-bottom: 1px solid var(--borde-sutil) !important;
-  background-image: none !important;
-}
-.site-header .aux-links {
-  background-color: transparent !important;
-  height: 100%;
-}
-.site-header .aux-links a {
-  color: var(--royal-gold) !important;
-  font-weight: 700;
-}
-.site-header .menu-icon svg, 
-.site-header .search-icon svg {
-  fill: var(--royal-gold) !important;
-  color: var(--royal-gold) !important;
+  background-image: none !important; /* Elimina cualquier degradado residual */
+  border-color: var(--border-color) !important;
 }
 
-/* --- 4. SIDEBAR & NAVEGACIÓN --- */
-.side-bar {
-  background-color: var(--bg-paneles) !important;
-  border-right: 1px solid var(--borde-sutil) !important;
-}
-.site-title {
-  color: var(--texto-titulo) !important;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+/* Logo Ibero fuera */
 .site-logo { display: none !important; }
 
-/* Nivel 1 */
-.side-bar .nav-list > .nav-list-item > .nav-list-link {
-  color: var(--texto-tenue) !important;
-  background: transparent !important;
-  font-weight: 500;
-  border: none;
-}
-/* Nivel 2 */
-.side-bar .nav-list .nav-list-item .nav-list .nav-list-link {
-  padding-left: 2rem;
-  font-weight: 300;
-  color: #888 !important;
-  position: relative;
-}
-.side-bar .nav-list .nav-list-item .nav-list .nav-list-link::before {
-  content: "•";
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--royal-gold);
-  opacity: 0.6;
-}
-/* Activo & Hover */
-.nav-list .nav-list-link.active,
-.nav-list .nav-list-link:hover {
+/* Títulos */
+h1, h2, h3, h4, .site-title {
   color: #fff !important;
-  background-color: rgba(212, 175, 55, 0.1) !important;
-  background-image: none !important;
-  border-left: 3px solid var(--royal-gold) !important;
 }
-.nav-list-expander svg { color: #555 !important; }
-.nav-list-expander:hover svg { color: var(--royal-gold) !important; }
+h1 {
+  border-bottom: 3px solid var(--royal-gold) !important;
+  display: inline-block;
+  padding-bottom: 5px;
+}
 
-
-/* --- 5. FIX NUCLEAR DEL BUSCADOR (La Solución Definitiva) --- */
-
-/* Caja contenedora */
+/* 4. FIX NUCLEAR DEL BUSCADOR (Lo que fallaba antes) */
+/* El contenedor de resultados */
 .search-results-list {
-  background-color: #000000 !important; /* Negro Puro */
+  background-color: #000 !important;
   border: 2px solid var(--royal-gold) !important;
   box-shadow: 0 20px 50px rgba(0,0,0,1) !important;
-  padding: 0 !important;
 }
 
-/* Elemento individual (Normal) */
+/* Cada elemento de la lista */
 .search-results-list-item {
-  background-color: #000000 !important; /* Siempre negro */
+  background-color: #000 !important;
   color: #ccc !important;
   border-bottom: 1px solid #333 !important;
-  padding: 12px 15px !important;
 }
 
-/* --- AQUÍ ESTÁ EL CAMBIO CLAVE --- */
-/* Usamos un selector de altísima especificidad para aplastar al tema */
-body .search-results-list .search-results-list-item.active,
-body .search-results-list .search-results-list-item:hover,
-body .search-results-list .search-results-list-item:focus {
-  background-color: #000000 !important;  /* FORZAMOS NEGRO PURO */
-  background-image: none !important;     /* Eliminamos cualquier gradiente */
-  color: #ffffff !important;             /* Texto Blanco para máximo contraste */
-  box-shadow: inset 0 0 0 2px var(--royal-gold) !important; /* Borde interno dorado para resaltar */
+/* ESTADO ACTIVO/HOVER - FORZADO */
+.search-results-list-item.active,
+.search-results-list-item:hover {
+  background-color: #222 !important; /* Gris Oscuro */
+  background-image: none !important; /* Mata el blanco del tema */
+  color: #fff !important;
 }
 
-/* Título del resultado */
+/* Títulos dorados en el buscador */
 .search-result-title {
   color: var(--royal-gold) !important;
   font-weight: 700;
-  display: block;
-  margin-bottom: 4px;
 }
-/* Título cuando está seleccionado (Brilla más) */
-.search-results-list-item.active .search-result-title,
-.search-results-list-item:hover .search-result-title {
-  color: var(--royal-light) !important;
-  text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+.search-results-list-item.active .search-result-title {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
 }
 
-/* Preview del texto */
-.search-result-preview {
-  color: #999 !important;
-  font-size: 0.9em;
-}
-.search-results-list-item.active .search-result-preview,
-.search-results-list-item:hover .search-result-preview {
-  color: #eee !important; /* Casi blanco en hover */
-}
-
-/* Input */
+/* Input del buscador */
 .search-input {
   background-color: #111 !important;
   border: 1px solid #444 !important;
   color: #fff !important;
-  border-radius: 4px;
 }
 .search-input:focus {
   border-color: var(--royal-gold) !important;
-  box-shadow: 0 0 0 2px var(--royal-gold);
+  box-shadow: 0 0 0 1px var(--royal-gold);
 }
 
-
-/* --- 6. CONTENIDO & COMPONENTES --- */
-h1, h2, h3, h4 { color: var(--texto-titulo) !important; }
-h1 {
-  border-bottom: 3px solid var(--royal-gold) !important;
-  padding-bottom: 0.5rem;
-  display: inline-block;
-}
-a { color: var(--royal-gold) !important; text-decoration: none; }
-a:hover { color: #fff !important; text-decoration: underline; }
-
-.btn {
-  background: transparent !important;
-  border: 2px solid var(--royal-gold) !important;
-  color: var(--royal-gold) !important;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 0;
-}
-.btn:hover {
-  background: var(--royal-gold) !important;
-  color: #000 !important;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+/* 5. ARREGLO DE CÓDIGO Y TABLAS (Lo de la última foto) */
+/* Forzamos que los bloques de código sean oscuros */
+code, pre, .highlighter-rouge {
+  background-color: #0f0f0f !important;
+  color: #ccc !important;
+  border: 1px solid #333 !important;
+  border-radius: 4px;
 }
 
+/* Tablas transparentes */
 table, tr, td, th {
   background-color: transparent !important;
-  border-color: var(--borde-sutil) !important;
+  border-color: #333 !important;
 }
 th {
   border-bottom: 2px solid var(--royal-gold) !important;
   color: #fff !important;
 }
-blockquote {
-  border-left: 4px solid var(--royal-gold) !important;
-  background: rgba(212, 175, 55, 0.05) !important;
-  color: #ccc;
-  font-style: italic;
-  padding: 1rem;
-}
-code {
-  background-color: #111 !important;
-  border: 1px solid #333;
-  color: #ddd;
+
+/* 6. NAVEGACIÓN Y DETALLES */
+/* Links dorados */
+a { color: var(--royal-gold) !important; text-decoration: none; }
+a:hover { color: #fff !important; text-decoration: underline; }
+
+/* Menú lateral activo */
+.nav-list .nav-list-link.active,
+.nav-list .nav-list-link:hover {
+  background-image: none !important;
+  background-color: rgba(212, 175, 55, 0.15) !important;
+  border-left: 3px solid var(--royal-gold) !important;
+  color: #fff !important;
 }
 
-/* --- 7. FOOTER & MÓVIL --- */
+/* Fix cuadro blanco derecha en header */
+.site-header .aux-links {
+  background-color: transparent !important;
+}
+.site-header .aux-links a {
+  color: var(--royal-gold) !important;
+}
+
+/* Móvil */
+@media (max-width: 66rem) {
+  .site-nav { background-color: var(--bg-paneles) !important; }
+  footer.site-footer { 
+    display: block !important; 
+    background: var(--bg-paneles) !important; 
+    color: #666 !important;
+  }
+}
+
+/* Footer propio */
 footer.site-footer { display: none !important; }
 .custom-footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--borde-sutil);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
   color: #666;
-  font-size: 0.9rem;
-}
-@media (max-width: 66rem) {
-  .site-nav, body, .site-header {
-    background-color: var(--bg-paneles) !important;
-    color: #fff !important;
-  }
-  footer.site-footer {
-    display: block !important;
-    background: var(--bg-paneles) !important;
-    color: #888 !important;
-  }
-  .search { margin-right: 0; }
-}
-
-/* --- 8. EXTRAS & PRINT --- */
-.breadcrumbs li a { color: var(--royal-gold) !important; }
-.breadcrumbs li { color: #666; }
-.responsive-embed {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  background: #000;
-}
-.responsive-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-@media print {
-  body { background: #fff !important; color: #000 !important; }
-  .side-bar, .site-header { display: none; }
-  .page-content { margin: 0; width: 100%; }
 }

@@ -5,6 +5,7 @@ author: Juan León
 # ... deja el resto igual ...
 # GitHub Pages: modo recomendado
 remote_theme: just-the-docs/just-the-docs
+color_scheme: dark
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag

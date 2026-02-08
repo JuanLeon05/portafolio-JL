@@ -9,7 +9,7 @@ permalink: /
 # Juan León
 {: .fs-9 }
 
-**Ingeniero Mecatrónico en Formación (6º Semestre)** | **Presidente IEEE RAS 2025**
+**Ingeniero Mecatrónico en Formación (6º Semestre)** | **Presidente IEEE RAS REEUIA 2025**
 {: .fs-6 .fw-300 .text-grey-dk-000 }
 
 Bienvenido. Soy desarrollador de hardware en la **Universidad Iberoamericana**.

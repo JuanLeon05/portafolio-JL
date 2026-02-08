@@ -9,61 +9,73 @@ permalink: /
 # Juan León
 {: .fs-9 }
 
-**Ingeniería Mecatrónica | Sistemas Embebidos | Diseño Hardware**
+**Ingeniero Mecatrónico en Formación (6º Semestre) | Presidente IEEE RAS 2025**
 {: .fs-6 .fw-300 .text-grey-dk-000 }
 
-Bienvenido a mi documentación técnica. Este repositorio centraliza el desarrollo, código fuente y análisis de ingeniería de mis proyectos académicos y personales. Mi enfoque radica en la integración eficiente de hardware y software para crear sistemas funcionales.
+Bienvenido. Soy desarrollador de hardware en la **Universidad Iberoamericana**.
+
+Mi perfil combina la robustez de la ingeniería clásica (potencia, mecánica, analógica) con tecnologías de vanguardia (IA en el borde, FPGA, RTOS). Me especializo en llevar sistemas complejos del concepto al prototipo funcional de alta fidelidad.
 
 ---
 
-## Perfil Profesional
+## Stack Tecnológico Avanzado
 
-Estudiante de Ingeniería Mecatrónica en la **Universidad Iberoamericana**. Me especializo en el diseño de sistemas mecatrónicos, desde la concepción mecánica en CAD hasta la implementación del firmware en microcontroladores.
+Herramientas y lenguajes validados en proyectos de alto presupuesto y competencia internacional.
 
-Mi objetivo es documentar rigurosamente cada etapa del proceso de ingeniería, validando teóricamente los resultados obtenidos en la práctica.
-
----
-
-## Competencias Técnicas
-
-| Dominio | Herramientas y Tecnologías |
+| Dominio | Tecnologías Dominadas |
 | :--- | :--- |
-| **Firmware & Control** | C/C++ (Arduino, ESP32), Python, MATLAB/Simulink |
-| **Diseño Electrónico** | Diseño de PCBs, Soldadura SMD/THT, Análisis de Circuitos, Instrumentación |
-| **Diseño Mecánico (CAD)** | SolidWorks, Fusion 360, Impresión 3D (FDM/SLA) |
-| **Procesamiento de Señales** | FFT, Filtros Digitales, Protocolos de Comunicación (I2C, SPI, UART) |
+| **Sistemas Embebidos & FPGA** | **Hardware:** STM32 (Blue Pill), FPGA (Nexys A7), Jetson Nano, ESP32 S3, Arduino R4/Leonardo.<br>**Lenguajes:** VHDL, C/C++ (HAL/Low-Level), Python.<br>**Control:** Manejo de interrupciones, RTOS, PWM Multicanal. |
+| **Desarrollo de Software** | **Aplicaciones:** GTK (C), Java (POO), Matlab (Procesamiento de Imágenes).<br>**Web & Datos:** SQL, MongoDB, HTML/JS, Integración de APIs. |
+| **Ingeniería Electrónica** | **Analógica:** Diseño con OpAmps (Filtros Activos), Transistores de Potencia, Amplificadores de Audio.<br>**Digital:** Máquinas de Estados Finitos, Lógica Compuerta/Registro, EEPROM. |
+| **Diseño & Manufactura** | **CAD/CAM:** CATIA, Inventor, KiKad.<br>**Prototipado:** Corte Láser, Impresión 3D, Circuitos Flexibles. |
 
 ---
 
-## Proyectos Destacados
+## Proyectos de Ingeniería (High-Performance)
 
-### 1. Práctica 1 (Nombre del Proyecto)
-Descripción técnica breve del proyecto. Enfoque en el problema resuelto y la metodología aplicada.
-* **Estado:** [En desarrollo](./wearables/practica-1)
+### 1. [BattleBot: Vehículo de Combate (STM32)]()
+*Proyecto Final de Sistemas Embebidos.*
+Diseño y manufactura de un robot de competencia controlado por arquitectura dual de microcontroladores **STM32**.
+* **Armamento:** Cañón neumático de balines (propulsión CO2 con válvulas solenoides) y sistema térmico de corto alcance (filamento a 800°C).
+* **Control:** Navegación omnidireccional (Ruedas Mecanum), gestión de baterías LiPo, reguladores de voltaje y telemetría Bluetooth/Radio Control.
 
-### 2. SpectraGlove (Interfaz Háptica-Visual)
-Dispositivo wearable diseñado para la visualización de frecuencias de audio en tiempo real.
-* **Desafío:** Procesamiento digital de señales (DSP) con latencia cercana a cero en hardware limitado.
-* **Solución:** Implementación de algoritmo FFT optimizado en arquitectura Renesas (Arduino R4).
-* **Estado:** [Documentación Completa](./wearables/spectra-glove/)
+### 2. [UAV Autónomo - Teknofest Turquía 2025]()
+*Liderazgo Técnico en RAS IBERO.*
+Desarrollo integral de un Dron (UAV) para competencia internacional.
+* **Inteligencia Artificial:** Implementación de **NVIDIA Jetson Nano** para visión por computadora y reconocimiento de objetivos en tiempo real.
+* **Hardware:** Diseño de PCB a medida para etapas de potencia y distribución de señal. Control avanzado de servos para superficies de control.
 
-
----
-
-## Metodología de Trabajo
-
-1.  **Investigación:** Análisis del estado del arte y selección de componentes.
-2.  **Prototipado Rápido:** Pruebas de concepto en protoboard y código modular.
-3.  **Iteración:** Refinamiento de hardware y optimización de código.
-4.  **Documentación:** Registro detallado para reproducibilidad (Open Source).
+### 3. [SpectraGlove (Wearable DSP)](./wearables/spectra-glove/)
+*Dispositivo de Bio-Retroalimentación.*
+Guante háptico que procesa audio en tiempo real usando FFT en Arduino R4.
+* **Reto:** Latencia cero y adaptación de circuitos en sustratos textiles flexibles.
 
 ---
 
-<div style="margin-top: 2rem;">
+## Ingeniería Fundamental (Analógica y Software)
+
+Proyectos que demuestran dominio de los principios base de la ingeniería:
+
+* **Audio de Alta Fidelidad:** Diseño de bocina Bluetooth con preamplificador, etapas de potencia con transistores y filtrado de ruido (Circuitos Analógicos).
+* **Procesamiento de Imágenes (Software):** Editor de fotografías desarrollado en **C con librerías GTK** y catálogo digital.
+* **Sistemas Digitales Puros:** Implementación del videojuego **Pong** usando lógica secuencial, máquinas de estados y memoria EEPROM (sin microprocesador).
+* **Instrumentación Médica:** Investigación en órtesis/prótesis usando sensores de presión y temperatura (INIAT).
+
+---
+
+## Liderazgo y Trayectoria
+
+* **Presidente de Rama Estudiantil IEEE RAS IBERO (2025):** Robotics and Automation Society. Gestión de proyectos y representación internacional.
+* **Becario de Investigación Académico:** INIAT (Área Médica). Desarrollo de tecnología asistiva y sensado de señales corporales.
+* **Representante Estudiantil:** Ingeriería Mecatrónica y Sistemas Ciberfísicos (2026).
+
+---
+
+<div style="margin-top: 3rem;">
   <a href="./wearables/" class="btn btn-primary fs-5 mb-4 mb-md-0 mr-2">
-    Explorar Proyectos
+    Ver Documentación Técnica
   </a>
-  <a href="https://github.com/" target="_blank" class="btn btn-outline fs-5 mb-4 mb-md-0">
-    Ver Código en GitHub
+  <a href="https://github.com/JuanLeon05" target="_blank" class="btn btn-outline fs-5 mb-4 mb-md-0">
+    Repositorio GitHub
   </a>
 </div>

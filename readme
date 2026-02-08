@@ -1,0 +1,84 @@
+# Portafolio de Ingeniería Mecatrónica | Juan León
+
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Role](https://img.shields.io/badge/Role-Mechatronics_Engineer-blue)
+![Focus](https://img.shields.io/badge/Focus-Robotics_&_Embedded_Systems-orange)
+
+> **Repositorio fuente del Portafolio Profesional.** > Este sitio documenta el desarrollo, código y validación de ingeniería de mis proyectos académicos y de investigación.
+
+**Ver Sitio Web:** [https://JuanLeon05.github.io/portafolio-JL/](https://JuanLeon05.github.io/portafolio-JL/)
+
+---
+
+## Sobre Mí
+
+Ingeniero Mecatrónico en formación (6º Semestre) en la **Universidad Iberoamericana**.
+Mi enfoque combina el diseño de hardware robusto con software de alto rendimiento. Actualmente me desempeño como:
+
+* **Presidente:** IEEE RAS (Robotics and Automation Society) Student Branch 2025.
+* **Becario de Investigación:** INIAT (Área de Tecnología Médica / Órtesis).
+* **Liderazgo:** Representante de la Sociedad de Alumnos de Mecatrónica (2026).
+
+---
+
+## Proyectos Destacados (High-Performance)
+
+
+### 1. BattleBot Autónomo (STM32)
+Vehículo de competencia omnidireccional.
+* **Tech:** Dual STM32 (Blue Pill), C++, FreeRTOS.
+* **Hardware:** Cañón neumático (CO2), Ruedas Mecanum, Sistema térmico (800°C).
+
+### 2. UAV Teknofest Turquía 2025
+Desarrollo de dron autónomo para competencia internacional.
+* **Tech:** NVIDIA Jetson Nano (IA/Visión), Python, OpenCV.
+* **Diseño:** PCB de potencia personalizada, manufactura en fibra de carbono.
+
+### 3. SpectraGlove (Wearable DSP)
+Guante háptico para visualización de audio en tiempo real.
+* **Tech:** Arduino R4 WiFi (Renesas), Algoritmo FFT (Fast Fourier Transform).
+* **Innovación:** Latencia cero (<20ms) y circuitos textiles flexibles.
+
+---
+
+## Stack Tecnológico
+
+| Dominio | Herramientas |
+| :--- | :--- |
+| **Microcontroladores** | STM32, ESP32-S3, Arduino R4/Leonardo, FPGA (VHDL). |
+| **Software** | C/C++ (HAL), Python, Java, MATLAB, SQL/MongoDB. |
+| **Diseño Electrónico** | KiKad, Logisim. |
+| **CAD/CAM** | CATIA V5, SolidWorks, Fusion 360. |
+| **Labs** | Instrumentación Biomédica, Robótica Móvil, Automatización. |
+
+---
+
+## Ejecutar este sitio localmente
+
+Este portafolio está construido con **Jekyll**. Para editarlo o visualizarlo en tu máquina:
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/JuanLeon05/portafolio-JL.git](https://github.com/JuanLeon05/portafolio-JL.git)
+    cd portafolio-JL
+    ```
+
+2.  **Instalar dependencias (Ruby & Bundler requeridos):**
+    ```bash
+    bundle install
+    ```
+
+3.  **Correr el servidor local:**
+    ```bash
+    bundle exec jekyll serve
+    ```
+    Visita `http://localhost:4000` en tu navegador.
+
+---
+
+## Licencia
+
+El contenido de este repositorio (texto, imágenes, diagramas) está bajo licencia **CC BY 4.0**.
+El código fuente subyacente puede ser utilizado bajo la licencia **MIT**.
+
+© 2026 Juan León.

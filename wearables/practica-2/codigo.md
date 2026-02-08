@@ -9,11 +9,28 @@ nav_order: 2
 # Algoritmo y Firmware
 {: .fs-9 }
 
-El desafío principal del **SpectraGlove** es traducir señales de audio analógicas en pulsos de luz en tiempo real. Para esto, utilizamos un análisis de frecuencia real con FFT.
+El desafío principal del **SpectraGlove** es traducir señales de audio analógicas en pulsos de luz en tiempo real (Real-Time System). Para esto, no usamos simples condicionales `if/else` basados en volumen, sino un análisis de frecuencia real.
 
 ---
 
-## 💻 El Código
+## El Cerebro: Fast Fourier Transform (FFT)
+
+Utilizamos el algoritmo **FFT (Transformada Rápida de Fourier)** para descomponer la señal de audio en sus frecuencias constitutivas.
+
+* **Librería:** `arduinoFFT` por Enrique Condés.
+* **Muestreo:** 128 muestras (samples) por ciclo.
+* **Frecuencia de Muestreo:** ~1000 Hz (enfocado en el rango visible de la música: graves y medios).
+
+### ¿Cómo funciona el proceso?
+
+1.  **Sampling (Muestreo):** El Arduino toma una "foto" del audio (128 lecturas rápidas del pin A0).
+2.  **Windowing (Ventaneado):** Suavizamos la señal para evitar "ruido" matemático en los bordes.
+3.  **Compute (Cálculo):** La FFT convierte el *Dominio del Tiempo* (onda) al *Dominio de la Frecuencia* (barras).
+4.  **Binning (Clasificación):** Agrupamos los resultados en 5 rangos (Graves, Medios-Graves, Medios, Medios-Altos, Agudos) correspondientes a los 5 dedos.
+
+---
+
+## El Código
 
 ```cpp
 #include "arduinoFFT.h"
@@ -70,3 +87,5 @@ void visualizarFrecuencias() {
   }
 }
 ```
+
+Volver a Hardware{: .btn .btn-outline .mr-2 } Ver Repositorio Completo{: .btn .btn-primary }

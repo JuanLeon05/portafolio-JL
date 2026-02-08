@@ -22,8 +22,8 @@ El desarrollo sigue una curva de aprendizaje incremental, desde la lógica anal�
 
 | Proyecto | Tecnología Clave | Estado |
 | :--- | :--- | :--- |
-| **[P1. Pulsera RockBand](./practica-1/)** | Circuitos Analógicos, Ley de Ohm, Costura Conductiva. |  Finalizado |
-| **[P2. SonicGauntlet](./spectra-glove/)** | Arduino R4, FFT (Fast Fourier Transform), Diseño en Piel. | En Prototipado |
+| **[P1. Pulsera RockBand](./practica-1/practica-1.md/)** | Circuitos Analógicos, Ley de Ohm, Costura Conductiva. |  Finalizado |
+| **[P2. SonicGauntlet](./practica-2/practica-2.md/)** | Arduino R4, FFT (Fast Fourier Transform), Diseño en Piel. | En Prototipado |
 
 ---
 
@@ -40,7 +40,7 @@ Seleccione un proyecto para ver la ingeniería a detalle:
     <div class="card-body">
       <h3 class="card-title">Pulsera RockBand</h3>
       <p class="card-text">Accesorio interactivo de activación mecánica. Introducción a los circuitos blandos (Soft-Circuits).</p>
-      <a href="./practica-1/" class="btn btn-primary">Ver Documentación</a>
+      <a href="./practica-1/practica-1.md" class="btn btn-primary">Ver Documentación</a>
     </div>
   </div>
 
@@ -51,7 +51,7 @@ Seleccione un proyecto para ver la ingeniería a detalle:
     <div class="card-body">
       <h3 class="card-title">SonicGauntlet</h3>
       <p class="card-text">Instrumento de performance. Guante háptico con visualización de frecuencias de audio en tiempo real.</p>
-      <a href="./spectra-glove/" class="btn btn-primary">Ver Ingeniería</a>
+      <a href="./practica-2/practica-2.md" class="btn btn-primary">Ver Ingeniería</a>
     </div>
   </div>
 

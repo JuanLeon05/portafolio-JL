@@ -1,106 +1,99 @@
-/* === REINICIO TOTAL - ESTILO DARK TECH (V2.0) === */
+/* === ESTILO SPECTRA DARK (V3.0 FINAL) === */
 
-/* 1. VARIABLES GLOBALES (Para fácil ajuste) */
+/* 1. FORZADO DE MODO OSCURO GLOBAL */
 :root {
-  --fondo-principal: #0a0a0a;  /* Negro suave */
-  --fondo-secundario: #121212; /* Gris muy oscuro (para sidebar) */
-  --texto-principal: #e0e0e0;  /* Blanco hueso */
-  --acento: #2979ff;           /* Azul Royal (Spectra) */
-  --borde: #333333;            /* Líneas divisorias */
+  --color-fondo: #050505;       /* Negro Profundo */
+  --color-panel: #000000;       /* Negro Puro (Sidebar/Header) */
+  --color-texto: #e0e0e0;       /* Gris Claro */
+  --color-acento: #2979ff;      /* Azul Neón */
+  --color-borde: #333333;       /* Gris Oscuro para líneas */
 }
 
-/* 2. ESTRUCTURA BASE */
-body, .page-content, .side-bar {
-  background-color: var(--fondo-principal) !important;
-  color: var(--texto-principal) !important;
+/* Forzamos el color en TODO el cuerpo y componentes */
+body, html, .page-content {
+  background-color: var(--color-fondo) !important;
+  color: var(--color-texto) !important;
 }
 
-/* Sidebar (Menú lateral) */
-.side-bar {
-  background-color: var(--fondo-secundario) !important;
-  border-right: 1px solid var(--borde);
-}
-
-/* Header (Barra superior móvil) */
-.site-header {
-  background-color: var(--fondo-secundario) !important;
-  border-bottom: 1px solid var(--borde);
-}
-
-/* 3. ARREGLANDO LOS ERRORES VISUALES DE LA FOTO */
-
-/* A) TABLAS (¡Esto arregla las celdas blancas!) */
-table, th, td {
-  background-color: transparent !important;
-  border-color: var(--borde) !important;
-  color: var(--texto-principal) !important;
-}
-th {
-  background-color: #1a1a1a !important; /* Encabezado de tabla un poco más claro */
-  border-bottom: 2px solid var(--acento) !important;
-}
-
-/* B) BARRA DE BÚSQUEDA */
-.search-input {
-  background-color: #222 !important;
-  border: 1px solid var(--borde) !important;
+/* 2. HEADER Y SIDEBAR (Adiós Bloques Blancos) */
+.site-header, 
+.side-bar,
+.aux-links { /* Esto arregla el cuadro blanco de la derecha */
+  background-color: var(--color-panel) !important;
   color: #fff !important;
-}
-/* Color del texto placeholder (Buscar...) */
-.search-input::placeholder {
-  color: #888;
+  border-color: var(--color-borde) !important;
 }
 
-/* C) EL LOGO ROJO (Lo ocultamos y dejamos solo el texto "Juan León") */
+/* Enlace "Repositorio en GitHub" de arriba a la derecha */
+.aux-links a {
+  color: var(--color-acento) !important;
+  background-color: transparent !important;
+}
+
+/* 3. BARRA DE BÚSQUEDA */
+.search-input {
+  background-color: #1a1a1a !important; /* Gris muy oscuro */
+  border: 1px solid var(--color-borde) !important;
+  color: #fff !important;
+  border-radius: 4px;
+}
+.search-input::placeholder { color: #666; }
+
+/* 4. EL LOGO DE LA IBERO (Ocultarlo para siempre) */
 .site-logo {
-  display: none !important; 
+  display: none !important; /* Desaparece la imagen roja */
 }
 .site-title {
   color: #fff !important;
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: transparent !important; /* Asegura que no tenga fondo rojo */
 }
 
-/* 4. TIPOGRAFÍA Y ACENTOS */
-h1, h2, h3 {
+/* 5. TABLAS (Arreglo de celdas blancas) */
+table, tr, td, th {
+  background-color: transparent !important;
+  border-color: var(--color-borde) !important;
+  color: var(--color-texto) !important;
+}
+th {
+  border-bottom: 2px solid var(--color-acento) !important;
   color: #fff !important;
 }
 
-/* Enlaces */
+/* 6. BOTONES Y ENLACES (Estilo Royal Blood) */
 a {
-  color: var(--acento) !important;
+  color: var(--color-acento) !important;
+  text-decoration: none;
 }
 a:hover {
+  text-shadow: 0 0 8px rgba(41, 121, 255, 0.6);
   text-decoration: underline;
-  text-shadow: 0 0 5px rgba(41, 121, 255, 0.5);
 }
 
-/* Menú lateral links */
-.nav-list .nav-list-link {
-  color: #aaa !important;
-}
-.nav-list .nav-list-link.active,
-.nav-list .nav-list-link:hover {
-  color: #fff !important;
-  background-image: linear-gradient(to right, #1a1a1a, transparent) !important;
-  border-left: 3px solid var(--acento);
-}
-
-/* 5. BOTONES Y CÓDIGO */
 .btn {
-  border: 1px solid var(--acento) !important;
-  color: var(--acento) !important;
   background: transparent !important;
-  border-radius: 4px;
+  border: 1px solid var(--color-acento) !important;
+  color: var(--color-acento) !important;
+  border-radius: 0; /* Bordes rectos industriales */
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .btn:hover {
-  background-color: var(--acento) !important;
-  color: #fff !important;
+  background-color: var(--color-acento) !important;
+  color: #000 !important;
+  box-shadow: 0 0 15px rgba(41, 121, 255, 0.5);
 }
 
-/* Bloques de código */
+/* 7. CÓDIGO Y BLOQUES */
 code, pre {
-  background-color: #161616 !important;
+  background-color: #111 !important;
+  border: 1px solid #333;
   color: #a5d6ff !important;
-  border: 1px solid var(--borde);
+}
+blockquote {
+  border-left: 4px solid #ff0055 !important; /* Toque rojo sutil en citas */
+  background-color: #111 !important;
+  color: #ccc !important;
+  font-style: italic;
 }

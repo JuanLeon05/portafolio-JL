@@ -1,16 +1,17 @@
-/* === ESTILO V6.0 - "ROYAL PURE" (Todo Negro y Dorado) === */
+/* === ESTILO V7.0 - "ROYAL TECH MASTER" (Completo y Robusto) === */
 
-/* 1. VARIABLES (Paleta Simplificada: Solo Negro, Blanco y Oro) */
+/* --- 1. VARIABLES (Paleta Royal Blood) --- */
 :root {
   --bg-profundo: #050505;
   --bg-paneles: #0a0a0a;
   --texto-titulo: #ffffff;
   --texto-cuerpo: #e0e0e0;
-  --royal-gold: #d4af37;    /* ORO (Único color de acento) */
+  --royal-gold: #d4af37;    /* ORO */
   --borde-sutil: #222222;
+  --link-color: #d4af37;    /* Para compatibilidad con el tema base */
 }
 
-/* 2. BASES GLOBALES */
+/* --- 2. BASES GLOBALES --- */
 body, html, .page-content {
   background-color: var(--bg-profundo) !important;
   color: var(--texto-cuerpo) !important;
@@ -29,19 +30,30 @@ h1 {
   padding-bottom: 5px;
 }
 
-/* 3. HEADER Y SIDEBAR */
+/* --- 3. HEADER Y SIDEBAR (Escritorio) --- */
 .site-header, .side-bar {
   background-color: var(--bg-paneles) !important;
   border-color: var(--borde-sutil) !important;
 }
 
-/* --- SIDEBAR (Menú lateral) --- */
-.nav-list .nav-list-link {
-  color: #888 !important; /* Gris apagado */
+/* Fix del cuadro blanco a la derecha */
+.site-header .aux-links {
+  background-color: transparent !important;
+  border: none !important;
+}
+.site-header .aux-links a {
+  color: var(--royal-gold) !important;
+  font-weight: bold;
+}
+
+/* --- 4. NAVEGACIÓN (Menu Lateral Complejo) --- */
+/* Nivel 1 (Padres) */
+.side-bar .nav-list > .nav-list-item > .nav-list-link {
+  color: #888 !important;
   background: transparent !important;
 }
 
-/* Hover/Activo en menú: DORADO */
+/* Hover y Activo (Dorado) */
 .nav-list .nav-list-link.active,
 .nav-list .nav-list-link:hover {
   color: #fff !important;
@@ -50,60 +62,58 @@ h1 {
   border-left: 3px solid var(--royal-gold) !important;
 }
 
-/* 4. ARREGLO DEL BUSCADOR (¡Aquí matamos el cuadro blanco!) */
-/* Caja de resultados */
-.search-results-list {
-  background-color: #0f0f0f !important; /* Fondo Negro */
-  border: 1px solid var(--royal-gold) !important; /* Borde Dorado */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.9) !important;
+/* Nivel 2 (Hijos - Sangría y puntos) */
+.side-bar .nav-list .nav-list-item .nav-list .nav-list-link {
+  padding-left: 1.6rem;
+  font-size: 0.95rem;
+}
+/* Bullet para nivel 2 */
+.side-bar .nav-list .nav-list-item .nav-list .nav-list-link::before {
+  content: "•" !important;
+  position: absolute;
+  left: 0.8rem;
+  color: var(--royal-gold) !important;
+  opacity: 0.6;
 }
 
-/* Elementos de la lista */
+/* Flechas del menú (Chevrons) */
+.nav-list-expander svg {
+  color: #666 !important;
+}
+.nav-list-expander:hover svg {
+  color: var(--royal-gold) !important;
+}
+
+/* --- 5. BUSCADOR OSCURO (Fix Crítico) --- */
+.search-results-list {
+  background-color: #0f0f0f !important;
+  border: 1px solid var(--royal-gold) !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.9) !important;
+}
 .search-results-list-item {
   background-color: #0f0f0f !important;
   color: #fff !important;
   border-bottom: 1px solid #222 !important;
 }
-
-/* Título del resultado (Donde salía morado) */
 .search-result-title {
-  color: var(--royal-gold) !important; /* Ahora es DORADO */
-  font-weight: bold;
+  color: var(--royal-gold) !important;
 }
-
-/* Texto previo y hover */
-.search-result-preview {
-  color: #bbb !important;
-}
-.search-results-list-item:hover,
-.search-results-list-item.active {
-  background-color: #222 !important; /* Gris oscuro al pasar mouse */
-  color: #fff !important;
-}
-
-/* Input de búsqueda */
 .search-input {
   background-color: #151515 !important;
   border: 1px solid #444 !important;
   color: #fff !important;
-  border-radius: 4px;
-}
-.search-input:focus {
-  border-color: var(--royal-gold) !important;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
-/* 5. ENLACES Y BOTONES (Adiós Azul/Morado, Hola Dorado) */
+/* --- 6. ELEMENTOS UI (Botones, Links, Tablas) --- */
 a {
-  color: var(--royal-gold) !important; /* Todos los links son DORADOS */
+  color: var(--royal-gold) !important;
   text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
-  color: #fff !important; /* Se ponen blancos al pasar el mouse */
+  color: #fff !important;
 }
 
-/* Botones */
 .btn {
   background-color: transparent !important;
   border: 2px solid var(--royal-gold) !important;
@@ -119,13 +129,7 @@ a:hover {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
-/* 6. TABLAS, CÓDIGO Y CITAS */
-code, pre {
-  background-color: #0f0f0f !important;
-  border: 1px solid #333;
-  color: #e0e0e0 !important; /* Texto gris claro, más neutro */
-}
-
+/* Tablas transparentes */
 table, tr, td {
   background-color: transparent !important;
   border-color: var(--borde-sutil) !important;
@@ -136,6 +140,12 @@ th {
   color: #fff !important;
 }
 
+/* Código y Citas */
+code, pre {
+  background-color: #0f0f0f !important;
+  border: 1px solid #333;
+  color: #e0e0e0 !important;
+}
 blockquote {
   border-left: 4px solid var(--royal-gold) !important;
   background-color: rgba(212, 175, 55, 0.05) !important;
@@ -143,9 +153,46 @@ blockquote {
   font-style: italic;
 }
 
-/* Arreglo Header Derecho */
-.site-header .aux-links {
-  background-color: transparent !important;
-  border: none !important;
+/* --- 7. SOPORTE MÓVIL (Responsivo) --- */
+@media (max-width: 66rem) {
+  /* En móvil, el fondo a veces se pone blanco por defecto, lo forzamos a negro */
+  .site-nav, .site-header, body {
+    background-color: var(--bg-profundo) !important;
+    color: #fff !important;
+  }
+  
+  /* Icono de menú hamburguesa */
+  .site-header .menu-icon svg {
+    fill: var(--royal-gold) !important;
+  }
+  
+  /* Footer móvil */
+  footer.site-footer {
+    background: var(--bg-paneles) !important;
+    color: #888 !important;
+  }
 }
+
+/* --- 8. EXTRAS (Video y Logo) --- */
 .site-logo { display: none !important; }
+
+video {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #333;
+}
+
+.responsive-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  background: #000;
+}
+.responsive-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

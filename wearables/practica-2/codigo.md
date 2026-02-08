@@ -92,10 +92,10 @@ void visualizarFrecuencias() {
 ```
 
 <div style="margin-top: 3rem;">
-  <a href="./hardware" class="btn btn-outline" style="margin-right: 1rem;">
+  <a href="../hardware" class="btn btn-outline" style="margin-right: 1rem;">
     Volver a Hardware
   </a>
-  <a href="https://github.com/" target="_blank" class="btn btn-primary">
-    Ver Repositorio Completo
+  <a href="https://JuanLeon05.github.io/" target="_blank" class="btn btn-primary">
+    Ver Repositorio Completo 
   </a>
 </div>

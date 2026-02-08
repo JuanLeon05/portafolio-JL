@@ -1,251 +1,295 @@
-/* === ESTILO V8.0 - ROYAL TECH ULTIMATE (Estructura Original + Estilo Nuevo) === */
+/* === ESTILO V9.0 - ROYAL TECH DEFINITIVE (Robusto, Accesible y Sin Bugs) === */
 
-/* --- 1. VARIABLES (ADN Royal Blood) --- */
+/* --- 1. VARIABLES & PALETA DE COLORES --- */
 :root {
-  --bg-profundo: #050505;   /* Negro Fondo */
-  --bg-paneles: #0a0a0a;    /* Negro Paneles */
+  /* Paleta Royal Blood */
+  --bg-profundo: #050505;     /* Fondo Global */
+  --bg-paneles: #0a0a0a;      /* Sidebar y Header */
+  --bg-hover: #151515;        /* Color al pasar el mouse (NO BLANCO) */
+  --royal-gold: #d4af37;      /* ORO PRINCIPAL */
+  --royal-light: #f1c40f;     /* Oro brillante para focos */
   --texto-titulo: #ffffff;
   --texto-cuerpo: #e0e0e0;
-  --royal-gold: #d4af37;    /* ORO */
-  --royal-hover: #f1c40f;   /* Oro más brillante para hover */
+  --texto-tenue: #888888;
   --borde-sutil: #222222;
   
-  /* Sobrescribimos variables del tema Just the Docs */
+  /* Sobrescribimos variables nativas del tema Just-the-Docs para evitar conflictos */
   --link-color: #d4af37;
   --nav-child-link-color: #888;
+  --code-background-color: #0f0f0f;
+  --search-result-preview-color: #999;
 }
 
-/* --- 2. BASES GLOBALES --- */
+/* --- 2. ACCESIBILIDAD Y RESET GLOBAL (Lo que faltaba del original) --- */
 body, html, .page-content {
   background-color: var(--bg-profundo) !important;
   color: var(--texto-cuerpo) !important;
-  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Títulos H1-H6 */
-h1, h2, h3, h4, .site-title {
-  color: var(--texto-titulo) !important;
-  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+/* Focus Rings (Accesibilidad profesional) */
+:focus {
+  outline: 2px solid var(--royal-gold) !important;
+  outline-offset: 2px;
 }
-h1 {
-  border-bottom: 3px solid var(--royal-gold) !important;
-  display: inline-block;
-  padding-bottom: 5px;
+/* Quitamos outline en mouse para limpieza visual, lo dejamos en teclado */
+:focus:not(:focus-visible) {
+  outline: none !important;
 }
 
-/* --- 3. HEADER Y SIDEBAR (Adaptado del original) --- */
-.site-header, .side-bar {
+/* --- 3. HEADER Y BARRA SUPERIOR --- */
+.site-header {
   background-color: var(--bg-paneles) !important;
-  border-color: var(--borde-sutil) !important;
-  /* El original tenía background-image: linear-gradient... lo anulamos */
-  background-image: none !important;
+  border-bottom: 1px solid var(--borde-sutil) !important;
+  background-image: none !important; /* Elimina gradientes residuales */
 }
 
-/* Título del sitio en sidebar */
-.side-bar .site-title {
-  color: var(--royal-gold) !important;
-  font-weight: 700;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-}
-.site-logo { display: none !important; } /* Ocultamos logo rojo */
-
-/* Fix cuadro blanco a la derecha (Header) */
+/* Fix del cuadro blanco a la derecha (Aux Links) */
 .site-header .aux-links {
   background-color: transparent !important;
   border: none !important;
+  height: 100%; /* Asegura alineación */
 }
 .site-header .aux-links a {
   color: var(--royal-gold) !important;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* --- 4. NAVEGACIÓN COMPLEJA (La lógica de las 130 líneas) --- */
+/* Iconos del header (Hamburguesa/Buscar en móvil) */
+.site-header .menu-icon svg, 
+.site-header .search-icon svg {
+  fill: var(--royal-gold) !important;
+}
+
+/* --- 4. SIDEBAR (Navegación Robusta) --- */
+.side-bar {
+  background-color: var(--bg-paneles) !important;
+  border-right: 1px solid var(--borde-sutil) !important;
+}
+
+.site-title {
+  color: var(--texto-titulo) !important;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.site-logo { display: none !important; } /* Ocultamos logo original */
+
+/* === LÓGICA DE NAVEGACIÓN (Restaurada al 100%) === */
 
 /* Nivel 1 (Padres) */
 .side-bar .nav-list > .nav-list-item > .nav-list-link {
-  color: #aaa !important; /* Gris claro */
+  color: var(--texto-tenue) !important;
   background: transparent !important;
   font-weight: 400;
-  letter-spacing: .2px;
-  font-size: 1.05rem;
-  padding-left: 1rem;
+  border: none;
 }
 
-/* Nivel 2 (Hijos) - Sangría + Estilo */
+/* Nivel 2 (Hijos) */
 .side-bar .nav-list .nav-list-item .nav-list .nav-list-link {
   font-weight: 300;
-  font-size: 0.95rem;
-  padding-left: 1.75rem;
+  padding-left: 2rem;
+  color: var(--texto-tenue) !important;
   position: relative;
-  background: transparent !important;
-  border-left: 3px solid transparent;
-  color: #888 !important;
 }
 
-/* Nivel 3 (Nietos) */
-.side-bar .nav-list .nav-list-item .nav-list .nav-list-item .nav-list .nav-list-link {
-  padding-left: 2.25rem;
-  font-size: 0.9rem;
-}
-
-/* ESTADOS ACTIVOS Y HOVER (El toque dorado) */
-.nav-list .nav-list-link.active,
-.nav-list .nav-list-link:hover {
-  color: #fff !important;
-  background-image: none !important; /* Matamos el degradado original */
-  background-color: rgba(212, 175, 55, 0.15) !important; /* Fondo oro sutil */
-  border-left-color: var(--royal-gold) !important; /* Línea lateral */
-}
-
-/* NAVBAR FIX (Del código original: limpieza de bullets automáticos) */
-.side-bar a::before,
-.side-bar a::after,
-.site-nav .nav-list-link::before,
-.site-nav .nav-list-link::after {
-  content: none !important;
-}
-
-/* Re-dibujamos el bullet (punto) SOLO en nivel 2 y 3 */
+/* Bullets para Nivel 2 */
 .side-bar .nav-list .nav-list-item .nav-list .nav-list-link::before {
-  content: "•" !important;
+  content: "•";
   position: absolute;
-  left: 0.9rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--royal-gold) !important;
-  opacity: 0.8;
-  font-size: 0.8rem;
+  left: 1rem;
+  color: var(--royal-gold);
+  opacity: 0.5;
 }
 
-/* Flechas de expansión (svg) */
+/* ESTADOS HOVER Y ACTIVO (Sin Bug Blanco) */
+.nav-list .nav-list-link:hover,
+.nav-list .nav-list-link.active {
+  color: #fff !important;
+  background-color: rgba(212, 175, 55, 0.1) !important; /* Oro muy transparente */
+  background-image: none !important;
+  border-left: 3px solid var(--royal-gold) !important;
+}
+
+/* Iconos de expansión (flechitas) */
 .nav-list-expander svg {
-  color: #666 !important;
+  color: #444 !important;
 }
 .nav-list-expander:hover svg {
   color: var(--royal-gold) !important;
 }
 
-/* --- 5. MENÚ HAMBURGUESA (Móvil) --- */
-#menu-toggle + label, .menu-button, .menu-icon svg {
-  color: var(--royal-gold) !important;
-  fill: var(--royal-gold) !important;
+/* --- 5. BUSCADOR (EL FIX CRÍTICO) --- */
+/* Input */
+.search-input {
+  background-color: #111 !important;
+  border: 1px solid #333 !important;
+  color: #fff !important;
+  border-radius: 4px;
+}
+.search-input:focus {
+  border-color: var(--royal-gold) !important;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
 }
 
-/* --- 6. FOOTER Y MEDIAS QUERIES (Original restaurado) --- */
-
-/* Ocultar footer por defecto del tema */
-footer.site-footer { display: none !important; }
-
-/* Footer Personalizado (Estilos) */
-.custom-footer {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid #222;
-  color: #666;
-  font-size: 0.9rem;
-}
-.custom-footer a {
-  color: var(--royal-gold) !important;
-}
-
-/* Reglas Móviles (Restauradas del original pero en oscuro) */
-@media (max-width: 66rem) {
-  /* En móvil, el fondo tiende a romperse a blanco, lo forzamos */
-  .custom-footer {
-    background: var(--bg-paneles) !important; 
-    color: #888;
-  }
-  .site-nav {
-    background-color: var(--bg-paneles) !important;
-  }
-  /* Footer original en móvil (si aparece) */
-  footer.site-footer {
-     display: block !important;
-     background: var(--bg-paneles) !important;
-     color: #666 !important;
-  }
-}
-
-/* --- 7. BUSCADOR OSCURO (Fix Crítico) --- */
+/* Caja de Resultados */
 .search-results-list {
-  background-color: #0f0f0f !important;
+  background-color: #0f0f0f !important; /* Fondo base negro */
   border: 1px solid var(--royal-gold) !important;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.9) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.9) !important;
 }
+
+/* Items individuales (Normal) */
 .search-results-list-item {
   background-color: #0f0f0f !important;
-  color: #fff !important;
+  color: #bbb !important;
   border-bottom: 1px solid #222 !important;
+  padding: 10px;
 }
-.search-result-title { color: var(--royal-gold) !important; font-weight: bold; }
-.search-input {
-  background-color: #151515 !important;
-  border: 1px solid #444 !important;
+
+/* Items individuales (HOVER y ACTIVE) - AQUÍ ESTABA EL ERROR */
+.search-results-list-item:hover,
+.search-results-list-item.active {
+  background-color: #222 !important; /* Gris oscuro, NO BLANCO */
   color: #fff !important;
+  cursor: pointer;
 }
 
-/* --- 8. COMPONENTES GLOBALES (Links, Tablas, Citas) --- */
-/* Migas de pan (Breadcrumbs) */
-.breadcrumbs li a { color: var(--royal-gold) !important; }
-.breadcrumbs li { color: #666; }
+/* Textos dentro del resultado */
+.search-result-title {
+  color: var(--royal-gold) !important;
+  font-weight: 700;
+}
+.search-results-list-item.active .search-result-title,
+.search-results-list-item:hover .search-result-title {
+  color: var(--royal-light) !important; /* Oro más brillante en hover */
+  text-decoration: underline;
+}
 
-/* Enlaces generales */
-a {
+.search-result-preview {
+  color: #888 !important;
+}
+
+/* --- 6. CONTENIDO Y TIPOGRAFÍA --- */
+h1, h2, h3, h4, h5 {
+  color: var(--texto-titulo) !important;
+  margin-top: 2rem;
+}
+h1 {
+  border-bottom: 3px solid var(--royal-gold) !important;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Enlaces del contenido */
+.page-content a {
   color: var(--royal-gold) !important;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+.page-content a:hover {
   color: #fff !important;
+  text-decoration: underline;
 }
 
-/* Botones */
-.btn {
-  background-color: transparent !important;
-  border: 2px solid var(--royal-gold) !important;
-  color: var(--royal-gold) !important;
-  border-radius: 0px;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-.btn:hover {
-  background-color: var(--royal-gold) !important;
-  color: #000 !important;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-}
-
+/* --- 7. COMPONENTES ROBUSTOS (Tablas, Código, Citas) --- */
 /* Tablas */
-table, tr, td {
+table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  border-collapse: collapse;
+}
+table, th, td {
   background-color: transparent !important;
-  border-color: var(--borde-sutil) !important;
+  border: 1px solid var(--borde-sutil) !important;
+  color: var(--texto-cuerpo) !important;
 }
 th {
   border-bottom: 2px solid var(--royal-gold) !important;
   color: #fff !important;
-  background: transparent !important;
+  font-weight: 700;
 }
 
-/* Citas y Código */
+/* Código */
+code {
+  background-color: #111 !important;
+  border: 1px solid #333;
+  color: #e0e0e0;
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+}
+pre.highlight {
+  background-color: #0a0a0a !important;
+  border: 1px solid var(--royal-gold);
+  border-radius: 5px;
+}
+
+/* Blockquotes */
 blockquote {
   border-left: 4px solid var(--royal-gold) !important;
-  background-color: rgba(212, 175, 55, 0.05) !important;
-  color: #ccc !important;
-  font-style: italic;
+  background: rgba(212, 175, 55, 0.05);
+  color: #ccc;
+  padding: 1rem;
 }
-code, pre {
-  background-color: #0f0f0f !important;
-  border: 1px solid #333;
-  color: #e0e0e0 !important;
+
+/* Botones */
+.btn {
+  background: transparent !important;
+  border: 2px solid var(--royal-gold) !important;
+  color: var(--royal-gold) !important;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.2s;
 }
+.btn:hover {
+  background: var(--royal-gold) !important;
+  color: #000 !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* --- 8. FOOTER Y RESPONSIVE (Lógica Original Restaurada) --- */
+/* Ocultamos el footer default del tema */
+footer.site-footer { display: none !important; }
+
+/* Footer Personalizado */
+.custom-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--borde-sutil);
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Reglas para Móviles (Max Width 66rem) */
+@media (max-width: 66rem) {
+  /* Forzamos fondo oscuro en menú móvil para que no sea blanco */
+  .site-nav {
+    background-color: var(--bg-paneles) !important;
+    border-right: none;
+  }
+  
+  /* El buscador en móvil ocupa todo el ancho */
+  .search {
+    margin-right: 0;
+  }
+  
+  /* Footer visible en móvil si el tema lo inyecta */
+  footer.site-footer {
+    display: block !important;
+    background-color: var(--bg-paneles) !important;
+    color: #666 !important;
+  }
+}
+
+/* --- 9. EXTRAS (Video, Migas, Print) --- */
+.breadcrumbs li a { color: var(--royal-gold) !important; }
+.breadcrumbs li { color: #666; }
 
 /* Video Responsive */
 .responsive-embed {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
-  overflow: hidden;
   background: #000;
 }
 .responsive-embed iframe {
@@ -253,5 +297,12 @@ code, pre {
   inset: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+}
+
+/* Estilos de Impresión (Robustez final) */
+@media print {
+  body { color: #000 !important; background: #fff !important; }
+  .side-bar, .site-header { display: none !important; }
+  .page-content { margin: 0 !important; width: 100% !important; }
+  a { text-decoration: underline; color: #000 !important; }
 }

@@ -25,7 +25,7 @@ Herramientas y lenguajes validados en proyectos de alto presupuesto y competenci
 | Dominio | Tecnologías Dominadas |
 | :--- | :--- |
 | **Sistemas Embebidos & FPGA** | **Hardware:** STM32 (Blue Pill), FPGA (Nexys A7), Jetson Nano, ESP32 S3, Arduino R4/Leonardo.<br>**Lenguajes:** VHDL, C/C++ (HAL/Low-Level), Python.<br>**Control:** Manejo de interrupciones, RTOS, PWM Multicanal. |
-| **Desarrollo de Software** | **Aplicaciones:** GTK (C), Java (POO), Matlab (Procesamiento de Imágenes).<br>**Web & Datos:** SQL, MongoDB, HTML/JS, Integración de APIs. |
+| **Desarrollo de Software** | **Aplicaciones:** GTK (C), Java (POO), Matlab.<br>**Web & Datos:** SQL, MongoDB, HTML/JS, Integración de APIs. |
 | **Ingeniería Electrónica** | **Analógica:** Diseño con OpAmps (Filtros Activos), Transistores de Potencia, Amplificadores de Audio.<br>**Digital:** Máquinas de Estados Finitos, Lógica Compuerta/Registro, EEPROM. |
 | **Diseño & Manufactura** | **CAD/CAM:** CATIA, Inventor, KiKad.<br>**Prototipado:** Corte Láser, Impresión 3D, Circuitos Flexibles. |
 

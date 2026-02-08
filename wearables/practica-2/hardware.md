@@ -41,4 +41,4 @@ El corazón del **SpectraGlove** combina procesamiento digital de señales con t
 > **Nota Técnica:** Las resistencias de 100Ω compensan la resistencia interna del hilo conductor (~15Ω/m).
 
 
-[Ver Código](./codigo.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Diseño](../diseño.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 
+[Ver Código](./codigo.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Diseño](../diseno.md){: .btn .btn-outline } [Practica 2](../practica-2){: .btn .btn-outline } 

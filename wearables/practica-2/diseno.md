@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Colaboración y Diseño
-parent: P2 - SpectraGlove
+parent: P2
 grand_parent: Wearables
 nav_order: 4
 ---

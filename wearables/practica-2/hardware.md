@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hardware y Electrónica
-parent: P2 - SpectraGlove
+parent: P2
 grand_parent: Wearables
 nav_order: 1
 ---

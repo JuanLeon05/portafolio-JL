@@ -1,6 +1,6 @@
 ---
 layout: default
-title: P2 
+title: P2
 parent: Wearables
 has_children: true
 nav_order: 2

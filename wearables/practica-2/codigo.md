@@ -1,170 +1,262 @@
 ---
 layout: default
-title: Algoritmo y Código
+title: Algoritmo y Firmware
 parent: P2 - SonicGauntlet
 grand_parent: Wearables
 nav_order: 2
 ---
 
-# El Cerebro Digital: Firmware Reactivo
+# Ingeniería de Software y DSP
 {: .fs-9 }
 
-A diferencia de la *Pulsera RockBand* (Práctica 1), que dependía de la acción mecánica del usuario, el **SonicGauntlet** opera con autonomía total. El firmware está diseñado bajo la filosofía de "Set and Forget": el artista se lo pone y el sistema se encarga de adaptarse al entorno sonoro.
+El firmware del **SonicGauntlet** no es una simple secuencia de luces; es un sistema de **Procesamiento Digital de Señales (DSP)** en tiempo real.
 
-El código implementa una arquitectura de **Sistemas Embebidos en Tiempo Real**, priorizando la velocidad de respuesta (latencia cero) y la estabilidad.
-
----
-
-## Lógica de Ingeniería: ¿Cómo "escucha" el guante?
-
-### 1. Auto-Gain & Beat Detection (Adaptabilidad)
-En un concierto, el volumen cambia drásticamente entre una balada y un solo de batería. Un sistema estático fallaría (se saturaría o no encendería).
-* **Solución:** Implementamos un **Promedio Móvil (Running Average)**. El algoritmo aprende del volumen de los últimos segundos y ajusta su "umbral de disparo" dinámicamente.
-* **Resultado:** El guante detecta el *beat* con la misma precisión en el ensayo silencioso que en el escenario principal a 100dB.
-
-### 2. Máquina de Estados (Gestión de Energía)
-El sistema no gasta recursos innecesariamente.
-* **Estado ACTIVO:** Si hay música (>600 de amplitud), ejecuta la FFT a 9000Hz para mapear frecuencias a los dedos.
-* **Estado STANDBY:** Si detecta silencio por >3 segundos, entra en modo reposo visual, activando una animación suave ("Scanner") para indicar que el sistema está vivo pero esperando señal.
-
-### 3. Multitarea No Bloqueante
-Prohibido usar `delay()`. El procesador utiliza contadores de tiempo (`millis()`) para manejar la animación de luces sin dejar de escuchar el micrófono ni un solo microsegundo.
+El objetivo del código es convertir una señal de voltaje caótica (música) en una visualización ordenada y agradable, filtrando el ruido eléctrico y adaptándose dinámicamente al volumen de la fuente.
 
 ---
 
-## Diagrama de Flujo de Datos
+## 1. Arquitectura del Sistema
 
-1.  **Muestreo:** Adquisición de 64 muestras de audio (Ventana de tiempo).
-2.  **FFT:** Descomposición matemática en espectro de frecuencias.
-3.  **Binning:** Agrupación de frecuencias en 5 canales (Dedos).
-4.  **Decisión:** Comparación contra el promedio móvil -> ¿Encender LED?
+El flujo de datos sigue una tubería (pipeline) estricta para asegurar que la visualización sea sincrónica con el oído humano.
+
+`Señal Analógica (ADC) → Pre-Procesamiento (Offset) → FFT → Agrupación (Binning) → Suavizado (AGC) → Visualización`
+
+### Muestreo Síncrono (Sampling)
+Para que la matemáticas funcionen, el microcontrolador no puede leer "cuando pueda". Debe leer a intervalos exactos.
+* **Frecuencia de Muestreo:** 20,000 Hz (20kHz).
+* **Teorema de Nyquist:** Al muestrear a 20kHz, podemos analizar frecuencias de audio de hasta **10kHz**, lo cual cubre perfectamente el rango fundamental de la música (Bombos, Bajos, Voces y Platillos).
+* **Resolución:** Se utiliza el ADC de 12-bits del ESP32, ofreciendo un rango de valores de 0 a 4095 (4 veces más preciso que un Arduino Uno).
 
 ---
-## El Código (Firmware)
 
-Este código está optimizado para el **Arduino Uno R4 WiFi**.
+## 2. Algoritmos de Filtrado
+
+Uno de los mayores retos en wearables es el ruido eléctrico, ya que los motores, baterías y módulos Bluetooth comparten la misma tierra.
+
+### Auto-Calibración (Zero-Calibration)
+Las baterías LiPo cambian su voltaje a medida que se descargan (de 4.2V a 3.7V). Un valor "fijo" de referencia provocaría errores.
+* **Solución:** Al encenderse, el sistema ejecuta una rutina de arranque que mide el "silencio eléctrico" durante 500ms.
+* **Resultado:** Calcula el **DC Offset** exacto de ese momento y lo usa como el "Cero" matemático para el resto de la sesión.
+
+### Noise Gate (Compuerta de Ruido)
+El módulo Bluetooth genera un silbido de alta frecuencia ("Hiss") cuando no reproduce música.
+* **Implementación:** Se aplica una compuerta lógica. Si la energía de una frecuencia no supera un umbral mínimo (`noiseGate`), se considera "basura" y se fuerza a cero.
+* **Corte de Frecuencia:** En el código, ignoramos deliberadamente los últimos "bins" de la FFT (frecuencias ultra-altas) donde reside el ruido del reloj del procesador Bluetooth.
+
+---
+
+## 3. Transformada Rápida de Fourier (FFT)
+
+El núcleo matemático del proyecto. La librería `arduinoFFT` toma 64 muestras de tiempo y las descompone en sus frecuencias constitutivas.
+
+### Binning (Agrupación de Bandas)
+La FFT nos entrega 32 "cubetas" (bins) de frecuencias lineales. Para los 5 LEDs, agrupamos estas cubetas en rangos perceptuales:
+
+| Canal (LED) | Rango de Frecuencia | Instrumento Típico |
+| :--- | :--- | :--- |
+| **1. Graves** | 40Hz - 150Hz | Bombo (Kick), Sub-bajo |
+| **2. Bajos** | 150Hz - 400Hz | Bajo eléctrico, Cello |
+| **3. Medios** | 400Hz - 1.5kHz | Guitarra, Voces masculinas |
+| **4. Voces** | 1.5kHz - 4kHz | Voces femeninas, Sintetizadores |
+| **5. Agudos** | 4kHz - 10kHz | Platillos (Hi-Hats), Shakers |
+
+---
+
+## 4. Control de Ganancia Automático (AGC)
+
+El problema de los vúmetros tradicionales es que con volumen bajo no prenden, y con volumen alto se saturan (quedan siempre prendidos).
+
+### Beat Detection (Detección de Ritmo)
+Implementé un algoritmo comparativo dinámico:
+1.  **Promedio Móvil:** El sistema recuerda el volumen promedio de los últimos segundos (`runningAverage`).
+2.  **Disparador:** Para encender un LED, el sonido actual debe ser **X veces más fuerte** que el promedio histórico.
+    * *Ejemplo:* Para los agudos, el sonido debe ser 1.2 veces el promedio.
+3.  **Ataque y Decaimiento:**
+    * Si hay un golpe (Beat), el promedio sube rápido (*Fast Attack*) para adaptarse a la canción.
+    * Si hay silencio, el promedio baja lentamente (*Slow Decay*).
+
+> **Resultado:** El guante "baila" igual de bien con una balada suave al 30% de volumen que con Metal Industrial al 100%.
+
+---
+
+## 5. Máquina de Estados
+
+El dispositivo tiene dos personalidades para ahorrar energía y dar feedback visual.
+
+1.  **Estado ACTIVO (Music Mode):**
+    * Se activa cuando la suma total de energía supera el `Master Threshold`.
+    * Los LEDs responden a la FFT en tiempo real.
+2.  **Estado STANDBY (Idle Mode):**
+    * Se activa tras 3 segundos de silencio absoluto.
+    * Ejecuta una animación tipo "Scanner" (Auto Fantástico) de bajo consumo.
+    * Sirve como indicador de "Encendido" para que el usuario no olvide apagar el guante.
+
+---
+
+## Firmware
 
 ```cpp
 /*
-  Vúmetro - Arduino Uno R4 WiFi + MHM-28
-  
-  Características Técnicas: 
-  - FFT con Ventana Hamming para limpieza de señal.
-  - Filtro de Promedio Móvil para control automático de ganancia.
-  - Animaciones no bloqueantes basadas en millis().
-*/
+ * SONIC GAUNTLET - Firmware v4.4 (Balanced Edition)
+ * Hardware: Seeed Studio XIAO ESP32S3 + MHM-28
+ * Ingeniería: Juan León
+ * Descripción: Sistema DSP con Auto-Calibración y Filtro de Ruido Bluetooth.
+ */
 
 #include "arduinoFFT.h"
 
-// --- CONFIGURACIÓN DE HARDWARE ---
-const int audioPin = A0;                // Entrada de audio analógico
-const int ledPins[5] = {2, 3, 4, 5, 6}; // Mapeo físico: Pines D2 a D6
+// --- CONFIGURACIÓN DE PINES ---
+const int audioPin = A0; // Entrada Analógica (GPIO 1)
+// Mapeo físico de LEDs en el guante (De muñeca a dedo índice)
+const int ledPins[5] = {D1, D2, D3, D4, D5}; 
 
-// --- CONFIGURACIÓN FFT (Matemáticas) ---
-const uint16_t samples = 64;           // Cantidad de lecturas por ciclo
-const double samplingFrequency = 9000; // Frecuencia de muestreo (Hz)
+// --- CONFIGURACIÓN FFT ---
+const uint16_t samples = 64;            // Tamaño de ventana (Potencia de 2)
+const double samplingFrequency = 20000; // 20kHz de Muestreo (Nyquist = 10kHz Audio)
 
-double vReal[samples];
-double vImag[samples];
+unsigned int sampling_period_us;
+unsigned long microseconds;
+double vReal[samples]; // Vector Real para FFT
+double vImag[samples]; // Vector Imaginario para FFT
+
+// Objeto de procesamiento FFT
 ArduinoFFT<double> FFT = ArduinoFFT<double>(vReal, vImag, samples, samplingFrequency);
 
-// --- CEREBRO DINÁMICO (Beat Detection) ---
-// Aquí guardamos el volumen promedio reciente de cada frecuencia
-double runningAverage[5] = {100, 100, 100, 100, 100}; 
+// --- AUTO-CALIBRACIÓN ---
+int dcOffset = 0; // Variable para guardar el "Silencio" (Voltaje Bias)
 
-// Multiplicadores: Define qué tan fuerte debe ser un golpe respecto al promedio para encender la luz
-// Ejemplo: 1.5 significa que el golpe debe ser 50% más fuerte que el promedio actual
-float multipliers[5] = {1.4, 1.3, 1.3, 1.3, 1.5}; 
+// --- VARIABLES DE AUTO-GAIN (AGC) ---
+// Promedio histórico inicial (se adapta solo)
+double runningAverage[5] = {300, 300, 300, 300, 300}; 
 
-int noiseGate = 150; // Ignoramos cualquier ruido por debajo de este valor (estática)
+// Multiplicadores de Sensibilidad [Graves ... Agudos]
+// 1.2 significa que el sonido debe ser 20% más fuerte que el promedio para encender
+float multipliers[5] = {1.2, 1.2, 1.2, 1.1, 1.1};     
 
-// --- CEREBRO DE ESTADOS (Standby) ---
-unsigned long lastAudioTime = 0;   // Cronómetro: ¿Cuándo fue el último sonido?
-const int silenceDelay = 3000;     // Tiempo de espera (3 segundos)
-bool isStandby = false;            // Bandera de estado actual
+// Noise Gate (Compuerta de Ruido)
+// Valor 250: Suficiente para ignorar estática, sensible para música suave.
+int noiseGate = 250; 
 
-// Variables para animación "Auto Fantástico" (Scanner)
+// --- VARIABLES STANDBY ---
+unsigned long lastAudioTime = 0;   
+const int silenceDelay = 3000;     // 3 segundos para ir a dormir
+bool isStandby = false;            
+
+// Variables para animación "Scanner"
 int scannerPos = 0;
 int scannerDir = 1;
 unsigned long lastScannerUpdate = 0;
-int scannerSpeed = 100; // Velocidad de la animación
 
 void setup() {
-  analogReadResolution(10); // Resolución de 10 bits para mayor precisión
-  for (int i = 0; i < 5; i++) pinMode(ledPins[i], OUTPUT);
+  // Configuración del ADC del ESP32 (Resolución 0 - 4095)
+  analogReadResolution(12); 
+  
+  for (int i = 0; i < 5; i++) {
+    pinMode(ledPins[i], OUTPUT);
+    digitalWrite(ledPins[i], LOW);
+  }
 
-  // Al encender, ejecutamos un test visual para confirmar que todo funciona
+  // Calculamos el tiempo exacto entre lecturas para lograr 20kHz
+  sampling_period_us = round(1000000 * (1.0 / samplingFrequency));
+
+  // --- RUTINA DE AUTO-CALIBRACIÓN ---
+  // Leemos el sensor 200 veces para encontrar el punto cero exacto de la batería
+  long calibrationSum = 0;
+  for(int i=0; i<200; i++) {
+     calibrationSum += analogRead(audioPin);
+     delay(2);
+  }
+  dcOffset = calibrationSum / 200; 
+  
+  // Ejecutar animación de bienvenida
   secuenciaArranque();
 }
 
 void loop() {
-  // 1. MUESTREO DE SEÑAL
-  // Tomamos una "foto" instantánea del audio
-  unsigned long microseconds = micros();
+  
+  // ============================================================
+  // 1. MUESTREO DE SEÑAL (Sampling)
+  // ============================================================
+  microseconds = micros();
   for (int i = 0; i < samples; i++) {
-    vReal[i] = analogRead(audioPin);
+    int rawValue = analogRead(audioPin);
+    
+    // Resta dinámica: Eliminamos el voltaje DC de la batería para dejar solo la onda de audio
+    vReal[i] = rawValue - dcOffset; 
     vImag[i] = 0;
-    // Espera milimétrica para mantener la frecuencia de muestreo estable
-    while (micros() - microseconds < (1000000 / samplingFrequency)) { /* esperar */ }
-    microseconds += (1000000 / samplingFrequency);
+    
+    // Espera activa para mantener sincronía estricta de 20kHz
+    while (micros() - microseconds < sampling_period_us) { }
+    microseconds += sampling_period_us;
   }
 
+  // ============================================================
   // 2. PROCESAMIENTO MATEMÁTICO (FFT)
-  // Convertimos la señal eléctrica en frecuencias separadas
-  FFT.windowing(FFTWindow::Hamming, FFTDirection::Forward);
-  FFT.compute(FFTDirection::Forward);
-  FFT.complexToMagnitude();
+  // ============================================================
+  FFT.windowing(FFTWindow::Hamming, FFTDirection::Forward); // Suavizado de ventana
+  FFT.compute(FFTDirection::Forward);                       // Transformada
+  FFT.complexToMagnitude();                                 // Obtener magnitud absoluta
 
-  // 3. AGRUPACIÓN DE BANDAS (Asignación a dedos)
+  // ============================================================
+  // 3. AGRUPACIÓN DE BANDAS (Binning)
+  // ============================================================
   double bandValues[5] = {0};
   double totalVolume = 0;
   
-  // Sumamos rangos de frecuencia específicos para cada dedo
-  // vReal contiene el resultado de la FFT. Los índices bajos son graves, los altos son agudos.
-  for (int i = 2; i < 5; i++) bandValues[0] += vReal[i];   // Dedo 1: Graves profundos (Bombo)
-  for (int i = 5; i < 9; i++) bandValues[1] += vReal[i];   // Dedo 2: Graves/Medios
-  for (int i = 9; i < 14; i++) bandValues[2] += vReal[i];  // Dedo 3: Medios (Voz principal)
-  for (int i = 14; i < 21; i++) bandValues[3] += vReal[i]; // Dedo 4: Medios-Altos
-  for (int i = 21; i < 32; i++) bandValues[4] += vReal[i]; // Dedo 5: Agudos (Platillos)
+  // Mapeo de los bins de la FFT a los 5 LEDs
+  // Saltamos los primeros 3 bins para evitar ruido DC residual
+  for (int i = 3; i < 5; i++) bandValues[0] += vReal[i];   // Graves (Kick)
+  for (int i = 5; i < 8; i++) bandValues[1] += vReal[i];   // Bajos (Bass)
+  for (int i = 8; i < 12; i++) bandValues[2] += vReal[i];  // Medios (Guitar)
+  for (int i = 12; i < 18; i++) bandValues[3] += vReal[i]; // Voces
+  
+  // FILTRO PASA-BAJAS DE SOFTWARE:
+  // Solo leemos hasta el bin 24. Del 25 en adelante vive el ruido eléctrico del Bluetooth.
+  for (int i = 18; i < 24; i++) bandValues[4] += vReal[i]; // Agudos (Cymbals)
 
-  // Calculamos el volumen total para saber si hay silencio
+  // Calcular energía total del frame
   for(int i=0; i<5; i++) totalVolume += bandValues[i];
 
-  // --- TOMA DE DECISIONES ---
-
-  if (totalVolume > 600) { // CASO A: HAY MÚSICA
-    lastAudioTime = millis(); // Reiniciamos el cronómetro de silencio
+  // ============================================================
+  // 4. LÓGICA DE DECISIÓN
+  // ============================================================
+  
+  // UMBRAL MAESTRO (Master Threshold)
+  // Si la suma total supera 1500, asumimos que hay música real.
+  if (totalVolume > 1500) { 
+    lastAudioTime = millis();
     isStandby = false;        
     
-    // Algoritmo de Detección de Golpes (Beat Detection)
     for (int i = 0; i < 5; i++) {
-      // El "disparador" es dinámico: Promedio Actual * Multiplicador
-      double triggerThreshold = runningAverage[i] * multipliers[i];
       
-      if (bandValues[i] > noiseGate && bandValues[i] > triggerThreshold) {
-        digitalWrite(ledPins[i], HIGH); // ¡Encender LED!
+      // ALGORITMO DE DETECCIÓN DE BEAT
+      // Condición 1: Superar el piso de ruido (250)
+      // Condición 2: Superar el promedio histórico multiplicado por sensibilidad
+      if (bandValues[i] > noiseGate && bandValues[i] > (runningAverage[i] * multipliers[i])) {
+        digitalWrite(ledPins[i], HIGH);
         
-        // Actualizamos el promedio rápido (ataque rápido) para que se adapte a la subida de volumen
-        runningAverage[i] = (runningAverage[i] * 0.7) + (bandValues[i] * 0.3);
+        // Fast Attack: El promedio sube rápido para adaptarse a canciones intensas
+        runningAverage[i] = (runningAverage[i] * 0.6) + (bandValues[i] * 0.4); 
       } else {
-        digitalWrite(ledPins[i], LOW); // Apagar LED
+        digitalWrite(ledPins[i], LOW);
         
-        // El promedio baja lentamente (decaimiento lento) esperando el siguiente golpe
-        runningAverage[i] = runningAverage[i] * 0.98;
+        // Slow Decay: El promedio baja lento para no perderse en silencios cortos
+        runningAverage[i] = runningAverage[i] * 0.95; 
       }
       
-      // Seguridad: El promedio nunca puede ser menor al ruido base
-      if (runningAverage[i] < noiseGate) runningAverage[i] = noiseGate;
+      // Safety Floor: Evitar que el promedio baje demasiado cerca del ruido
+      if (runningAverage[i] < (noiseGate + 50)) runningAverage[i] = (noiseGate + 50);
     }
   } 
-  else { // CASO B: SILENCIO DETECTADO
+  else { 
+    // MODO SILENCIO
     
-    // 1. Limpieza inmediata: Apagar todo si la música acaba de parar
+    // Apagar LEDs si la música acaba de parar
     if (!isStandby && (millis() - lastAudioTime < silenceDelay)) {
        for(int i=0; i<5; i++) digitalWrite(ledPins[i], LOW);
     }
 
-    // 2. Activación de Standby: Si pasaron 3 segundos, iniciar animación
+    // Activar animación si pasaron 3 segundos
     if (millis() - lastAudioTime > silenceDelay) {
       isStandby = true;
       animacionStandby(); 
@@ -172,43 +264,41 @@ void loop() {
   }
 }
 
-// --- SECUENCIA DE ARRANQUE (POST) ---
-// Se ejecuta una sola vez al encender para verificar LEDs
+// ============================================================
+// FUNCIONES DE ANIMACIÓN
+// ============================================================
+
 void secuenciaArranque() {
-  for (int i = 0; i < 5; i++) { digitalWrite(ledPins[i], HIGH); delay(100); }
-  delay(200);
-  for (int i = 4; i >= 0; i--) { digitalWrite(ledPins[i], LOW); delay(100); }
-  
-  // Parpadeo final
+  // Parpadeo rápido x3
   for(int k=0; k<3; k++) {
     for (int i = 0; i < 5; i++) digitalWrite(ledPins[i], HIGH);
     delay(100);
     for (int i = 0; i < 5; i++) digitalWrite(ledPins[i], LOW);
     delay(100);
   }
+  // Barrido (Knight Rider)
+  for (int i = 0; i < 5; i++) { digitalWrite(ledPins[i], HIGH); delay(80); }
+  for (int i = 0; i < 5; i++) { digitalWrite(ledPins[i], LOW); delay(80); }
 }
 
-// --- ANIMACIÓN STANDBY ---
-// Esta función NO usa delay(), permite que el guante siga "escuchando" mientras anima
 void animacionStandby() {
-  if (millis() - lastScannerUpdate > scannerSpeed) {
+  // Scanner sin bloqueo (non-blocking)
+  if (millis() - lastScannerUpdate > 120) { 
     lastScannerUpdate = millis();
     
-    // Apagamos todos y encendemos solo el actual
     for(int i=0; i<5; i++) digitalWrite(ledPins[i], LOW);
     digitalWrite(ledPins[scannerPos], HIGH);
     
-    // Movemos la posición
     scannerPos += scannerDir;
     
-    // Si llegamos a un borde, rebotamos la dirección
-    if (scannerPos >= 4 || scannerPos <= 0) {
-      scannerDir = -scannerDir; 
-    }
+    // Rebotar en los extremos
+    if (scannerPos >= 4 || scannerPos <= 0) scannerDir = -scannerDir; 
   }
 }
 
 ```
 
+
+---
 
 [Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Diseño](./diseno.md){: .btn .btn-outline } [Inicio](../practica-2){: .btn .btn-primary } 

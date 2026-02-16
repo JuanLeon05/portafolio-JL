@@ -6,83 +6,75 @@ grand_parent: Wearables
 nav_order: 3
 ---
 
-# De la Teoría al Escenario: Bitácora de Construcción
+# De la Teoría al Escenario: Bitácora de Construcción e Iteración
 {: .fs-9 }
 
-La fabricación del **SonicGauntlet** representó un reto de manufactura superior al de la Práctica 1. Al pasar de un sustrato textil suave (algodón) a uno rígido (piel sintética/cuero) y de un circuito analógico a uno digital de alta velocidad, la precisión en la construcción se volvió crítica.
+La fabricación del **SonicGauntlet** representó un salto crítico en complejidad respecto a prototipos anteriores. Al pasar de un circuito en protoboard a un sistema integrado en un sustrato textil multicapa de alto gramaje (mezclilla), la física de los materiales, la gestión del espacio y el ruido electromagnético se convirtieron en los principales desafíos.
 
-Esta bitácora documenta la metodología de diseño iterativo, desde los primeros bocetos en servilletas hasta el ensamblaje final.
-
----
-
-## Fase 1: Diseño Conceptual y Bocetaje (Brainstorming)
-
-Esta etapa se realizó en estrecha colaboración con el área de Diseño de Indumentaria. El objetivo no era solo cubrir la mano, sino "vestir" la música.
-
-### 1. Definición del Estilo (Moodboard)
-Se estableció una estética **Cyberpunk / Industrial Rock**.
-* **Referentes:** Se analizaron vestuarios de bandas como *Daft Punk* o *Nine Inch Nails*, buscando una fusión entre lo orgánico (piel, mano humana) y lo sintético (luz, metal).
-* **Materiales:** Se seleccionó **Piel Sintética (Vinipiel)** de alto calibre en color negro mate.
-    * *Razón Técnica:* Ofrece rigidez estructural para soportar los componentes sin deformarse.
-    * *Razón Estética:* Aporta agresividad visual y durabilidad en el escenario.
-
-### 2. Exploración Morfológica (Bocetos)
-Se realizaron múltiples iteraciones en papel para definir la forma del guante.
-* **La Decisión de la "X":** Inicialmente pensamos en una línea recta de LEDs, pero resultaba estática. Bocetamos una disposición en "X" que cruza desde los nudillos hasta el antebrazo. Esto dinamiza la visualización y permite usar el largo del brazo como lienzo.
-* **Ergonomía Instrumental:** ¿Por qué cubrir solo el dedo índice?
-    * *Análisis de Usuario:* Un guitarrista o bajista necesita la yema de sus dedos libre para sentir las cuerdas.
-    * *Solución:* El diseño libera los dedos medio, anular y meñique. El dedo índice se cubre porque es el que usualmente se usa para "señalar" o activar efectos en consolas, convirtiéndolo en la "varita mágica" del sistema.
+Esta bitácora documenta la metodología de diseño iterativo y la resolución de problemas aplicados tanto en la confección del hardware textil como en el firmware.
 
 ---
 
-## Fase 2: Patronaje y Prototipado (Mockups)
+## Fase 1: Diseño Conceptual y Definición de Materiales
 
-Antes de cortar la piel costosa, se validó la forma.
+El objetivo era crear un *wearable* robusto y autónomo, con una estética que fusionara la tecnología con un estilo urbano y resistente.
 
-### 1. El "Toile" (Prueba en Manta)
-Se confeccionó un primer prototipo rápido en tela de manta (algodón barato) para probar el ajuste en la mano.
-* **Ajuste:** Se corrigió la tensión en la muñeca, ya que el patrón original impedía la rotación completa de la mano.
-* **Ubicación del Bluetooth:** En esta fase decidimos que el módulo **MH-M28** no podía ir sobre los nudillos (muy expuesto a golpes). Se movió al antebrazo, oculto entre capas de piel, donde hay menos movimiento.
+### 1. Estética y Selección de Sustrato
+Se definió una estética **Grunge Industrial / Rockero**.
+* **Material Principal:** Se seleccionó **Mezclilla (Denim) de alto gramaje en color negro**.
+    * *Razón Técnica:* Ofrece una excelente resistencia mecánica y durabilidad para soportar el peso de los componentes y la tensión del movimiento, además de permitir costuras firmes para el hilo conductivo.
+* **Material de Contraste:** Se utilizó **tela gris de refuerzo** en el reverso para dar estructura y un acabado limpio, ocultando el cableado de potencia.
 
-### 2. Mapeo del Circuito sobre el Patrón
-Una vez definido el patrón final en papel, dibujamos el diagrama electrónico directamente sobre él.
-* Esto nos permitió ver dónde se cruzarían los hilos conductores y planificar los "puentes" de aislamiento antes de coser.
-
----
-
-## Fase 3: Validación de Ingeniería (Lab)
-Paralelamente al diseño físico, se aseguraba la viabilidad electrónica.
-
-### 1. Acondicionamiento de Señal
-El audio es una señal AC (positiva y negativa). El Arduino solo lee voltajes positivos.
-* **Prueba en Protoboard:** Se montó el circuito divisor de tensión (Resistencias 100kΩ + Capacitor 1nF) para elevar la señal de audio a 2.5V. Se verificó con el *Serial Plotter* que la onda oscilara centrada sin recortarse.
-
-### 2. Calibración del FFT
-Se inyectaron tonos puros (Sine Waves) de 100Hz y 4000Hz para confirmar que el algoritmo encendía los LEDs correctos en la matriz "X" antes de soldar nada.
+### 2. Morfología y Distribución
+* **El Formato "Manga":** Se diseñó una manga que cubre desde el antebrazo hasta la muñeca, maximizando el área de visualización.
+* **La Matriz de LEDs:** Se dispusieron 5 LEDs de alta luminosidad (azules y rojos) en la parte superior del antebrazo para una visibilidad óptima.
+* **Gestión de Componentes:** Se diseñaron **bolsillos específicos de mezclilla** integrados en la prenda.
+    * Un bolsillo superior aloja la unidad de bluetooth (MH-M28), manteniendo la señal protegida y sin ruidos significativos.
+    * Un bolsillo/compartimento inferior aloja la batería LiPo, manteniendo el centro de gravedad bajo y facilitando su reemplazo.
+    * En la capa de tela gris se pusieron el ESP32 C3 y el TP4056 junto con el resto de componentes para mantener las rutas cortas y manejables.
 
 ---
 
-## Fase 4: Manufactura "Hard-Modelling"
-El ensamblaje final en piel.
+## Fase 2: Iteraciones de Firmware y DSP (El Reto del Ruido)
 
-### 1. Corte y Preparación
-* **Técnica:** La piel no permite errores (los agujeros son permanentes). Se utilizaron punzones para pre-marcar cada punto de costura y la ubicación exacta de los LEDs.
+Al integrar la electrónica en la tela y alimentar el sistema, surgieron desafíos críticos relacionados con la interferencia eléctrica.
 
-### 2. Integración de Componentes
-* **Soldadura de Refuerzo:** Se soldaron las resistencias de 220Ω directamente a las patas de los LEDs *antes* de la integración, aislando cada unión con tubo termorretráctil (heat shrink) para evitar cortos internos al flexionar el guante.
-* **Ocultamiento:** El módulo Bluetooth se "empotró" en una ventana interna del patrón del antebrazo, quedando invisible al exterior pero accesible para mantenimiento.
+### Iteración 2.1: Transitorios de Radiofrecuencia
+* **El Problema:** El módulo Bluetooth genera picos electromagnéticos al comunicarse. La transformada de Fourier (FFT) interpretaba estos picos como "música", interrumpiendo la animación de reposo (*Standby*) constantemente.
+* **La Solución (DSP):** Se implementó un **Filtro de Confirmación (Debounce Analógico)** en el firmware. El sistema ahora exige que la energía del audio supere el umbral durante al menos dos ciclos de lectura consecutivos para considerarlo música real, ignorando eficazmente los transitorios de un solo ciclo.
 
-### 3. Costura de Circuitos (Routing)
-Se cosió el hilo conductor de acero inoxidable siguiendo los canales marcados en el reverso.
-* **Gestión de Cruces:** En la intersección de la "X", las líneas de datos debían cruzar la línea de tierra. Se utilizó una capa intermedia de tela aislante en el punto exacto del cruce para evitar cortocircuitos físicos.
+### Iteración 2.2: Calibración con Energía Limpia
+* **El Avance:** Al migrar de la alimentación USB (ruidosa) a la **batería LiPo de 3.7V** (corriente continua pura), el ruido de fondo se desplomó.
+* **El Ajuste Fino:** Esto permitió reducir drásticamente los umbrales de filtrado (`deadband` a 30, `masterThreshold` a 800) y aumentar los multiplicadores de ganancia digital, logrando una sensibilidad excepcional incluso a volúmenes bajos.
 
 ---
 
-## Fase 5: Arquitectura Modular (Snaps)
-La innovación principal respecto a la P1 fue separar la batería pesada de la mano.
-* **Instalación de Broches:** Se remacharon 6 broches de presión metálicos en el borde del antebrazo. Estos actúan como la interfaz de conexión robusta hacia el "Cerebro" (Arduino) que el usuario lleva en el cinturón.
+## Fase 3: Iteraciones de Hardware e Integración E-Textil
+
+El desafío físico fue asegurar que la energía fluyera correctamente a través de la mezclilla sin pérdidas.
+
+### Iteración 3.1: El Problema de la Resistencia (Brownouts)
+* **La Falla:** En las primeras pruebas, alimentar todo el sistema (ESP32 + Bluetooth) únicamente a través de hilo conductivo provocaba reinicios constantes.
+* **El Diagnóstico:** La resistencia propia del hilo conductivo (~160Ω en el trayecto) causaba una caída de voltaje crítica durante los picos de consumo de la antena Bluetooth, dejando al procesador sin energía suficiente (*Brownout*).
+
+### Iteración 3.2: Arquitectura de Ruteo Híbrido
+Para solucionar esto sin sacrificar la estética de las costuras visibles:
+* **Líneas de Potencia (VCC/GND):** Se instaló **cable de cobre multifilar delgado** oculto entre las capas de mezclilla y tela gris para transportar la corriente principal desde la batería con resistencia cero.
+* **Líneas de Señal:** Se mantuvo el **hilo conductivo visible** sobre la mezclilla negra para las conexiones de los LEDs y la señal de audio analógica, ya que estas manejan corrientes mínimas.
+
+### Iteración 3.3: Estabilización Capacitiva
+Se añadieron capacitores electrolíticos estratégicos: uno en la entrada de poder para absorber picos de demanda, y otro en la línea de audio para acoplar la señal AC y bloquear la componente DC, protegiendo la entrada del microcontrolador.
 
 ---
+
+## Fase 4: Manufactura y Acabado
+
+El ensamble final requirió técnicas de costura y electrónica combinadas.
+
+1.  **Confección:** Se cortaron y cosieron las piezas de mezclilla y tela gris, incluyendo la creación de los bolsillos a medida para los módulos y la batería.
+2.  **Costura de Circuitos:** Se cosió el hilo conductivo siguiendo el patrón diseñado para los 5 LEDs, asegurando puntadas firmes a través de la mezclilla.
+3.  **Sellado de Conexiones:** Debido a la naturaleza fibrosa de la mezclilla, se aplicó sellador (esmalte) en todos los nudos de hilo conductivo en los LEDs y la placa para evitar que se aflojaran o hicieran corto con fibras sueltas.
+4.  **Integración Final:** Se alojaron los módulos en sus respectivos bolsillos, se conectaron los cables de potencia JST y se realizaron las pruebas de estrés mecánico para asegurar la fiabilidad del *wearable*.
 
 [Ver Hardware](./hardware){: .btn .btn-outline .mr-2 }
 [Ver Código](./codigo){: .btn .btn-outline .mr-2 }

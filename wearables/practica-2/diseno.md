@@ -68,7 +68,7 @@ El éxito del proyecto dependió de la fusión de dos disciplinas rigurosas:
 
 ---
 
-[Ver Hardware](./hardware){: .btn .btn-outline .mr-2 }
-[Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
-[Ver Código](./codigo){: .btn .btn-outline .mr-2 }
+[Ver Hardware](../hardware){: .btn .btn-outline .mr-2 }
+[Ver Proceso](../proceso){: .btn .btn-outline .mr-2 }
+[Ver Código](../codigo){: .btn .btn-outline .mr-2 }
 [Inicio](../practica-2){: .btn .btn-primary } 

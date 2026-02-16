@@ -76,7 +76,7 @@ El ensamble final requirió técnicas de costura y electrónica combinadas.
 3.  **Sellado de Conexiones:** Debido a la naturaleza fibrosa de la mezclilla, se aplicó sellador (esmalte) en todos los nudos de hilo conductivo en los LEDs y la placa para evitar que se aflojaran o hicieran corto con fibras sueltas.
 4.  **Integración Final:** Se alojaron los módulos en sus respectivos bolsillos, se conectaron los cables de potencia JST y se realizaron las pruebas de estrés mecánico para asegurar la fiabilidad del *wearable*.
 
-[Ver Hardware](./hardware){: .btn .btn-outline .mr-2 }
-[Ver Código](./codigo){: .btn .btn-outline .mr-2 }
-[Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }
+[Ver Hardware](../hardware){: .btn .btn-outline .mr-2 }
+[Ver Código](../codigo){: .btn .btn-outline .mr-2 }
+[Ver Diseño](../diseno){: .btn .btn-outline .mr-2 }
 [Inicio](../practica-2){: .btn .btn-primary } 

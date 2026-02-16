@@ -93,7 +93,7 @@ Para escalar este prototipo a un producto robusto tolerante al movimiento y a la
 
 ---
 
-[Ver Código](./codigo){: .btn .btn-outline .mr-2 }
-[Ver Proceso](./proceso){: .btn .btn-outline .mr-2 }
-[Ver Diseño](./diseno){: .btn .btn-outline .mr-2 }
+[Ver Código](../codigo){: .btn .btn-outline .mr-2 }
+[Ver Proceso](../proceso){: .btn .btn-outline .mr-2 }
+[Ver Diseño](../diseno){: .btn .btn-outline .mr-2 }
 [Inicio](../practica-2){: .btn .btn-primary } 

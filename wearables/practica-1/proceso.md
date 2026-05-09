@@ -32,7 +32,6 @@ Se dibujó el esquema sobre la tela base, planificando la ruta exacta del hilo c
 Se ejecutó la costura conductiva conectando la línea VCC (+) y GND (-) hacia los LEDs y los broches metálicos.
 
 <img src="../../../assets/img/practica-1/CosiendoTela1.jpeg" alt="Cosiendo 1" width="49%">
-<img src="../../../assets/img/practica-1/CosiendoTela2.jpeg" alt="Cosiendo 2" width="49%">
 <br><br>
 <img src="../../../assets/img/practica-1/LedsResistenciasEnTela.jpeg" alt="Leds en Tela" width="49%">
 <img src="../../../assets/img/practica-1/EmbeberLedsTela.jpeg" alt="Embebiendo LEDs" width="49%">

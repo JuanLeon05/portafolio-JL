@@ -34,11 +34,11 @@ A continuación se presenta la descripción y explicación de la evidencia fotog
 
 <video src="../../../assets/img/practica-1/PrimeraPrueba.mp4" controls width="100%"></video>
 
-**Video 1. Prueba de Funcionamiento:** En este clip se demuestra cómo el encendido ocurre únicamente al cerrar la pulsera sobre la muñeca. Se valida la continuidad del circuito en paralelo y la eficacia del interruptor magnético/mecánico.
+**Video 1. Prueba inicial:** Se realizó una prueba de concepto con una espuma sumulando la acción de la pulsera.
 
 <video src="../../../assets/img/practica-1/TratamientoTela.mp4" controls width="100%"></video>
 
-**Video 2. Prueba de Flexibilidad:** Se demuestra que la pulsera conserva su naturaleza textil tras el tratamiento y la costura, manteniendo la comodidad y comprobando que no existen bordes rígidos.
+**Video 2. Acabado fisico:** Se le dio la textura a la pulsera uando una plancha y el calor y vapor que genera.
 
 ---
 

@@ -18,8 +18,6 @@ El Brief buscaba un accesorio que encajara en la estética de la vida nocturna.
 * **Paleta de Colores:** Tela negra de fondo para resaltar la saturación de los LEDs.
 * **Interacción:** El gesto de "ponerse la pulsera" activa las luces, emulando la preparación para un evento.
 
-> **Evidencia:** [Inserta foto de bocetos o inspiración visual]
-
 ## "Invisible Tech" y Ergonomía
 La tecnología wearable debe adaptarse al cuerpo humano. Se priorizó evitar bordes rígidos o componentes que puedan causar molestia.
 * **Ocultamiento (Sándwich):** Se utilizó una doble capa de tela. Todos los hilos y resistencias quedaron en la capa interna, protegidos del contacto directo con la piel.

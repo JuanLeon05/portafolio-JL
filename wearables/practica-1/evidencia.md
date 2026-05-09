@@ -15,7 +15,7 @@ A continuación se presenta la descripción y explicación de la evidencia fotog
 
 ## Galería de Ensamble
 
-**Figura 1. Vista Frontal (Apagada):** Se observa la distribución estética de los LEDs y el trabajo de integración textil donde la circuitería permanece oculta.
+![**Figura 1. Vista Frontal (Apagada):** Se observa la distribución estética de los LEDs y el trabajo de integración textil donde la circuitería permanece oculta.](../../assets/img/practica-1/foto1.jpeg)
 
 **Figura 2. Broches de Activación:** Detalle del cierre mecánico. Aquí convergen las líneas de VCC y GND a través del hilo conductor, funcionando como interruptor.
 

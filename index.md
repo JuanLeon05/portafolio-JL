@@ -2,72 +2,54 @@
 layout: default
 title: Home
 nav_order: 1
-description: Portafolio de Ingeniería Mecatrónica - Juan León
+description: Bitácora de Wearables y E-Textiles - Juan y Cecilia
 permalink: /
 ---
 
-# Juan León
+# Laboratorio de Wearables y E-Textiles
 {: .fs-9 }
 
-**Ingeniero Mecatrónico en Formación (6º Semestre)** | **Presidente IEEE RAS REEUIA 2025**
+**Bitácora Web Interdisciplinaria** | **Ingeniería Mecatrónica + Diseño Textil**
 {: .fs-6 .fw-300 .text-grey-dk-000 }
 
-Bienvenido. Soy desarrollador de hardware en la **Universidad Iberoamericana**.
+Bienvenidos a nuestro portafolio de documentación. Este espacio ha sido diseñado para registrar detalladamente el proceso de investigación, desarrollo y manufactura de nuestros proyectos de tecnología vestible.
 
-Mi perfil combina la robustez de la ingeniería clásica (potencia, mecánica, analógica) con tecnologías de vanguardia (IA en el borde, FPGA, RTOS). Me especializo en llevar sistemas complejos del concepto al prototipo funcional de alta fidelidad.
-
----
-
-## Stack Tecnológico Avanzado
-
-Herramientas y lenguajes validados en proyectos de alto presupuesto y competencia internacional.
-
-| Dominio | Tecnologías Dominadas |
-| :--- | :--- |
-| **Sistemas Embebidos & FPGA** | **Hardware:** STM32 (Blue Pill), FPGA (Nexys A7), Jetson Nano, ESP32 S3, Arduino R4/Leonardo.<br>**Lenguajes:** VHDL, C/C++ (HAL/Low-Level), Python.<br>**Control:** Manejo de interrupciones, RTOS, PWM Multicanal. |
-| **Desarrollo de Software** | **Aplicaciones:** GTK (C), Java (POO), Matlab.<br>**Web & Datos:** SQL, MongoDB, HTML/JS, Integración de APIs. |
-| **Ingeniería Electrónica** | **Analógica:** Diseño con OpAmps (Filtros Activos), Transistores de Potencia, Amplificadores de Audio.<br>**Digital:** Máquinas de Estados Finitos, Lógica Compuerta/Registro, EEPROM. |
-| **Diseño & Manufactura** | **CAD/CAM:** CATIA, Inventor, KiKad.<br>**Prototipado:** Corte Láser, Impresión 3D, Circuitos Flexibles. |
+Nuestro equipo representa la fusión de dos disciplinas rigurosas: la **Ingeniería Mecatrónica** (lógica, procesamiento de señales y hardware) y el **Diseño de Indumentaria** (ergonomía, patronaje y estética). Juntos, exploramos cómo la tecnología electrónica puede integrarse de manera orgánica y funcional sobre el cuerpo humano.
 
 ---
 
-## Proyectos de Ingeniería (High-Performance)
+## El Equipo
 
-### 1. [BattleBot: Vehículo de Combate (STM32)]()
-*Proyecto Final de Sistemas Embebidos.*
-Diseño y manufactura de un robot de competencia controlado por arquitectura dual de microcontroladores **STM32**.
-* **Armamento:** Cañón neumático de balines (propulsión CO2 con válvulas solenoides) y sistema térmico de corto alcance (filamento a 800°C).
-* **Control:** Navegación omnidireccional (Ruedas Mecanum), gestión de baterías LiPo, reguladores de voltaje y telemetría Bluetooth/Radio Control.
-
-### 2. [UAV Autónomo - Teknofest Turquía 2025]()
-*Liderazgo Técnico en RAS REEUIA.*
-Desarrollo integral de un Dron (UAV) para competencia internacional.
-* **Inteligencia Artificial:** Implementación de **NVIDIA Jetson Nano** para visión por computadora y reconocimiento de objetivos en tiempo real.
-* **Hardware:** Diseño de PCB a medida para etapas de potencia y distribución de señal. Control avanzado de servos para superficies de control.
+| Integrante | Disciplina | Enfoque en los Proyectos |
+| :--- | :--- | :--- |
+| **Juan León** | Ingeniería Mecatrónica | Diseño de arquitectura electrónica, programación de microcontroladores (ESP32, C++), procesamiento digital de señales (DSP), telecomunicaciones inalámbricas y gestión de potencia. |
+| **Cecilia** | Diseño Textil y Moda | Patronaje, selección de sustratos, integración ergonómica (Invisible Tech), manufactura de circuitos blandos, técnicas de bordado/estampado y dirección de arte. |
 
 ---
 
-## Ingeniería Fundamental (Analógica y Software)
+## Nuestra Filosofía de Diseño (Tech-Wear)
 
-Proyectos que demuestran dominio de los principios base de la ingeniería:
-
-* **Audio de Alta Fidelidad:** Diseño de bocina Bluetooth con preamplificador, etapas de potencia con transistores y filtrado de ruido (Circuitos Analógicos).
-* **Procesamiento de Imágenes (Software):** Editor de fotografías desarrollado en **C con librerías GTK** y catálogo digital.
-* **Sistemas Digitales Puros:** Implementación del videojuego **Pong** usando lógica secuencial, máquinas de estados y memoria EEPROM (sin microprocesador).
-* **Instrumentación Médica:** Investigación en órtesis/prótesis usando sensores de presión y temperatura (INIAT).
+A lo largo de este ciclo, nuestra metodología se ha centrado en resolver los retos técnicos y físicos inherentes de los *wearables*:
+* **Ergonomía y Confort:** Asegurar que los componentes rígidos no limiten la movilidad, aislando la circuitería para evitar incomodidad o fricción con la piel.
+* **Integridad Eléctrica:** Diseñar topologías híbridas (hilo conductivo visible + ruteo oculto de cobre) para evitar caídas de tensión provocadas por la resistencia natural de los textiles.
+* **Estética y Semiótica:** Subordinar la tecnología a la narrativa visual, creando piezas interactivas que respondan al movimiento y al sonido con acabados limpios y profesionales.
 
 ---
 
-## Liderazgo y Trayectoria
+## Proyectos Documentados
 
-* **Presidente de Rama Estudiantil IEEE RAS REEUIA (2025):** Robotics and Automation Society. Gestión de proyectos y representación internacional.
-* **Representante Estudiantil:** Ingeniería Mecatrónica y Sistemas Ciberfísicos (2026).
+Nuestra bitácora sigue una curva de aprendizaje incremental, desde la conducción analógica hasta la comunicación IoT bi-manual:
+
+1. **[Práctica 1: Pulsera RockBand](./wearables/practica-1/)** - Introducción a los E-Textiles, circuitos analógicos en paralelo y mecanismos de activación física.
+2. **[Práctica 2: SonicGauntlet](./wearables/practica-2/)** - Manga reactiva al audio mediante Transformada Rápida de Fourier (FFT), filtros anti-ruido y estética *Cyberpunk*.
+3. **[Práctica 3: Bordado y Estampado](./wearables/practica-3/)** - Reporte de fundamentos textiles, técnicas de puntada estructural (Hilván, Punto atrás) y permeografía (Serigrafía).
+4. **[Proyecto Final: Melody Key](./wearables/proyecto-final/)** - Sistema de asistencia musical bimanual con comunicación inalámbrica de ultra baja latencia (ESP-NOW) y retroalimentación háptica.
 
 ---
 
 <div style="margin-top: 3rem;">
   <a href="./wearables/" class="btn btn-primary fs-5 mb-4 mb-md-0 mr-2">
-    Ver Documentación Técnica
+    Explorar la Bitácora Web
   </a>
   <a href="https://github.com/JuanLeon05/portafolio-JL" target="_blank" class="btn btn-outline fs-5 mb-4 mb-md-0">
     Repositorio GitHub

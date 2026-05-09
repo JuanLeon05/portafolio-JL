@@ -6,22 +6,24 @@ grand_parent: Wearables
 nav_order: 4
 ---
 
-# Diseño y Colaboración
+# Diseño y Colaboración Interdisciplinaria
 {: .fs-9 }
 
-Este proyecto sentó las bases de la colaboración interdisciplinaria entre **Ingeniería Mecatrónica** y **Diseño Textil**, metodología que se perfeccionaría posteriormente en el proyecto siguiente.
+Este proyecto sentó las bases de la colaboración interdisciplinaria entre **Ingeniería Mecatrónica** y **Diseño Textil**. [cite_start]La estética es libre, pero debe evidenciar una intención de diseño[cite: 23].
 
 ---
 
 ## Concepto: "Concierto de Rock"
-El Brief de diseño buscaba un accesorio que encajara en la estética de la vida nocturna y los conciertos.
-* **Paleta de Colores:** Tela negra de fondo para resaltar la saturación de los LEDs de colores primarios.
-* **Interacción:** El gesto de "ponerse la pulsera" para activar las luces emula la preparación para un evento o fiesta.
+El Brief buscaba un accesorio que encajara en la estética de la vida nocturna.
+* **Paleta de Colores:** Tela negra de fondo para resaltar la saturación de los LEDs.
+* **Interacción:** El gesto de "ponerse la pulsera" activa las luces, emulando la preparación para un evento.
 
-## "Invisible Tech" (Tecnología Oculta)
-Uno de los principios clave de los wearables es que la tecnología no debe ser intrusiva.
-* **Ocultamiento:** Se utilizó una doble capa de tela. Todos los hilos conductores, resistencias y nudos de costura quedaron en la capa interna ("Sándwich"), protegidos de la vista y del contacto con la piel (para evitar cortos por sudor).
-* **Exposición Selectiva:** Únicamente los domos de los 5 LEDs asoman a través de la tela, creando un efecto limpio donde la luz parece emanar del material mismo.
+> **Evidencia:** [Inserta foto de bocetos o inspiración visual]
+
+## "Invisible Tech" y Ergonomía
+La tecnología wearable debe adaptarse al cuerpo humano. [cite_start]Se priorizó evitar bordes rígidos o componentes que puedan causar molestia[cite: 22].
+* **Ocultamiento (Sándwich):** Se utilizó una doble capa de tela. Todos los hilos y resistencias quedaron en la capa interna, protegidos del contacto directo con la piel.
+* **Exposición Selectiva:** Únicamente los domos de los LEDs asoman a través de la tela.
 
 ---
 
@@ -29,9 +31,9 @@ Uno de los principios clave de los wearables es que la tecnología no debe ser i
 
 | Rol | Responsabilidad | Aporte Clave |
 | :--- | :--- | :--- |
-| **Ingeniería (Juan León)** | Funcionalidad | Cálculo de resistencias, diseño del circuito paralelo y validación de conductividad. |
-| **Diseño (Cecilia)** | Estética y Usuario | Selección de textiles, patronaje de la pulsera y técnica de ocultamiento de componentes. |
+| **Ingeniería (Juan León)** | Funcionalidad | Cálculo de resistencias, arquitectura del circuito y validación técnica. |
+| **Diseño (Cecilia)** | Estética y Usuario | Selección textil, patronaje y técnicas de ocultamiento ergonómico. |
 
 ---
 
-[Ver cálculos](./calculos.md){: .btn .btn-outline } [Ver Hardware](./hardware.md){: .btn .btn-outline } [Ver Proceso](./proceso.md){: .btn .btn-outline } [Inicio](../practica-1){: .btn .btn-primary } 
+[Ver Proceso](./proceso.md){: .btn .btn-outline } [Ver Evidencia](./evidencia.md){: .btn .btn-outline } [Inicio](../practica-1){: .btn .btn-primary }

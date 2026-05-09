@@ -14,27 +14,36 @@ La construcción física requirió integrar técnicas de manufactura textil con 
 ---
 
 ## Fase 1: Preparación de Componentes (Hard-Modelling)
-Las patas de los LEDs y resistencias son rígidas. Para integrarlas al textil sin causar daños:
-* **Técnica "Curly":** Con pinzas de punta redonda, se formaron anillas (bucles) en los terminales de cada componente. Esto permite pasar la aguja e hilo conductor a través de ellas.
+Las patas de los LEDs y resistencias son rígidas. Para integrarlas al textil sin causar daños se utilizó la técnica "Curly": con pinzas de punta redonda, se formaron anillas en los terminales para pasar la aguja y el hilo conductor. Posteriormente, se soldaron las resistencias a los LEDs.
 
-> **Evidencia:** [Inserta foto de los LEDs con los curlies]
+<img src="../../assets/img/practica-1/LedsCurly.JPG" alt="Leds Curly" width="49%">
+<img src="../../assets/img/practica-1/LedsYResistencia.JPG" alt="Leds y Resistencias Soldados" width="49%">
 
-## Fase 2: Costura e Integración
-1.  **Trazado:** Se dibujó el esquema sobre la tela, planificando la ruta del hilo conductor para evitar cruces que generen cortocircuitos.
-2.  **Costura Conductiva:**
-    * **Línea VCC (+):** Conecta desde el pad de cobre positivo hacia las resistencias, ánodos y el broche macho.
-    * **Línea GND (-):** Conecta desde el pad de cobre negativo hacia los cátodos y el broche hembra.
-3.  **Mecanismo de Switch:** El hilo conductor se cosió en contacto directo con la base metálica de los broches.
+## Fase 2: Trazado y Patronaje
+Se dibujó el esquema sobre la tela base, planificando la ruta exacta del hilo conductor para evitar cruces que generen cortocircuitos.
 
-> **Evidencia:** [Inserta fotos del reverso de la tela mostrando las costuras]
+<img src="../../assets/img/practica-1/TelaBase.jpeg" alt="Tela Base" width="100%">
+<br><br>
+<img src="../../assets/img/practica-1/PatronCoseTela.jpeg" alt="Patrón 1" width="32%">
+<img src="../../assets/img/practica-1/PatronCoseTela2.jpeg" alt="Patrón 2" width="32%">
+<img src="../../assets/img/practica-1/PatronCoseTelaFinal.jpeg" alt="Patrón Final" width="32%">
 
-## Fase 3: Pruebas e Iteraciones
-Durante el proceso se realizaron pruebas para garantizar el ajuste, flexibilidad y comodidad en la muñeca.
+## Fase 3: Costura e Integración
+Se ejecutó la costura conductiva conectando la línea VCC (+) y GND (-) hacia los LEDs y los broches metálicos.
 
-* **Aislamiento:** Se aplicó esmalte transparente en los nudos finales del hilo conductor para evitar deshilaches.
-* **Validación:** Se comprobó que los 5 LEDs encienden correctamente al abrochar la pulsera. Se evaluó que la pulsera fuera cómoda, flexible y adecuada para la muñeca.
+<img src="../../assets/img/practica-1/CosiendoTela1.jpeg" alt="Cosiendo 1" width="49%">
+<img src="../../assets/img/practica-1/CosiendoTela2.jpeg" alt="Cosiendo 2" width="49%">
+<br><br>
+<img src="../../assets/img/practica-1/LedsResistenciasEnTela.jpeg" alt="Leds en Tela" width="49%">
+<img src="../../assets/img/practica-1/EmbeberLedsTela.jpeg" alt="Embebiendo LEDs" width="49%">
 
-> **Evidencia:** [Inserta video de la prueba de flexibilidad y encendido]
+El hilo conductor se cosió en contacto directo con la base metálica de los broches, operando como mecanismo de switch físico.
+<img src="../../assets/img/practica-1/VistaFinalDetras.jpeg" alt="Vista Trasera Final" width="100%">
+
+## Fase 4: Pruebas e Iteraciones
+Se comprobó la continuidad del circuito incluso antes de abrochar la pulsera para descartar falsos contactos o deshilaches en los nudos.
+
+<img src="../../assets/img/practica-1/PulseraAbiertaON.JPG" alt="Prueba pulsera abierta" width="100%">
 
 ---
 

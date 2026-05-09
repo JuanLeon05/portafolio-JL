@@ -13,24 +13,27 @@ El desafío técnico de esta práctica no radica en la complejidad lógica, sino
 
 ---
 
-## Diagrama Esquemático
+## Pruebas y Diagrama Esquemático
 
-El sistema funciona como un circuito cerrado por contacto mecánico:
+Antes de pasar al textil, se validó la lógica del circuito en paralelo utilizando una placa de pruebas convencional. El sistema funciona como un circuito cerrado por contacto mecánico:
 
 1.  **Entrada:** Fuente de voltaje externa conectada a dos tiras de cobre (VCC y GND) en el extremo de la pulsera.
 2.  **Conducción:** Hilo conductor (2 cabos) transporta la corriente a lo largo de la tela.
 3.  **Interruptor:** Los broches (macho/hembra) cierran el circuito al abrocharse.
 4.  **Carga:** 5 LEDs de colores diferentes en configuración paralela, cada uno con su resistencia limitadora de corriente.
 
-> **Evidencia:** [Inserta aquí la imagen de tu diagrama esquemático]
+<img src="../../assets/img/practica-1/LedsProtoboardON.JPG" alt="Prueba en Protoboard" width="49%">
+<img src="../../assets/img/practica-1/CircuitoFinal.jpeg" alt="Circuito Final Textil" width="49%">
 
 ---
 
 ## Lista de Materiales (BOM)
 
+<img src="../../assets/img/practica-1/MaterialesPruebas.JPG" alt="Materiales y Pruebas" width="100%">
+
 | Componente | Especificación | Función |
 | :--- | :--- | :--- |
-| **Actuadores** | 5 LEDs (Naranja, Amarillo, Verde, Rojo, Azul) | alida visual multicolor. |
+| **Actuadores** | 5 LEDs (Naranja, Amarillo, Verde, Rojo, Azul) | Salida visual multicolor. |
 | **Resistencias** | 5 unidades (Valores calculados) | Protección de corriente individual por LED. |
 | **Conductor** | Hilo conductor | Pistas flexibles del circuito. |
 | **Interfaz** | 2 Tiras de cobre | Pads de conexión para caimanes. |

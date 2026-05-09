@@ -9,7 +9,7 @@ nav_order: 6
 # Conclusiones y Reflexión Crítica
 {: .fs-9 }
 
-[cite_start]En esta sección se presenta una reflexión crítica sobre el proceso y el resultado obtenido en el desarrollo de la pulsera textil[cite: 33].
+En esta sección se presenta una reflexión crítica sobre el proceso y el resultado obtenido en el desarrollo de la pulsera textil.
 
 ---
 

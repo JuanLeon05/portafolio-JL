@@ -12,15 +12,15 @@ nav_order: 1
 **Introducción a los E-Textiles y Circuitos Blandos**
 {: .fs-6 .fw-300 }
 
-Este proyecto marca el inicio de la investigación en tecnología vestible. Se trata de un accesorio interactivo diseñado para el contexto de un concierto de rock, donde la propia joya funciona como el interruptor del circuito. [cite_start]El objetivo principal fue diseñar y construir una pulsera textil que integre materiales conductivos y componentes básicos para encender 5 LEDs de colores al sujetarla en la muñeca[cite: 15].
+Este proyecto marca el inicio de la investigación en tecnología vestible. Se trata de un accesorio interactivo diseñado para el contexto de un concierto de rock, donde la propia joya funciona como el interruptor del circuito. El objetivo principal fue diseñar y construir una pulsera textil que integre materiales conductivos y componentes básicos para encender 5 LEDs de colores al sujetarla en la muñeca.
 
 ---
 
 ## Concepto y Funcionalidad
 
-La pulsera integra un **circuito puramente analógico** en paralelo. [cite_start]El circuito debe estar integrado al textil, no montado como objeto rígido externo[cite: 18].
+La pulsera integra un **circuito puramente analógico** en paralelo. El circuito debe estar integrado al textil, no montado como objeto rígido externo.
 
-* **Mecanismo de Activación:** El circuito está normalmente abierto. [cite_start]El encendido debe ocurrir únicamente al cerrar la pulsera[cite: 18]. [cite_start]Los broches de presión actúan como un **interruptor mecánico**; al abrocharse, cierran el circuito físico y encienden los 5 LEDs[cite: 29].
+* **Mecanismo de Activación:** El circuito está normalmente abierto. El encendido debe ocurrir únicamente al cerrar la pulsera. Los broches de presión actúan como un **interruptor mecánico**; al abrocharse, cierran el circuito físico y encienden los 5 LEDs.
 * **Gestión de Energía:** Alimentación externa mediante tiras de cobre cosidas (pads de conexión) para interfaz con caimanes y fuente de voltaje.
 
 ---

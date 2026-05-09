@@ -15,9 +15,9 @@ Dado que cada color de LED tiene una composición química diferente, su voltaje
 
 ## Fórmulas Aplicadas
 
-Utilizamos la Ley de Ohm para determinar el valor de la resistencia ($R$) necesaria:
+Utilizamos la Ley de Ohm para determinar el valor de la resistencia (R) necesaria:
 
-$$R = \frac{V_{fuente} - V_{led}}{I_{deseada}}$$
+R = (V_fuente - V_led) / I_deseada
 
 * **Voltaje de fuente:** 5V (Fuente externa estándar).
 * **Corriente deseada:** 20mA (0.02A) para brillo óptimo sin sobrecalentamiento.

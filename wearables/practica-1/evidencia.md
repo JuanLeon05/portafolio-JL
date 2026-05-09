@@ -9,7 +9,7 @@ nav_order: 5
 # Registro de Evidencia y Pruebas Funcionales
 {: .fs-9 }
 
-[cite_start]A continuación se presenta la descripción y explicación de la evidencia fotográfica y de video que respalda la manufactura y funcionamiento del prototipo[cite: 31].
+A continuación se presenta la descripción y explicación de la evidencia fotográfica y de video que respalda la manufactura y funcionamiento del prototipo.
 
 ---
 

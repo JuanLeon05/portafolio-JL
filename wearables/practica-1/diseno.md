@@ -9,7 +9,7 @@ nav_order: 4
 # Diseño y Colaboración Interdisciplinaria
 {: .fs-9 }
 
-Este proyecto sentó las bases de la colaboración interdisciplinaria entre **Ingeniería Mecatrónica** y **Diseño Textil**. [cite_start]La estética es libre, pero debe evidenciar una intención de diseño[cite: 23].
+Este proyecto sentó las bases de la colaboración interdisciplinaria entre **Ingeniería Mecatrónica** y **Diseño Textil**. La estética es libre, pero debe evidenciar una intención de diseño.
 
 ---
 
@@ -21,7 +21,7 @@ El Brief buscaba un accesorio que encajara en la estética de la vida nocturna.
 > **Evidencia:** [Inserta foto de bocetos o inspiración visual]
 
 ## "Invisible Tech" y Ergonomía
-La tecnología wearable debe adaptarse al cuerpo humano. [cite_start]Se priorizó evitar bordes rígidos o componentes que puedan causar molestia[cite: 22].
+La tecnología wearable debe adaptarse al cuerpo humano. Se priorizó evitar bordes rígidos o componentes que puedan causar molestia.
 * **Ocultamiento (Sándwich):** Se utilizó una doble capa de tela. Todos los hilos y resistencias quedaron en la capa interna, protegidos del contacto directo con la piel.
 * **Exposición Selectiva:** Únicamente los domos de los LEDs asoman a través de la tela.
 

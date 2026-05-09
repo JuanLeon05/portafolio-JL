@@ -9,14 +9,13 @@ nav_order: 3
 # Proceso de Manufactura e Iteraciones
 {: .fs-9 }
 
-[cite_start]La construcción física requirió integrar técnicas de manufactura textil con ensamble electrónico, asegurando que la pulsera debe poder colocarse y retirarse del cuerpo con facilidad[cite: 19].
+La construcción física requirió integrar técnicas de manufactura textil con ensamble electrónico, asegurando que la pulsera debe poder colocarse y retirarse del cuerpo con facilidad.
 
 ---
 
 ## Fase 1: Preparación de Componentes (Hard-Modelling)
 Las patas de los LEDs y resistencias son rígidas. Para integrarlas al textil sin causar daños:
 * **Técnica "Curly":** Con pinzas de punta redonda, se formaron anillas (bucles) en los terminales de cada componente. Esto permite pasar la aguja e hilo conductor a través de ellas.
-* **Soldadura:** Se soldaron las resistencias a los ánodos correspondientes de cada LED antes de la costura.
 
 > **Evidencia:** [Inserta foto de los LEDs con los curlies]
 
@@ -30,10 +29,10 @@ Las patas de los LEDs y resistencias son rígidas. Para integrarlas al textil si
 > **Evidencia:** [Inserta fotos del reverso de la tela mostrando las costuras]
 
 ## Fase 3: Pruebas e Iteraciones
-[cite_start]Durante el proceso se realizaron pruebas para garantizar el ajuste, flexibilidad y comodidad en la muñeca[cite: 30].
+Durante el proceso se realizaron pruebas para garantizar el ajuste, flexibilidad y comodidad en la muñeca.
 
 * **Aislamiento:** Se aplicó esmalte transparente en los nudos finales del hilo conductor para evitar deshilaches.
-* [cite_start]**Validación:** Se comprobó que los 5 LEDs encienden correctamente al abrochar la pulsera[cite: 29]. [cite_start]Se evaluó que la pulsera fuera cómoda, flexible y adecuada para la muñeca[cite: 21].
+* **Validación:** Se comprobó que los 5 LEDs encienden correctamente al abrochar la pulsera. Se evaluó que la pulsera fuera cómoda, flexible y adecuada para la muñeca.
 
 > **Evidencia:** [Inserta video de la prueba de flexibilidad y encendido]
 

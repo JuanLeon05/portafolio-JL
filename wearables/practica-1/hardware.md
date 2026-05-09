@@ -22,14 +22,14 @@ Antes de pasar al textil, se validó la lógica del circuito en paralelo utiliza
 3.  **Interruptor:** Los broches (macho/hembra) cierran el circuito al abrocharse.
 4.  **Carga:** 5 LEDs de colores diferentes en configuración paralela, cada uno con su resistencia limitadora de corriente.
 
-<img src="../../assets/img/practica-1/LedsProtoboardON.JPG" alt="Prueba en Protoboard" width="49%">
-<img src="../../assets/img/practica-1/CircuitoFinal.jpeg" alt="Circuito Final Textil" width="49%">
+<img src="../../../assets/img/practica-1/LedsProtoboardON.JPG" alt="Prueba en Protoboard" width="49%">
+<img src="../../../assets/img/practica-1/CircuitoFinal.jpeg" alt="Circuito Final Textil" width="49%">
 
 ---
 
 ## Lista de Materiales (BOM)
 
-<img src="../../assets/img/practica-1/MaterialesPruebas.JPG" alt="Materiales y Pruebas" width="100%">
+<img src="../../../assets/img/practica-1/MaterialesPruebas.JPG" alt="Materiales y Pruebas" width="100%">
 
 | Componente | Especificación | Función |
 | :--- | :--- | :--- |

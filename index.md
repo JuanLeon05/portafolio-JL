@@ -14,7 +14,7 @@ permalink: /
 
 Bienvenidos a nuestro portafolio de documentación. Este espacio ha sido diseñado para registrar detalladamente el proceso de investigación, desarrollo y manufactura de nuestros proyectos de tecnología vestible.
 
-Nuestro equipo representa la fusión de dos disciplinas rigurosas: la **Ingeniería Mecatrónica** (lógica, procesamiento de señales y hardware) y el **Diseño de Indumentaria** (ergonomía, patronaje y estética). Juntos, exploramos cómo la tecnología electrónica puede integrarse de manera orgánica y funcional sobre el cuerpo humano.
+Nuestro equipo representa la fusión de dos disciplinas rigurosas: la **Ingeniería Mecatrónica** (lógica, procesamiento de señales y hardware) y el **Diseño de Modas** (ergonomía, patronaje y estética). Juntos, exploramos cómo la tecnología electrónica puede integrarse de manera orgánica y funcional sobre el cuerpo humano.
 
 ---
 

@@ -3,99 +3,37 @@ layout: default
 title: Algoritmo y Firmware
 parent: P2 - SonicGauntlet
 grand_parent: Wearables
-nav_order: 2
+nav_order: 3
 ---
 
 # Ingeniería de Software y DSP
 {: .fs-9 }
 
-El firmware del **SonicGauntlet** no es una simple secuencia de luces; es un sistema de **Procesamiento Digital de Señales (DSP)** en tiempo real.
-
-El objetivo del código es convertir una señal de voltaje caótica (música) en una visualización ordenada y agradable, filtrando el ruido eléctrico electromagnético (EMI) propio de los *wearables* y adaptándose dinámicamente al volumen de la fuente.
+El firmware del **SonicGauntlet** es un sistema de Procesamiento Digital de Señales (DSP) en tiempo real. El objetivo es convertir la música en una visualización ordenada, operando en un bucle continuo (loop) de análisis y respuesta visual.
 
 ---
 
-## 1. Arquitectura del Sistema
+## 1. Arquitectura del Sistema y Secuencia de Inicio
 
-El flujo de datos sigue una tubería (pipeline) estricta para asegurar que la visualización sea sincrónica con el oído humano.
+El flujo de datos sigue una tubería estricta para asegurar que la visualización sea sincrónica. Al conectar la fuente de poder (simulando el cierre o abrochado de la prenda), el microcontrolador inicia su rutina de calibración y arranca la secuencia en loop.
 
-`Señal Analógica (ADC) → Pre-Procesamiento (Deadband) → FFT → Agrupación (Binning) → Suavizado (AGC) → Lógica de Confirmación → Visualización`
+`Señal (ADC) → Pre-Procesamiento → Transformada (FFT) → Agrupación → Visualización`
 
-### Muestreo Síncrono y Aislamiento (Sampling)
-Para que las matemáticas funcionen, el microcontrolador debe muestrear la señal a intervalos exactos con la menor interferencia posible.
-* **Aislamiento de Radiofrecuencia:** Se desactiva el radio WiFi interno del ESP32 (`WiFi.mode(WIFI_OFF)`) durante el arranque para evitar que sus propias transmisiones inyecten ruido parásito en el ADC.
-* **Frecuencia de Muestreo:** 20,000 Hz (20kHz).
-* **Teorema de Nyquist:** Al muestrear a 20kHz, el sistema analiza frecuencias de audio de hasta **10kHz**, cubriendo el espectro fundamental de la música.
-* **Resolución:** Se utiliza el ADC de 12-bits del ESP32, ofreciendo un rango de valores de 0 a 4095.
+### Muestreo y Aislamiento
+* **Aislamiento de Radiofrecuencia:** Se desactiva el radio WiFi interno (`WiFi.mode(WIFI_OFF)`) para evitar que sus transmisiones inyecten ruido parásito.
+* **Frecuencia de Muestreo:** 20,000 Hz, permitiendo analizar frecuencias de audio de hasta 10kHz (Teorema de Nyquist).
 
----
+## 2. Filtros de Estabilización
 
-## 2. Algoritmos de Filtrado y Estabilización
+La electrónica textil introduce variables complejas que el software compensa:
+1. **Auto-Calibración:** Al encenderse, el sistema mide el "silencio eléctrico" para calcular el centro matemático (Cero) exacto.
+2. **Filtro Deadband:** Recorta variaciones analógicas menores al umbral calibrado, eliminando el ruido de fondo.
+3. **Debounce Analógico:** Para que los LEDs despierten de su secuencia de espera, la energía debe superar el umbral durante al menos 2 ciclos, ignorando "chispazos" eléctricos pasajeros.
 
-La electrónica textil introduce variables complejas: módulos Bluetooth que generan pulsos de radio, caídas de tensión por hilos resistivos y ruido estático. El software compensa estas deficiencias de hardware mediante tres capas de seguridad:
+## 3. Transformada de Fourier (FFT) y Agrupación
+La librería toma muestras limpias y las descompone en 32 "cubetas", que luego se agrupan en 5 canales para los LEDs (Graves, Bajos, Medios, Voces, Agudos).
 
-### A. Auto-Calibración (Zero-Calibration)
-Las baterías de litio (LiPo/Li-ion) cambian su voltaje a medida que se descargan. Un valor central fijo de referencia provocaría errores en la amplitud de la onda.
-* **Solución:** Al encenderse y tras dar tiempo al Bluetooth de arrancar, el sistema mide el "silencio eléctrico" durante 400ms.
-* **Resultado:** Calcula el **DC Offset** exacto de ese momento y lo usa como el centro matemático (Cero) para la sesión.
-
-### B. Filtro de Zona Muerta (Deadband)
-El módulo MHM-28 y el sistema de alimentación generan un ligero "rizado" (ripple) continuo, incluso en absoluto silencio.
-* **Implementación:** Se recorta cualquier variación analógica menor al umbral `deadband` (calibrado a 30 unidades gracias a la limpieza de la corriente continua de la batería).
-* **Resultado:** El ruido blanco es aplastado a cero absoluto antes de entrar a la transformada de Fourier, evitando falsos positivos de baja amplitud.
-
-### C. Filtro Anti-Transitorios (Debounce Analógico)
-El módulo Bluetooth emite picos electromagnéticos ultracortos al comunicarse con el teléfono, que la FFT puede interpretar erróneamente como música a un volumen masivo.
-* **Implementación:** Se diseñó un contador de validación (`validAudioFrames`). Para que el sistema reaccione y despierte los LEDs, debe detectar energía superior al umbral maestro durante **al menos 2 ciclos consecutivos**.
-* **Resultado:** Los "chispazos" eléctricos de 1 ciclo de duración son ignorados sistemáticamente, blindando la animación de *Standby*.
-
----
-
-## 3. Transformada Rápida de Fourier (FFT)
-
-El núcleo matemático del proyecto. La librería `arduinoFFT` toma 64 muestras de tiempo limpias y las descompone en sus frecuencias constitutivas.
-
-### Binning (Agrupación de Bandas)
-La FFT entrega 32 "cubetas" (bins) de frecuencias. Para los 5 canales de salida, se agrupan en rangos perceptuales:
-
-| Canal (LED) | Rango de Frecuencia | Instrumento Típico |
-| :--- | :--- | :--- |
-| **1. Graves** | 40Hz - 150Hz | Bombo (Kick), Sub-bajo |
-| **2. Bajos** | 150Hz - 400Hz | Bajo eléctrico, Cello |
-| **3. Medios** | 400Hz - 1.5kHz | Guitarra, Voces masculinas |
-| **4. Voces** | 1.5kHz - 4kHz | Voces femeninas, Sintetizadores |
-| **5. Agudos** | 4kHz - 10kHz | Platillos (Hi-Hats), Shakers |
-
----
-
-## 4. Control de Ganancia Automático (AGC)
-
-El sistema adapta su sensibilidad de forma activa para reaccionar a la dinámica de diferentes géneros musicales.
-
-### Beat Detection (Detección de Ritmo)
-* **Promedio Móvil:** El sistema recuerda el volumen promedio de las iteraciones recientes (`runningAverage`).
-* **Compuerta de Ruido (Noise Gate):** Antes de multiplicar, la banda debe superar un nivel mínimo de energía para asegurar que es un sonido real y no artefactos matemáticos.
-* **Disparador:** El volumen actual debe superar la ganancia histórica multiplicada por un factor de sensibilidad (`multipliers`). Los graves requieren un multiplicador mayor (2.5) debido a su mayor acumulación de energía en la FFT.
-* **Ataque y Decaimiento (Fast Attack / Slow Decay):**
-  * Al detectar un golpe, el promedio sube rápidamente (40% del nuevo valor).
-  * En el silencio, el promedio decae suavemente multiplicándose por 0.99, dando una transición visual fluida y natural.
-
----
-
-## 5. Máquina de Estados
-
-El dispositivo tiene dos estados lógicos principales gestionados por temporizadores no bloqueantes (`millis()`):
-
-1.  **Estado ACTIVO (Music Mode):**
-    * Se activa cuando la energía validada supera el `masterThreshold`.
-    * Los LEDs responden a la FFT en tiempo real con latencia casi nula.
-2.  **Estado STANDBY (Idle Mode):**
-    * Se activa tras 3 segundos (`silenceDelay`) de silencio absoluto.
-    * Ejecuta una animación de escáner de bajo consumo, confirmando al usuario que el sistema sigue encendido y midiendo, pero a la espera de un estímulo.
-
----
-
-## Firmware
+> **Evidencia:** [Inserta aquí un GIF o imagen de la respuesta a frecuencias]
 
 ```cpp
 /*
@@ -269,4 +207,4 @@ void animacionStandby() {
 
 ---
 
-[Ver Hardware](../hardware.md){: .btn .btn-outline } [Ver Proceso](../proceso.md){: .btn .btn-outline } [Ver Diseño](../diseno.md){: .btn .btn-outline } [Inicio](../practica-2){: .btn .btn-primary } 
+[Ver Hardware](./hardware.md){: .btn .btn-outline .mr-2 } [Ver Diseño](./diseno.md){: .btn .btn-outline .mr-2 } [Inicio](../practica-2){: .btn .btn-primary }

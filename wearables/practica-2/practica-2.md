@@ -3,7 +3,7 @@ layout: default
 title: P2 - SonicGauntlet
 parent: Wearables
 has_children: true
-nav_order: 2
+nav_order: 1
 ---
 
 # Práctica 2: SonicGauntlet (Stage Edition)
@@ -12,58 +12,47 @@ nav_order: 2
 **Instrumento de Visualización Acústica y Tech-Wear**
 {: .fs-6 .fw-300 }
 
-Evolución directa de la *Pulsera RockBand*. Mientras que el proyecto anterior exploraba la electrónica pasiva para la audiencia, el **SonicGauntlet** es un sistema *wearable* autónomo y activo. Esta manga de mezclilla traduce la energía musical en luz en tiempo real, convirtiendo el brazo del usuario en un ecualizador visual de alto impacto escénico.
-
----
-
-## Demostración en Vivo
-
-<div class="responsive-embed">
-  <iframe src="https://www.youtube.com/embed/TU_ID_DE_VIDEO" title="SonicGauntlet Demo" allowfullscreen></iframe>
-</div>
-
-*(Nota: Reemplaza TU_ID_DE_VIDEO por el ID real de tu video)*
+Evolución directa de nuestro primer acercamiento a los e-textiles. Mientras que el proyecto anterior exploraba la electrónica pasiva, el **SonicGauntlet** es un sistema wearable autónomo y activo. Partiendo de las metodologías de innovación estructurada (como el pensamiento de diseño y los enfoques sistemáticos de Pahl y Beitz), programamos y prototipamos una manga que expresa una clara intención estética mediante una secuencia temporal de encendido y apagado de 5 LEDs controlados por un microcontrolador.
 
 ---
 
 ## Evolución Técnica: De Pasivo a Reactivo
 
-Este proyecto representa un salto de ingeniería mecatrónica significativo respecto a la Práctica 1, superando los retos del ruido electromagnético y pasando de la conmutación mecánica al Procesamiento Digital de Señales (DSP) sobre sustratos textiles.
+Este proyecto representa un salto de ingeniería mecatrónica significativo, pasando de la conmutación mecánica al Procesamiento Digital de Señales (DSP) sobre sustratos textiles, manteniendo la premisa de que la secuencia visual inicie al colocarse y abrocharse la prenda.
 
 | Característica | Práctica 1 (Pulsera) | Práctica 2 (SonicGauntlet) |
 | :--- | :--- | :--- |
-| **Rol** | Accesorio de Fan (Estático) | Pieza de Performance (Dinámico) |
-| **Tecnología** | Analógica (Ley de Ohm) | Digital (ESP32-C3 RISC-V de 32 bits) |
-| **Fuente de Señal** | N/A | Streaming Bluetooth de Audio (MH-M28) |
-| **Activación** | Interruptor Mecánico | Análisis Matemático Avanzado (FFT) |
-| **Arquitectura de Poder** | Pila de Botón (Baja descarga) | LiPo 3.7V + Ruteo Híbrido (Cobre/Plata) |
-
----
-
-## Arquitectura del Sistema
-
-El sistema utiliza un **ESP32-C3 Super Mini** emparejado con un receptor **Bluetooth MH-M28**. En lugar de depender de un micrófono ambiental ruidoso, captura el audio directamente desde el dispositivo del usuario con alta fidelidad. 
-
-Mediante un algoritmo de **Transformada Rápida de Fourier (FFT)**, el firmware descompone la señal analógica en 5 bandas de frecuencia críticas (Graves, Medios-Graves, Medios, Medios-Altos, Agudos). Cada banda controla dinámicamente un LED de alta luminosidad dispuesto en un arreglo lineal a lo largo del antebrazo, logrando una sincronización visual perfecta mediante Control Automático de Ganancia (AGC).
+| **Rol** | Accesorio Estático | Pieza de Performance Dinámico |
+| **Tecnología** | Analógica | Digital (ESP32-C3 RISC-V) |
+| **Fuente de Señal** | N/A | Streaming Bluetooth de Audio |
+| **Arquitectura de Poder** | Alimentación externa | LiPo 3.7V + Ruteo Híbrido |
 
 ---
 
 ## Documentación del Proyecto
 
-Explora los módulos técnicos para entender la ingeniería y el diseño detrás de esta pieza de *tech-wear*:
+Explora los módulos técnicos para entender la ingeniería y el diseño detrás de esta pieza:
 
-### 1. Hardware, Acondicionamiento y E-Textiles
-Arquitectura de energía híbrida para evitar *brownouts*, uso de capacitores para acople AC/DC, y el diagrama de integración del ESP32-C3 con módulos Bluetooth y baterías LiPo.
-[Ver Hardware](../hardware){: .btn .btn-primary .mr-2 }
+### 1. Hardware y Electrónica Textil
+Arquitectura de energía híbrida y esquemas de integración.
+[Ver Hardware](./hardware.md){: .btn .btn-primary .mr-2 }
 
-### 2. Algoritmo y DSP (El Cerebro)
-Explicación del firmware en C++, configuración del FFT, filtros de "Zona Muerta" (Deadband), algoritmo anti-transitorios (Debounce) y la máquina de estados responsiva.
-[Ver Código](../codigo){: .btn .btn-primary .mr-2 }
+### 2. Algoritmo y Firmware (DSP)
+Lógica de programación, control de secuencias y filtros de señal.
+[Ver Código](./codigo.md){: .btn .btn-primary .mr-2 }
 
-### 3. Proceso y Manufactura
-Bitácora de construcción: la resolución de caídas de tensión por la resistencia del hilo conductivo, técnicas de aislamiento con Kapton y la creación de bolsillos estructurales.
-[Ver Proceso](../proceso){: .btn .btn-primary .mr-2 }
+### 3. Diseño y Estética
+Concepto visual, confort y ergonomía del wearable.
+[Ver Diseño](./diseno.md){: .btn .btn-primary .mr-2 }
 
-### 4. Diseño y Estética Industrial
-Colaboración interdisciplinaria para crear una estética *Grunge / Cyberpunk* utilizando mezclilla de alto gramaje, costuras conductivas expuestas y hardware metálico ornamental (cadenas).
-[Ver Diseño](../diseno){: .btn .btn-primary .mr-2 }
+### 4. Proceso y Manufactura
+Bitácora de fabricación, iteraciones y ensamblaje físico.
+[Ver Proceso](./proceso.md){: .btn .btn-primary .mr-2 }
+
+### 5. Evidencia y Pruebas
+Registro multimedia demostrando el funcionamiento, ajuste y secuencias.
+[Ver Evidencia](./evidencia.md){: .btn .btn-primary .mr-2 }
+
+### 6. Conclusiones
+Reflexión analítica sobre los resultados obtenidos.
+[Ver Conclusiones](./conclusiones.md){: .btn .btn-primary .mr-2 }

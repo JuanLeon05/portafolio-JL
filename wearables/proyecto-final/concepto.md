@@ -16,6 +16,9 @@ El planteamiento de **Melody Key** se centró en un reto ergonómico clave: crea
 ## Estética y Semiótica Visual
 Se optó por una estética clásica y directa en **blanco y negro**, haciendo una referencia visual explícita a las teclas de un piano clásico. En la cara posterior de la manga, cerca de los nudillos, se integraron apliques gráficos que imitan la forma del teclado, sirviendo tanto de adorno como de mapa visual (diccionario de notas) para el usuario.
 
+<img src="{{ site.baseurl }}/assets/img/proyecto-final/BordadoMangas.jpeg" alt="Detalle del bordado de teclas" width="49%">
+<img src="{{ site.baseurl }}/assets/img/proyecto-final/bordadoMangas2.jpeg" alt="Teclas de piano en terciopelo" width="49%">
+
 ## Selección Textil (Ergonomía Sensorial)
 La elección de los sustratos fue fundamental para garantizar la comodidad y ocultar la complejidad electrónica (Invisible Tech):
 1.  **Interior (Gabardina Stretch Negra):** Su elasticidad permite que la manga se adhiera al contorno del brazo, manteniendo los sensores (IMU) y motores hápticos firmemente posicionados contra la piel sin restringir el flujo sanguíneo o el movimiento natural de los tendones al tocar.

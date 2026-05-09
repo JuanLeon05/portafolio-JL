@@ -18,6 +18,8 @@ Desde la perspectiva del diseño, el uso de capas contrastantes (gabardina estru
 **Áreas de Escalabilidad:**
 * El sistema actual requiere compilar las canciones (partituras) en el firmware. Una futura iteración podría aprovechar la conectividad BLE existente para descargar archivos MIDI directamente desde un smartphone hacia la memoria flash del microcontrolador, expandiendo el repertorio musical al infinito sin necesidad de reprogramación.
 
+<img src="{{ site.baseurl }}/assets/img/proyecto-final/MaterialParaMejoras.jpeg" alt="Materiales para futuras iteraciones" width="100%">
+
 ---
 
 [Inicio](../proyecto-final){: .btn .btn-primary }

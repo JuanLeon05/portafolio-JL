@@ -13,6 +13,12 @@ La fase de fabricación fusionó el ruteo de cables flexibles de cobre revestido
 
 ---
 
+## Proceso de Confección
+
+El trabajo de integración textil requirió precisión geométrica para alinear los componentes electrónicos con la anatomía de la mano.
+
+<video src="{{ site.baseurl }}/assets/img/proyecto-final/BordadoEnMaquina.mp4" controls width="100%"></video>
+
 ## Implementación de Firmware (Fragmentos Clave)
 
 Se diseñaron algoritmos para pre-cargar partituras completas (como "Twinkle Star", "Fur Elise") utilizando arreglos de estructuras (`struct Nota`) que dictan el tiempo en milisegundos, el dedo correspondiente y la alteración musical (sostenido/bemol) de cada pulso.

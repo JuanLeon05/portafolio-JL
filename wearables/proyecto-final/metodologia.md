@@ -20,6 +20,9 @@ El layout de los componentes se ubicó estratégicamente para optimizar su funci
 * **Sensores de Postura:** Módulos MPU6050 (Acelerómetro/Giroscopio) situados cerca de la muñeca para monitorear el ángulo de la mano respecto al teclado.
 * **Actuadores Hápticos:** Motores vibradores controlados por drivers DRV2605, proporcionando retroalimentación táctil de distintas intensidades según la nota.
 
+<img src="{{ site.baseurl }}/assets/img/proyecto-final/BotonONOFF.jpeg" alt="Interfaz de control y botones" width="49%">
+<img src="{{ site.baseurl }}/assets/img/proyecto-final/Microcontrolador.jpeg" alt="Microcontrolador principal" width="49%">
+
 ## Topología de Comunicación Inalámbrica
 Para evitar el uso de cables restrictivos entre ambos brazos, se implementaron dos protocolos simultáneos:
 1.  **ESP-NOW (Capa Física):** Protocolo de comunicación punto a punto directo de Espressif. La Manga Maestra (izquierda) envía arreglos de datos `struct` a la Manga Esclava (derecha) con la instrucción exacta de tiempo, color y vibración, logrando una latencia casi nula.

@@ -28,7 +28,7 @@ A continuación se detalla la explicación del material fotográfico y de video 
 
 <video src="{{ site.baseurl }}/assets/img/practica-2/Funcionamiento.MP4" controls width="100%"></video>
 
-**Video 1. Sincronización y Funcionamiento:** Este clip demuestra el inicio de la secuencia desde que se energiza el circuito. Se observa el bucle funcional (loop) y la respuesta dinámica de los 5 LEDs a las distintas frecuencias musicales. La flexibilidad de la mezclilla y la arquitectura de cableado híbrido permiten que el sistema mantenga su integridad eléctrica incluso con el movimiento del usuario.
+**Video 1. Funcionamiento:** Este clip demuestra el funcionamiento y la respuesta de el sistema ante la musica reproducida por Bluetooth, separando correctamente las 5 bandas de frecuencia y encenciendo los LED de manera correcta.
 
 ---
 

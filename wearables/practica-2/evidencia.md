@@ -15,15 +15,20 @@ A continuación se detalla la explicación del material fotográfico y de video 
 
 ## Integración y Ergonomía
 
+<img src="{{ site.baseurl }}/assets/img/practica-2/PuestoBrazo.JPG" alt="Ajuste en Brazo" width="49%">
+<img src="{{ site.baseurl }}/assets/img/practica-2/Puestobrazo2.JPG" alt="Ajuste y Flexibilidad" width="49%">
+
 **Figura 1. Ajuste y Comodidad:** La imagen demuestra cómo la manga se adapta de forma natural a la anatomía del brazo. El uso del forro interno asegura que no existan bordes rígidos en contacto con la piel, validando el requerimiento de confort.
+
+<img src="{{ site.baseurl }}/assets/img/practica-2/CircuitoCocido.jpeg" alt="Acabados superficiales" width="100%">
 
 **Figura 2. Intención de Diseño:** Detalle de la integración superficial de los LEDs y el hilo conductivo, demostrando la estética industrial buscada sin comprometer la estructura de la tela.
 
 ## Pruebas de Secuencia y Bucle
 
-**Video 1. Inicio de Secuencia:** Este clip demuestra cómo el sistema inicia su rutina de calibración y entra en el bucle funcional (loop) en el momento en que se energiza el circuito al portar la prenda.
+<video src="{{ site.baseurl }}/assets/img/practica-2/Funcionamiento.MP4" controls width="100%"></video>
 
-**Video 2. Interacción Acústica:** Se observa la respuesta dinámica de los 5 LEDs a distintas frecuencias musicales. La flexibilidad de la mezclilla permite que el circuito mantenga su integridad eléctrica incluso con el movimiento del usuario.
+**Video 1. Sincronización y Funcionamiento:** Este clip demuestra el inicio de la secuencia desde que se energiza el circuito. Se observa el bucle funcional (loop) y la respuesta dinámica de los 5 LEDs a las distintas frecuencias musicales. La flexibilidad de la mezclilla y la arquitectura de cableado híbrido permiten que el sistema mantenga su integridad eléctrica incluso con el movimiento del usuario.
 
 ---
 

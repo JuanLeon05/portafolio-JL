@@ -33,7 +33,8 @@ La electrónica textil introduce variables complejas que el software compensa:
 ## 3. Transformada de Fourier (FFT) y Agrupación
 La librería toma muestras limpias y las descompone en 32 "cubetas", que luego se agrupan en 5 canales para los LEDs (Graves, Bajos, Medios, Voces, Agudos).
 
-> **Evidencia:** [Inserta aquí un GIF o imagen de la respuesta a frecuencias]
+<img src="{{ site.baseurl }}/assets/img/practica-2/Microcontrolador.jpeg" alt="Microcontrolador" width="49%">
+<img src="{{ site.baseurl }}/assets/img/practica-2/Microcontrolador2.jpeg" alt="Microcontrolador Detalle" width="49%">
 
 ```cpp
 /*

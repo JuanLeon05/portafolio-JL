@@ -22,7 +22,14 @@ Para solucionar esto, se diseñó una **Arquitectura de Ruteo Híbrido**:
 * **Ruta de Potencia:** Se utiliza cable de cobre multifilar ultra flexible oculto en el forro. Esto garantiza una impedancia casi nula (0 Ohms) desde la batería hasta los procesadores.
 * **Ruta de Señales:** Se utiliza hilo conductivo de acero inoxidable recubierto de plata cosido visiblemente. Dado que los pines operan con microamperios, la resistencia del hilo no genera problemas, manteniendo la estética rockera.
 
-> **Evidencia:** [Inserta aquí foto de las conexiones internas y externas]
+<img src="{{ site.baseurl }}/assets/img/practica-2/LayoutElectricoTela.jpeg" alt="Layout Eléctrico" width="49%">
+<img src="{{ site.baseurl }}/assets/img/practica-2/LayoutMicrocontroladorTela.jpeg" alt="Layout del Microcontrolador" width="49%">
+<br><br>
+<img src="{{ site.baseurl }}/assets/img/practica-2/BateriaLayout.jpeg" alt="Ubicación de la Batería" width="49%">
+<img src="{{ site.baseurl }}/assets/img/practica-2/CargadorBateria.jpeg" alt="Módulo de Carga" width="49%">
+<br><br>
+<img src="{{ site.baseurl }}/assets/img/practica-2/ConexionBateria.jpeg" alt="Conexiones de Batería" width="49%">
+<img src="{{ site.baseurl }}/assets/img/practica-2/ConexionBateria1.jpeg" alt="Cableado de Batería" width="49%">
 
 ## 2. Acondicionamiento de Señal (Capacitores)
 
@@ -31,7 +38,8 @@ El circuito utiliza dos capacitores aplicados con propósitos físicos opuestos 
 1. **Bypass (Estabilización):** Ubicado en paralelo entre VCC y GND. Actúa como un tanque de reserva de energía rápida para cuando el Bluetooth exige picos de corriente, evitando que el voltaje de la batería colapse.
 2. **DC Block (Acople de Audio):** Ubicado en serie entre el audio y el pin analógico. Permite que las ondas de frecuencia alterna crucen hacia el microcontrolador, pero bloquea cualquier voltaje continuo. Posteriormente, un divisor de voltaje monta la señal sobre un centro matemático de 1.65V.
 
-> **Evidencia:** [Inserta aquí tu diagrama o foto del circuito]
+<img src="{{ site.baseurl }}/assets/img/practica-2/DiagramaElectrico.PNG" alt="Diagrama Esquemático" width="49%">
+<img src="{{ site.baseurl }}/assets/img/practica-2/ReproductorMP3Bluetooth.jpeg" alt="Módulo Receptor Bluetooth" width="49%">
 
 ## 3. Lista de Materiales (BOM)
 

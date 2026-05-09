@@ -22,7 +22,11 @@ El diseño evolucionó hacia una manga que integra la mano y se extiende por el 
 2.  **Forro Interno Protector:** El interior está forrado con una tela suave. Esto es crucial para proteger la piel de la fricción, evitar el contacto con partes duras y garantizar la máxima comodidad durante su uso.
 3.  **Hardware como Ornamento:** Las cadenas metálicas acentúan la agresividad estética, interactuando visualmente con la secuencia de los LEDs.
 
-> **Evidencia:** [Inserta aquí foto de la textura de la manga y su interior]
+<img src="{{ site.baseurl }}/assets/img/practica-2/ProductoFinal.jpeg" alt="Producto Final" width="49%">
+<img src="{{ site.baseurl }}/assets/img/practica-2/ProductoFinal1.jpeg" alt="Producto Final Detalle" width="49%">
+<br><br>
+<img src="{{ site.baseurl }}/assets/img/practica-2/ProductoFinal2.jpeg" alt="Textura y Materiales" width="49%">
+<img src="{{ site.baseurl }}/assets/img/practica-2/Vista%20final%20superior.JPG" alt="Vista Superior Terminada" width="49%">
 
 ## Layout y Comunicación Visual
 

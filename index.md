@@ -40,10 +40,10 @@ A lo largo de este ciclo, nuestra metodología se ha centrado en resolver los re
 
 Nuestra bitácora sigue una curva de aprendizaje incremental, desde la conducción analógica hasta la comunicación IoT bi-manual:
 
-1. **[Práctica 1: Pulsera RockBand](./wearables/practica-1/)** - Introducción a los E-Textiles, circuitos analógicos en paralelo y mecanismos de activación física.
-2. **[Práctica 2: SonicGauntlet](./wearables/practica-2/)** - Manga reactiva al audio mediante Transformada Rápida de Fourier (FFT), filtros anti-ruido y estética *Cyberpunk*.
-3. **[Práctica 3: Bordado y Estampado](./wearables/practica-3/)** - Reporte de fundamentos textiles, técnicas de puntada estructural (Hilván, Punto atrás) y permeografía (Serigrafía).
-4. **[Proyecto Final: Melody Key](./wearables/proyecto-final/)** - Sistema de asistencia musical bimanual con comunicación inalámbrica de ultra baja latencia (ESP-NOW) y retroalimentación háptica.
+1. **[Práctica 1: Pulsera RockBand](./wearables/practica-1/practica-1.md)** - Introducción a los E-Textiles, circuitos analógicos en paralelo y mecanismos de activación física.
+2. **[Práctica 2: SonicGauntlet](./wearables/practica-2/practica-2.md)** - Manga reactiva al audio mediante Transformada Rápida de Fourier (FFT), filtros anti-ruido y estética *Cyberpunk*.
+3. **[Práctica 3: Bordado y Estampado](./wearables/practica-3/practica-3.md)** - Reporte de fundamentos textiles, técnicas de puntada estructural (Hilván, Punto atrás) y permeografía (Serigrafía).
+4. **[Proyecto Final: Melody Key](./wearables/proyecto-final/proyecto-final.md)** - Sistema de asistencia musical bimanual con comunicación inalámbrica de ultra baja latencia (ESP-NOW) y retroalimentación háptica.
 
 ---
 

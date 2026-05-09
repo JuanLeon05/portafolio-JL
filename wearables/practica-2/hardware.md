@@ -26,7 +26,7 @@ Para solucionar esto, se diseñó una **Arquitectura de Ruteo Híbrido**:
 
 ## 2. Acondicionamiento de Señal (Capacitores)
 
-El circuito utiliza dos capacitores electrolíticos aplicados con propósitos físicos opuestos para estabilizar el sistema:
+El circuito utiliza dos capacitores aplicados con propósitos físicos opuestos para estabilizar el sistema:
 
 1. **Bypass (Estabilización):** Ubicado en paralelo entre VCC y GND. Actúa como un tanque de reserva de energía rápida para cuando el Bluetooth exige picos de corriente, evitando que el voltaje de la batería colapse.
 2. **DC Block (Acople de Audio):** Ubicado en serie entre el audio y el pin analógico. Permite que las ondas de frecuencia alterna crucen hacia el microcontrolador, pero bloquea cualquier voltaje continuo. Posteriormente, un divisor de voltaje monta la señal sobre un centro matemático de 1.65V.

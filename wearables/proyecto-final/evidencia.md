@@ -38,3 +38,4 @@ La siguiente documentación valida la construcción de la arquitectura interna y
 **Figura 5. Presentación Comercial "Melody Key":** Montaje del proyecto terminado en el espacio de exhibición. La identidad gráfica subraya el carácter pedagógico del wearable, mostrando la interfaz visual de colores proyectada sobre las manos del estudiante.
 
 ---
+[Ver Conclusiones](./conclusiones.md){: .btn .btn-outline .mr-2 } [Inicio](../proyecto-final){: .btn .btn-primary }
